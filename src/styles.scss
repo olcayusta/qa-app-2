@@ -1,7 +1,7 @@
 @use "styles/reset";
 @use '@angular/material' as mat;
 
-$typography-configuration: mat.define-typography-config(
+$typography-configuration: mat.define-legacy-typography-config(
   $font-family: 'Archivo, "Helvetica Neue", sans-serif',
   $display-4: mat.define-typography-level(112px, 112px, 300),
   $display-3: mat.define-typography-level(56px, 56px, 400),
@@ -18,60 +18,69 @@ $typography-configuration: mat.define-typography-config(
   $input: mat.define-typography-level(inherit, 1.125, 400)
 );
 
-@include mat.core($typography-configuration);
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy($typography-configuration);`
+@include mat.all-legacy-component-typographies($typography-configuration);
+@include mat.legacy-core();
 
-$custom-typography: mat.define-typography-config(
+$custom-typography: mat.define-legacy-typography-config(
   $font-family: 'Archivo, sans-serif',
 );
 
-$headlines-and-subtitles-typography: mat.define-typography-config(
+$headlines-and-subtitles-typography: mat.define-legacy-typography-config(
   $font-family: 'Archivo, sans-serif'
 );
 
-$body-and-captions-typography: mat.define-typography-config(
+$body-and-captions-typography: mat.define-legacy-typography-config(
   $font-family: 'Roboto, sans-serif',
 );
 
-$snackbar-typo: mat.define-typography-config(
+$snackbar-typo: mat.define-legacy-typography-config(
   $font-family: 'Archivo, sans-serif',
 );
 
 $my-custom-level: mat.define-typography-level(14px, 24px, 700, $letter-spacing: 10px);
 
 // Badge typography
-$badge-typo: mat.define-typography-config(
+$badge-typo: mat.define-legacy-typography-config(
   $font-family: 'Archivo, sans-serif'
 );
 
 // List typography
-$list-typography: mat.define-typography-config(
+$list-typography: mat.define-legacy-typography-config(
   $font-family: 'Archivo, sans-serif'
 );
 
 // Chips typography
-$chip-typography: mat.define-typography-config(
+$chip-typography: mat.define-legacy-typography-config(
   $font-family: 'Roboto, sans-serif',
   $body-2: mat.define-typography-level(14px, 20px, 400)
 );
 
-@include mat.tabs-typography($headlines-and-subtitles-typography);
-@include mat.form-field-typography($body-and-captions-typography);
-@include mat.radio-typography($body-and-captions-typography);
-@include mat.option-typography($body-and-captions-typography);
-@include mat.tooltip-typography($body-and-captions-typography);
+@include mat.legacy-tabs-typography($headlines-and-subtitles-typography);
+@include mat.legacy-form-field-typography($body-and-captions-typography);
+@include mat.legacy-radio-typography($body-and-captions-typography);
+@include mat.legacy-option-typography($body-and-captions-typography);
+@include mat.legacy-tooltip-typography($body-and-captions-typography);
 
 /**
   Body and captions
  */
 @include mat.badge-typography($body-and-captions-typography);
-@include mat.checkbox-typography($body-and-captions-typography);
-@include mat.snack-bar-typography($body-and-captions-typography);
-@include mat.menu-typography($body-and-captions-typography);
-@include mat.optgroup-typography($body-and-captions-typography);
-@include mat.option-typography($badge-typo);
-@include mat.autocomplete-typography($body-and-captions-typography);
-@include mat.snack-bar-typography($badge-typo);
-@include mat.card-typography($badge-typo);
+@include mat.legacy-checkbox-typography($body-and-captions-typography);
+@include mat.legacy-snack-bar-typography($body-and-captions-typography);
+@include mat.legacy-menu-typography($body-and-captions-typography);
+@include mat.legacy-optgroup-typography($body-and-captions-typography);
+@include mat.legacy-option-typography($badge-typo);
+@include mat.legacy-autocomplete-typography($body-and-captions-typography);
+@include mat.legacy-snack-bar-typography($badge-typo);
+@include mat.legacy-card-typography($badge-typo);
 
 html {
   background-color: var(--html-bg-color);

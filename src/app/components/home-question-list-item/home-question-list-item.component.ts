@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Question } from '@models/question.model';
 import { Tag } from '@models/tag.model';
-import { MatChipsModule } from '@angular/material/chips';
+import { MatLegacyChipsModule as MatChipsModule } from '@angular/material/legacy-chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
 import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';

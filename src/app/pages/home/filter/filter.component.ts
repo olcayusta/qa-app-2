@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { FilterByComponent } from '../filter-by/filter-by.component';
 import { SortByComponent } from '../sort-by/sort-by.component';
 import { NgIf } from '@angular/common';

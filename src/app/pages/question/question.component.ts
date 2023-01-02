@@ -14,9 +14,9 @@ import { AnswerService } from '@shared/services/answer.service';
 import { StateService } from '@shared/services/state.service';
 import { Observable, Subscription, tap } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { ShareDialogComponent } from '@dialogs/share-dialog/share-dialog.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { Overlay, OverlayRef, ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { AuthService } from '@auth/auth.service';
 import { TemplatePortal } from '@angular/cdk/portal';
@@ -29,9 +29,9 @@ import { AnswerFormComponent } from './components/answer-form/answer-form.compon
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { QuestionTextComponent } from './components/question-text/question-text.component';
 import { EditorButtonsComponent } from './components/answer-form/editor-buttons/editor-buttons.component';
-import { MatCardModule } from '@angular/material/card';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
 
 @Component({

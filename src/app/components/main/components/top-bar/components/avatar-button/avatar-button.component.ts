@@ -10,7 +10,7 @@ import { NgComponentOutlet } from '@angular/common';
 import { PopupContainerComponent } from '@components/popup-container/popup-container.component';
 import { UserProfilePopupComponent } from '@popups/user-profile-popup/user-profile-popup.component';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
 import { MatRippleModule } from '@angular/material/core';
 
 @Component({

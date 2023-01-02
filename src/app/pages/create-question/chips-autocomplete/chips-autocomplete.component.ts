@@ -2,14 +2,14 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } fro
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { MatAutocomplete, MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatLegacyAutocomplete as MatAutocomplete, MatLegacyAutocompleteModule as MatAutocompleteModule, MatLegacyAutocompleteSelectedEvent as MatAutocompleteSelectedEvent } from '@angular/material/legacy-autocomplete';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { Tag } from '@models/tag.model';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { MatIconModule } from '@angular/material/icon';
 import { TagService } from '../../../tag/tag.service';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
-import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+import { MatLegacyChipInputEvent as MatChipInputEvent, MatLegacyChipsModule as MatChipsModule } from '@angular/material/legacy-chips';
 
 @Component({
   selector: 'app-chips-autocomplete',

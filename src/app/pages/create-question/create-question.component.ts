@@ -3,10 +3,10 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { DOCUMENT, NgIf } from '@angular/common';
 import { ChipsAutocompleteComponent } from './chips-autocomplete/chips-autocomplete.component';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { MatDividerModule } from '@angular/material/divider';
 import { QuestionService } from '../question/question.service';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 
 @Component({
   selector: 'app-create-question',

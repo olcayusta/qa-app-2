@@ -72,7 +72,7 @@ $dark-theme: mat.define-dark-theme((
   }
 }
 
-@include mat.all-component-themes($dark-theme);
+@include mat.all-legacy-component-themes($dark-theme);
 
 @import "highlight.js/scss/github-dark-dimmed";
 

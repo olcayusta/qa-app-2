@@ -13,8 +13,8 @@ import { NotificationService } from '@shared/services/notification.service';
 import { OverlayModule, ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
 
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
 import { AsyncPipe, NgComponentOutlet } from '@angular/common';
 import { PopupContainerComponent } from '@components/popup-container/popup-container.component';
 import { NotificationListPopupComponent } from '@popups/notification-list-popup/notification-list-popup.component';

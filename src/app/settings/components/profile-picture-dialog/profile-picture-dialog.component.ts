@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { AuthService } from '@auth/auth.service';
 import { User } from '@models/user.model';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 
 @Component({
   selector: 'app-profile-picture-dialog',

@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Event, NavigationCancel, NavigationError, ResolveEnd, ResolveStart, Router } from '@angular/router';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatLegacyProgressBarModule as MatProgressBarModule } from '@angular/material/legacy-progress-bar';
 import { ProgressBarService } from './progress-bar.service';
 
 @Component({

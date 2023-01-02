@@ -5,7 +5,7 @@ import { NgForOf } from '@angular/common';
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
 import { MyDatePipe } from '@shared/pipes/my-date.pipe';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
 import { getSnapshotData } from '../core/router.utils';
 

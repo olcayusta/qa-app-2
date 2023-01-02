@@ -9,12 +9,12 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
+import { MatLegacyMenu as MatMenu, MatLegacyMenuItem as MatMenuItem, MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatLegacyChipInputEvent as MatChipInputEvent } from '@angular/material/legacy-chips';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
 import { NgForOf, NgIf } from '@angular/common';
 import { IconComponent } from '@components/icon/icon.component';
 

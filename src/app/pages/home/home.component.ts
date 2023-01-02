@@ -3,7 +3,7 @@ import { StateService } from '@shared/services/state.service';
 import { SocketService } from '@shared/services/socket.service';
 import { Subscription } from 'rxjs';
 import { CloseScrollStrategy, Overlay } from '@angular/cdk/overlay';
-import { MAT_MENU_SCROLL_STRATEGY } from '@angular/material/menu';
+import { MAT_LEGACY_MENU_SCROLL_STRATEGY as MAT_MENU_SCROLL_STRATEGY } from '@angular/material/legacy-menu';
 import { BannerComponent } from './banner/banner.component';
 import { FilterComponent } from './filter/filter.component';
 import { SortByComponent } from './sort-by/sort-by.component';

@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { User } from '@models/user.model';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
 import { RouterLink } from '@angular/router';
 

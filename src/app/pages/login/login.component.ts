@@ -7,10 +7,10 @@ import { EMPTY } from 'rxjs';
 import { User } from '@models/user.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgIf } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { PasswordFormComponent } from './password-form/password-form.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyProgressBarModule as MatProgressBarModule } from '@angular/material/legacy-progress-bar';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { IconComponent } from '@components/icon/icon.component';
 
 @Component({

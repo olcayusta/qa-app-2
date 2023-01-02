@@ -6,7 +6,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { jwtInterceptor } from '@auth/interceptors/jwt.interceptor';
 import { errorInterceptor } from './app/core/interceptors/http-error.interceptor';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MAT_LEGACY_SNACK_BAR_DEFAULT_OPTIONS as MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/legacy-snack-bar';
 import { MAT_ICON_DEFAULT_OPTIONS } from '@angular/material/icon';
 import { provideRouter, TitleStrategy, withInMemoryScrolling, withRouterConfig } from '@angular/router';
 import { AppTitleStrategy } from './app/core/app-title.strategy';

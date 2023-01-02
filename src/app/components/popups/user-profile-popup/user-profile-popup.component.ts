@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { User } from '@models/user.model';
 import { AuthService } from '@auth/auth.service';
 import { SocketService } from '@shared/services/socket.service';
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '@components/icon/icon.component';
 

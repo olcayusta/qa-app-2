@@ -4,9 +4,9 @@ import { Observable, tap } from 'rxjs';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RevisionService } from '@shared/services/revision.service';
 import { MarkedService } from '@shared/services/marked.service';
-import { MatSelectModule } from '@angular/material/select';
+import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 
 interface Food {
   value: string;

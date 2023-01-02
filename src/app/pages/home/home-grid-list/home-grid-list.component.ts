@@ -7,7 +7,7 @@ import { delay, switchMap } from 'rxjs/operators';
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { IsVisibleDirective } from '../directives/is-visible.directive';
 import { QuestionService } from '../../question/question.service';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 import { NgForOf, NgIf } from '@angular/common';
 import { HomeQuestionListItemComponent } from '@components/home-question-list-item/home-question-list-item.component';
 

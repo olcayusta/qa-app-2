@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommentListItemComponent } from '../comment-list-item/comment-list-item.component';
 import { CommentFormComponent } from '../comment-form/comment-form.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 

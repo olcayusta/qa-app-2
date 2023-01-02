@@ -4,18 +4,19 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { ISearchResult, SearchService } from '@shared/services/search.service';
 import {
-  MatAutocompleteModule,
-  MatAutocompleteSelectedEvent,
-  MatAutocompleteTrigger
-} from '@angular/material/autocomplete';
-import { Router, RouterLink, RouterLinkWithHref } from '@angular/router';
+  MatLegacyAutocompleteModule as MatAutocompleteModule,
+  MatLegacyAutocompleteSelectedEvent as MatAutocompleteSelectedEvent,
+  MatLegacyAutocompleteTrigger as MatAutocompleteTrigger
+} from '@angular/material/legacy-autocomplete';
+import { Router, RouterLink } from '@angular/router';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { HighlightSearchPipe } from './pipes/highlight-search.pipe';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
 import { IconComponent } from '@components/icon/icon.component';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+
 
 @Component({
   selector: 'app-search-form',

@@ -1,6 +1,11 @@
-import { Routes } from '@angular/router';
+import { ResolveFn, Routes } from '@angular/router';
 import { SearchComponent } from './search.component';
-import { searchTitleResolveFn } from './resolvers/search-title.resolver';
+import { of } from 'rxjs';
+
+export const searchTitleResolveFn: ResolveFn<string> = (route, state) => {
+  const { q } = route.queryParams;
+  return of(q);
+};
 
 export default [
   {

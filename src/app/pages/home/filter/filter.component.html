@@ -2,13 +2,13 @@
   <div class='header'>
 <!--    <h5 class='headline-5'>Senin için önerilenler</h5>-->
     <div class='header-buttons'>
-      <app-sort-by (openFilter)='filterOpened =! filterOpened'></app-sort-by>
-      <app-filter-by></app-filter-by>
+      <app-sort-by (openFilter)='filterOpened =! filterOpened' />
+      <app-filter-by />
     </div>
   </div>
 </div>
 
-<mat-divider></mat-divider>
+<mat-divider />
 
 <ng-container *ngIf='filterOpened'>
   <div class='filter-container'>

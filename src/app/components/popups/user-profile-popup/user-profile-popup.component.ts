@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  inject
+} from '@angular/core';
 import { User } from '@models/user.model';
 import { AuthService } from '@auth/auth.service';
 import { SocketService } from '@shared/services/socket.service';
@@ -17,8 +22,8 @@ import { IconComponent } from '@components/icon/icon.component';
 export class UserProfilePopupComponent implements OnInit {
   user!: User;
 
-  constructor(private authService: AuthService, private socketService: SocketService) {
-  }
+  private authService = inject(AuthService);
+  private socketService = inject(SocketService);
 
   ngOnInit(): void {
     this.user = this.authService.userValue;

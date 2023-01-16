@@ -7,7 +7,7 @@
     (openedStart)='sidenavOpenedStart()'
     (closedStart)='sidenavClosedStart()'
   >
-    <ng-container *ngComponentOutlet='NavDrawerComponent'></ng-container>
+    <ng-container *ngComponentOutlet='NavDrawerComponent' />
   </mat-sidenav>
 
   <mat-sidenav
@@ -20,19 +20,16 @@
     (openedStart)='sheetOpenedStart()'
     (closedStart)='sheetClosedStart()'
   >
-    <ng-container *ngComponentOutlet='SideSheetComponent'></ng-container>
+    <ng-container *ngComponentOutlet='SideSheetComponent' />
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <app-top-app-bar
-      appSticky
-      (openSheet)='loadSidenavSheetComponent(); sheet.toggle()'
-    >
-    </app-top-app-bar>
+    <app-top-app-bar appSticky (openSheet)='loadSidenavSheetComponent(); sheet.toggle()' />
+
     <main>
       <div id='content'>
         <div class='my-content'>
-          <router-outlet></router-outlet>
+          <router-outlet />
 
           <div class='fixed-fab-btn'>
         <!--    <a mat-fab routerLink='/questions/create' class='extended-fab' appExtendedFab>

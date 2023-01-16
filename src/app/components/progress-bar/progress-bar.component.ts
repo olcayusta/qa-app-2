@@ -1,6 +1,18 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  inject
+} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Event, NavigationCancel, NavigationError, ResolveEnd, ResolveStart, Router } from '@angular/router';
+import {
+  Event,
+  NavigationCancel,
+  NavigationError,
+  ResolveEnd,
+  ResolveStart,
+  Router
+} from '@angular/router';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ProgressBarService } from './progress-bar.service';
@@ -16,8 +28,8 @@ import { ProgressBarService } from './progress-bar.service';
 export class ProgressBarComponent implements OnInit {
   spinner$!: Observable<boolean>;
 
-  constructor(private router: Router, private progressBarService: ProgressBarService) {
-  }
+  private router = inject(Router);
+  private progressBarService = inject(ProgressBarService);
 
   ngOnInit(): void {
     this.router.events.subscribe((event: Event) => {
@@ -25,7 +37,11 @@ export class ProgressBarComponent implements OnInit {
         this.progressBarService.show();
       }
 
-      if (event instanceof ResolveEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
+      if (
+        event instanceof ResolveEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError
+      ) {
         this.progressBarService.hide();
       }
     });

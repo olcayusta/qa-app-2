@@ -6,11 +6,20 @@ import { Observable } from 'rxjs';
 import { Notification } from '@models/notification.model';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
+import { MatLineModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-notification-list-popup',
   standalone: true,
-  imports: [MatProgressSpinnerModule, MatListModule, NgIf, AsyncPipe, NgForOf, RelativeTimeFormatPipe],
+  imports: [
+    MatProgressSpinnerModule,
+    MatListModule,
+    NgIf,
+    AsyncPipe,
+    NgForOf,
+    RelativeTimeFormatPipe,
+    MatLineModule
+  ],
   templateUrl: './notification-list-popup.component.html',
   styleUrls: ['./notification-list-popup.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -18,8 +27,7 @@ import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe'
 export class NotificationListPopupComponent implements OnInit {
   notifications$!: Observable<Notification[]>;
 
-  constructor(private notificationService: NotificationService) {
-  }
+  constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {
     this.notifications$ = this.notificationService.getAllNotifications();

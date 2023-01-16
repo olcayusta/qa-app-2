@@ -1,5 +1,17 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  inject
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 import { AuthService } from '@auth/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { catchError } from 'rxjs/operators';
@@ -41,13 +53,13 @@ export class LoginComponent implements OnInit {
 
   userInfoAvailable = false;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    // private tagService: TagService,
-    private router: Router,
-    private cdr: ChangeDetectorRef
-  ) {
+  private formBuilder = inject(FormBuilder);
+  private router = inject(Router);
+  private authService = inject(AuthService);
+
+  private cdr = inject(ChangeDetectorRef);
+
+  constructor() { // private tagService: TagService,
     this.loginForm = this.formBuilder.group(
       {
         email: ['', [Validators.required, Validators.email]],

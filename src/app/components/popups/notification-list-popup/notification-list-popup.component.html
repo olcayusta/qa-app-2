@@ -7,10 +7,10 @@
       <ng-container *ngIf="notifications.length; else noResult">
         <mat-nav-list>
           <a mat-list-item *ngFor="let notification of notifications">
-            <img mat-list-avatar src="{{notification.user.picture}}" alt="{{notification.user.displayName}}">
-            <h3 mat-line>{{notification.text}}</h3>
-            <p mat-line class="secondary-text">{{notification.user.displayName}}</p>
-            <p mat-line class="secondary-text time">{{notification.creationTime | relativeTimeFormat}}</p>
+            <img src="{{notification.user.picture}}" alt="{{notification.user.displayName}}" matListItemAvatar>
+            <h3 matListItemLine>{{notification.text}}</h3>
+            <p matListItemLine class="secondary-text">{{notification.user.displayName}}</p>
+            <p matListItemLine class="secondary-text time">{{notification.creationTime | relativeTimeFormat}}</p>
           </a>
         </mat-nav-list>
       </ng-container>
@@ -18,14 +18,14 @@
 
     <ng-template #loading>
       <div class="spinner-container">
-        <mat-spinner diameter="32"></mat-spinner>
+        <mat-spinner diameter="32" />
       </div>
     </ng-template>
 
     <ng-template #noResult>
-      <div class='promo-message'>
-        <p class='subtitle-1'>Bildirimleriniz burada gösterilir</p>
-        <p class='body-2'>Favori kanallarınıza abone olarak bu kanalların en yeni videoları hakkında bildirim alın.</p>
+      <div class="promo-message">
+        <p class="subtitle-1">Bildirimleriniz burada gösterilir</p>
+        <p class="body-2">Favori kanallarınıza abone olarak bu kanalların en yeni videoları hakkında bildirim alın.</p>
       </div>
     </ng-template>
 

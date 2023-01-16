@@ -2,9 +2,8 @@
   <app-home-question-list-item
     class="hero"
     *ngFor="let question of questions"
-    [question]="question"
-  >
-  </app-home-question-list-item>
+    [question]="question" />
+
 </div>
 
 <div
@@ -13,7 +12,7 @@
   *ngIf="questions && !dataFinished"
   (intersected)="loadMoreQuestions()"
 >
-  <mat-spinner diameter="32" *ngIf="loader"></mat-spinner>
+  <mat-spinner diameter="32" *ngIf="loader" />
 </div>
 
 <!--

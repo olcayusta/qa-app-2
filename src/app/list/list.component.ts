@@ -9,11 +9,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [RelativeTimeFormatPipe, MatIconModule, MatDividerModule, NgForOf, AsyncPipe, NgIf, RouterLink],
+  imports: [
+    RelativeTimeFormatPipe,
+    MatIconModule,
+    MatDividerModule,
+    NgForOf,
+    AsyncPipe,
+    NgIf,
+    RouterLink,
+    MatButtonModule
+  ],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

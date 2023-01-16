@@ -1,6 +1,6 @@
 <div class='item'>
   <app-img-shadow [src]='comment.user.picture' [width]='40' [height]='40' [alt]='comment.user.displayName'
-                   class='comment-user-picture-renderer'></app-img-shadow>
+                   class='comment-user-picture-renderer' />
   <div class='flex-full'>
     <div class='author-info'>
       <a routerLink='/user/{{comment.user.id}}' [class.comment-badge-renderer]='comment.user.id === 12'>
@@ -13,7 +13,7 @@
     <div class='comment'>
       <span class='comment-text' [innerHTML]='comment.text'>{{comment.text}}</span>
     </div>
-    <mat-divider></mat-divider>
+    <mat-divider />
   </div>
 </div>
 

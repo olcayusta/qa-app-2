@@ -24,7 +24,8 @@ header {
   background-color: #eee;
 }
 
-.filter .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+/* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
+.filter .mat-mdc-chip.mat-mdc-standard-chip.mat-chip-selected.mat-primary {
   background-color: rgb(98 0 238 / .12);
   color: #6200ee;
 }

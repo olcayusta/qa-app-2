@@ -6,11 +6,15 @@ $my-palette: mat.define-palette(lightpurple.$deep-purple-palette);
 /* Define a light theme */
 $light-primary: mat.define-palette(lightpurple.$deep-purple-palette);
 $light-accent: mat.define-palette(lightpurple.$deep-purple-palette);
+
+$my-typography: mat.define-typography-config();
+
 $light-theme: mat.define-light-theme((
   color: (
     primary: $light-primary,
     accent: $light-accent
-  )
+  ),
+  typography: $my-typography
 ));
 
 /* Gray Theme */
@@ -60,7 +64,7 @@ $secondary-gray-theme: mat.define-light-theme((
 @include mat.divider-theme($gray-theme);
 @include mat.sidenav-theme($gray-theme);*/
 
-@include mat.all-legacy-component-themes($light-theme);
+@include mat.all-component-themes($light-theme);
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -105,28 +109,33 @@ svg {
   Progress-bar
   ====================
  */
+/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version. */
 .mat-progress-bar-background {
   fill: #D2BBF4;
   // fill: #C2C2C2;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version. */
 .mat-progress-bar-buffer {
   background-color: #D2BBF4;
   // background-color: #C2C2C2;
 }
 
-.mat-list-item.active {
+.mat-mdc-list-item.active {
   // color: var(--mdc-theme-primary) !important;
-  color: black !important;
-  font-weight: 500 !important;
   // background-color: rgba(0, 0, 0, .12);
+
+  .mdc-list-item__primary-text {
+    color: black;
+    font-weight: 500;
+  }
 
   mat-icon {
     color: black !important;
     // color: var(--mdc-theme-primary) !important;
   }
 
-  app-icon svg {
+  .mat-mdc-list-item-icon svg {
     // fill: var(--mdc-theme-primary);
     // fill: mat.get-color-from-palette($my-palette, 500)
     fill: black;
@@ -141,16 +150,16 @@ svg {
 /**
   Snackbar
  */
-.mat-snack-bar-container {
+.mat-mdc-snack-bar-container {
   color: #fff;
   background-color: #121212;
 }
 
-.mat-simple-snackbar {
+.mat-mdc-simple-snack-bar {
   color: #fff;
 }
 
-.mat-simple-snackbar-action {
+.mat-mdc-snack-bar-action {
   color: #BB86FC;
 }
 
@@ -162,19 +171,20 @@ svg {
   color: #fff !important;
 }*/
 
+.mat-mdc-chip-highlighted {
+  background-color: #6200ee12 !important;
+  color: black !important;
+}
+
 /**
   Chip
  */
-.mat-chip.mat-standard-chip {
-  background-color: #fff;
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  background-color: #fff !important;
   border: 1px solid rgba(0, 0, 0, .12);
 }
 
-::ng-deep .mat-chip-selected {
-  background: rgba(98, 0, 238, 0.08) !important;
-  color: var(--mdc-theme-primary) !important;
-  border: 1px solid rgba(98, 0, 238, 0.08) !important;
-}
+
 
 /**
   Badge

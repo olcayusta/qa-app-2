@@ -3,10 +3,10 @@
     <h6 class='headline-6'>{{tag.title}}</h6>
     <p class='body-1 page-description'>Our latest news, updates, and stories about {{tag.title}}.</p>
   </header>
-  <mat-divider></mat-divider>
+  <mat-divider />
 
   <div class='items'>
     <app-home-question-list-item *ngFor='let question of tag.questions'
-                                 [question]='question'></app-home-question-list-item>
+                                 [question]='question' />
   </div>
 </ng-container>

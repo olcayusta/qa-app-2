@@ -14,61 +14,15 @@ mat-toolbar mat-icon {
   margin-left: 24px;
 }
 
-.mat-list-item:first-child {
+.mat-mdc-list-item:first-child {
   margin-top: 0;
 }
 
-.mat-list-item {
+.mat-mdc-list-item {
   width: auto !important;
-  font-weight: 500;
-  color: var(--icon-color);
-  margin: 4px 12px;
+  margin: 0 12px;
   border-radius: 28px;
   overflow: hidden;
-}
-
-/*
-.material-symbols-outlined {
-  margin-right: 32px;
-}
-*/
-
-.mat-list-item mat-icon {
-  display: none;
-  margin-right: 32px;
-}
-
-
-.mat-list-item app-icon {
-  margin-right: 32px;
-
-  svg {
-    fill: #6200ee;
-  }
-}
-
-.mat-list-item span {
-  // margin-left: 12px;
-}
-
-.mat-list-base .mat-subheader {
-  height: 56px;
-  font-weight: 500;
-  /* height: auto;
-   line-height: 20px;
-   margin: 0;
-   padding: 8px 16px;*/
-  // color: var(--medium-emphasis-color);
-  padding: 18px 16px;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: .1px;
-  margin: 0 12px;
-  // text-transform: uppercase;
-  /* M3/sys/light/on-surface-variant */
-
-  // color: #49454F;
-  color: var(--medium-emphasis-color);
 }
 
 /*::ng-deep .overflow-container::-webkit-scrollbar {

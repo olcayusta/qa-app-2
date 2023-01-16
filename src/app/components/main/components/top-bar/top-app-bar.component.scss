@@ -129,6 +129,7 @@ a[mat-stroked-button] {
   display: none;
 }
 
+/*  TODO(mdc-migration): The following rule targets internal classes of menu that may no longer apply for the MDC version.*/
 .mat-menu {
 
   app-gf-icon {

@@ -32,7 +32,7 @@
                   (optionSelected)='selectedOption($event)'>
 
   <ng-container *ngIf='filteredResults$ | async as filteredResults'>
-    <mat-optgroup label='Sorular' *ngIf='filteredResults.questions'>
+    <mat-optgroup label='Sorular' *ngIf='filteredResults.questions' class="optgroup-label">
       <mat-option *ngFor='let question of filteredResults.questions' [value]='question'>
         <span [innerHTML]='question.title | highlightSearch: searchControl.value'></span>
       </mat-option>

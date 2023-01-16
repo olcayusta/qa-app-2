@@ -1,12 +1,13 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { DrawerService } from '../../services/drawer.service';
-import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
+import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 import { IconComponent } from '@components/icon/icon.component';
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: 'app-nav-drawer',
@@ -19,7 +20,8 @@ import { IconComponent } from '@components/icon/icon.component';
     MatDialogModule,
     RouterLinkActive,
     IconComponent,
-    RouterLink
+    RouterLink,
+    MatIconModule
   ],
   templateUrl: './nav-drawer.component.html',
   styleUrls: ['./nav-drawer.component.scss'],

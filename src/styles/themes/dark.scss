@@ -72,7 +72,7 @@ $dark-theme: mat.define-dark-theme((
   }
 }
 
-@include mat.all-legacy-component-themes($dark-theme);
+@include mat.all-component-themes($dark-theme);
 
 @import "highlight.js/scss/github-dark-dimmed";
 
@@ -80,7 +80,7 @@ svg {
   fill: rgba(255, 255, 255, 0.6);
 }
 
-.mat-list-item.active {
+.mat-mdc-list-item.active {
   /* States_primary overlay/Selected */
   background: rgba(255, 255, 255, 0.08);
   color: #fff !important;
@@ -94,10 +94,12 @@ svg {
   }
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version.*/
 .mat-progress-bar-background {
   fill: #BB86FC;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version.*/
 .mat-progress-bar-buffer {
   background-color: #4c3f5b;
 }
@@ -108,11 +110,13 @@ svg {
   color: #fff;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of menu that may no longer apply for the MDC version.*/
 .mat-menu-item-highlighted {
   background-color: rgba(255, 255, 255, 0.12) !important;
   color: #ffffff;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
 .mat-tab-label-active {
   color: #BB86FC;
   opacity: 1;
@@ -135,11 +139,13 @@ svg {
   background-color: #aaa;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
 mat-chip {
   background-color: #ffffff12 !important;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
 .mat-chip-selected {
   background: rgba(187, 134, 252, 0.12) !important;
   color: #fff !important;

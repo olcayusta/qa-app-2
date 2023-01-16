@@ -16,11 +16,11 @@ textarea {
 }
 
 @media (prefers-color-scheme: light) {
-  ::ng-deep .mat-select-panel {
+  ::ng-deep .mat-mdc-select-panel {
     padding: 8px 0 !important;
   }
 
-  .mat-option.mat-active {
+  .mat-mdc-option.mat-active {
     background-color: #6200ee12 !important;
   }
 }

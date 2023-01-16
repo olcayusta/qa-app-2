@@ -1,6 +1,6 @@
-import { MatLegacyMenu as MatMenu, MatLegacyMenuItem as MatMenuItem, MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
+import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyCheckboxChange as MatCheckboxChange } from '@angular/material/legacy-checkbox';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
 import { NgForOf } from '@angular/common';
 

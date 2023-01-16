@@ -1,14 +1,13 @@
 <mat-form-field class='example-chip-list' appearance='outline'>
   <mat-label>Etiketler</mat-label>
-  <mat-chip-list #chipList aria-label='Fruit selection'>
-    <mat-chip
+  <mat-chip-grid #chipList aria-label='Fruit selection'>
+    <mat-chip-row
       *ngFor='let fruit of fruits'
-      [selectable]='selectable'
       [removable]='removable'
       (removed)='remove(fruit)'>
       {{fruit}}
       <mat-icon matChipRemove *ngIf='removable'>cancel</mat-icon>
-    </mat-chip>
+    </mat-chip-row>
     <input
       aria-label='New fruit'
       placeholder='New fruit...'
@@ -18,7 +17,7 @@
       [matChipInputFor]='chipList'
       [matChipInputSeparatorKeyCodes]='separatorKeysCodes'
       (matChipInputTokenEnd)='add($event)'>
-  </mat-chip-list>
+  </mat-chip-grid>
   <mat-autocomplete #auto='matAutocomplete' (optionSelected)='selected($event)'>
     <mat-option *ngFor='let fruit of filteredFruits | async' [value]='fruit'>
       {{fruit.title}}

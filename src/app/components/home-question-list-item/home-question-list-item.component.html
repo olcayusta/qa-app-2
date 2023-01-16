@@ -53,7 +53,7 @@
        </div>-->
     </div>
 
-    <mat-chip-list aria-label='Fish selection'>
+    <mat-chip-set aria-label='Fish selection'>
 
       <!--       <mat-chip [selected]='tag.selected' *ngFor='let tag of question.tags'>
                <a routerLink='/tag/{{tag.id}}'>
@@ -61,10 +61,10 @@
                </a>
              </mat-chip>-->
 
-      <mat-chip [selected]='tag.selected' *ngFor='let tag of question.tags'>
+      <mat-chip [highlighted]="tag.id === 2" *ngFor='let tag of question.tags'>
         <a routerLink='/tag/{{tag.id}}'>
 <!--          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>-->
-          <span>{{tag.title}}</span>
+          {{tag.title}}
         </a>
       </mat-chip>
 
@@ -74,7 +74,7 @@
 
       <!-- TODO -->
       <mat-chip *ngIf='!question.tags'>Test</mat-chip>
-    </mat-chip-list>
+    </mat-chip-set>
 
     <mat-divider></mat-divider>
   </div>

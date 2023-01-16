@@ -122,6 +122,7 @@
   margin: 0 8px;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
 mat-chip-list {
   display: inline-flex;
   flex-direction: row;
@@ -129,17 +130,18 @@ mat-chip-list {
   padding-bottom: 16px;
 }
 
-::ng-deep .mat-standard-chip {
+::ng-deep .mat-mdc-standard-chip {
   // margin: 0 8px 0 0 !important;
 }
 
-.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+/* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
+.mat-mdc-chip.mat-mdc-standard-chip.mat-chip-selected.mat-primary {
   background-color: #6200ee12;
   color: #6200ee;
   border-color: #6200ee54;
 }
 
-.mat-basic-chip {
+.mat-mdc-basic-chip {
   font-size: 12px;
   line-height: 20px;
   font-weight: 400;
@@ -162,30 +164,31 @@ mat-chip-list {
   }
 
   .filter {
+    /* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
     mat-chip-list {
       display: flex;
       margin: 20px 0 0;
       overflow: auto;
     }
-
+    /* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
     mat-chip-list a:hover {
       text-decoration: none;
     }
-
+    /* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
     mat-chip-list a {
       cursor: pointer;
     }
-
+    /* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
     ::ng-deep .mat-chip-list-wrapper {
       flex-wrap: nowrap !important;
       margin: 0 !important;
       padding: 0 8px;
     }
-
+    /* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
     ::ng-deep .mat-chip-list::-webkit-scrollbar {
       display: none;
     }
-
+    /* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/
     mat-chip {
       white-space: nowrap;
     }

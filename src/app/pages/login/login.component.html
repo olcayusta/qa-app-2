@@ -1,5 +1,5 @@
 <div class='my-card login-form-container'>
-  <mat-progress-bar mode='indeterminate' *ngIf='submitted'></mat-progress-bar>
+  <mat-progress-bar mode='indeterminate' *ngIf='submitted' />
 
   <!-- Version 1 -->
   <!--  <div class="buttons">
@@ -89,8 +89,8 @@
                autocomplete='current-password'>
         <button type='button' mat-icon-button matSuffix (click)='hide = !hide' [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]='hide'>
-          <app-icon name='visibility' *ngIf='hide'></app-icon>
-          <app-icon name='visibility_off' *ngIf='!hide'></app-icon>
+          <app-icon name='visibility' *ngIf='hide' />
+          <app-icon name='visibility_off' *ngIf='!hide' />
         </button>
         <mat-error *ngIf="loginForm.controls.password.hasError('required')">Bir şifre girin</mat-error>
       </mat-form-field>

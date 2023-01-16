@@ -3,17 +3,9 @@
 
 $my-palette: light-theme.$deep-purple-palette;
 
-.mat-simple-snackbar {
+.mat-mdc-simple-snack-bar {
   font-size: 14px;
   line-height: 20px;
-}
-
-mat-nav-list {
-  padding-bottom: 8px;
-}
-
-.mat-button {
-  padding: 0 8px !important;
 }
 
 .outlined-menu-button {
@@ -24,7 +16,7 @@ mat-nav-list {
   background: #000;
 }*/
 
-.mat-simple-snackbar {
+.mat-mdc-simple-snack-bar {
   letter-spacing: 0.25px;
 }
 
@@ -32,25 +24,25 @@ mat-nav-list {
   Material Design Reset
   START
  */
-.mat-dialog-container {
+.mat-mdc-dialog-container {
   border-radius: 28px !important;
 }
 
 @media (prefers-color-scheme: dark) {
-  .mat-dialog-container {
+  .mat-mdc-dialog-container {
     background-color: #383838 !important;
   }
 }
 
-mat-chip {
-  line-height: 20px;
+.mat-mdc-chip-set {
+  margin: 4px 0 8px 0;
 }
 
 .flex-spacer {
   flex: 1 0 auto;
 }
 
-.mat-tooltip {
+.mat-mdc-tooltip {
   /*  font-size: 12px !important;
     line-height: 16px !important;
     display: flex;
@@ -62,18 +54,18 @@ mat-chip {
 }
 
 @media (prefers-color-scheme: dark) {
-  .mat-snack-bar-container {
+  .mat-mdc-snack-bar-container {
     background: #e4e4e4;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.14), 0 1px 18px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.2);
     color: black;
   }
 
-  .mat-tooltip {
+  .mat-mdc-tooltip {
     background: #A0A0A0 !important;
     color: #121212 !important;
   }
 
-  .mat-menu-panel {
+  .mat-mdc-menu-panel {
     background-color: #2f2f2f;
   }
 }
@@ -180,21 +172,10 @@ h1, h2, h3, h4, h5, h6 {
 /*
 Error fix
  */
-.mat-form-field.mat-form-field-invalid .mat-form-field-label,
-.mat-error,
+/*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
+.mat-mdc-form-field.mat-form-field-invalid .mat-form-field-label,
+.mat-mdc-form-field-error,
 .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
   color: #B00020;
 }
 
-.mat-tab-link {
-  min-width: 90px !important;
-  opacity: 1 !important;
-  color: var(--medium-emphasis-color);
-}
-
-.mat-tab-label-active {
-  color: var(--mdc-theme-primary);
-  // color: mat.get-color-from-palette($my-palette, 500) !important;
-  // color: mat.get-color-from-palette(standardized.$deep-purple-color-palette,  500);
-  // color: standardized.$mat-tab-label-active;
-}

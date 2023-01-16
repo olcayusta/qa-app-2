@@ -1,6 +1,6 @@
 <mat-toolbar>
   <button mat-icon-button (click)='closeSidenav()'>
-    <app-icon name='menu'></app-icon>
+    <app-icon name='menu' />
   </button>
 </mat-toolbar>
 
@@ -9,54 +9,55 @@
     <a mat-list-item routerLinkActive='active' #rla='routerLinkActive' routerLink='/'
        [routerLinkActiveOptions]='{exact: true}'
        (click)='onClicked()' title='Ana sayfa'>
-      <app-icon name='home'></app-icon>
-      <span>Ana sayfa</span>
+      <app-icon name='home' matListItemIcon />
+    <!--  <mat-icon matListItemIcon>home</mat-icon>-->
+      Ana sayfa
     </a>
     <a mat-list-item routerLinkActive='active' routerLink='/list' (click)='onClicked()'>
-      <app-icon name='forum'></app-icon>
-      <span>Sorularım</span>
+      <app-icon name='forum' matListItemIcon />
+      Sorularım
     </a>
     <a mat-list-item routerLinkActive='active' routerLink='/favorites' (click)='onClicked()'>
-      <app-icon name='favorite'></app-icon>
-      <span>Favorilerim</span>
+      <app-icon name='favorite' matListItemIcon />
+      Favorilerim
     </a>
     <a mat-list-item routerLinkActive='active' routerLink='/watched_tags'
        (click)='onClicked(); openWatchedTagsDialog()'>
-      <app-icon name='tag'></app-icon>
-      <span>Favori etiketler</span>
+      <app-icon name='tag' matListItemIcon />
+      Favori etiketler
     </a>
   </mat-nav-list>
   <mat-divider></mat-divider>
   <mat-nav-list>
     <div matSubheader>Sayfalar</div>
     <a mat-list-item routerLinkActive='active' routerLink='/users' (click)='onClicked()'>
-      <app-icon name='people'></app-icon>
-      <span>Kullanıcılar</span>
+      <app-icon name='people' matListItemIcon />
+      Kullanıcılar
     </a>
     <a mat-list-item routerLinkActive='active' routerLink='/tags' (click)='onClicked()'>
-      <app-icon name='label'></app-icon>
-      <span>Etiketler</span>
+      <app-icon name='label' matListItemIcon />
+      Etiketler
     </a>
   </mat-nav-list>
   <mat-divider></mat-divider>
   <mat-nav-list>
     <a mat-list-item routerLinkActive='active' routerLink='/settings' (click)='onClicked()'>
-      <app-icon name='settings'></app-icon>
-      <span>Hesap & ayarlar</span>
+      <app-icon name='settings' matListItemIcon />
+      Hesap & ayarlar
     </a>
     <a mat-list-item routerLinkActive='active' routerLink='/flags' (click)='onClicked()'>
-      <app-icon name='flag'></app-icon>
-      <span>İçerik bildirme geçmişi</span>
+      <app-icon name='flag' matListItemIcon />
+      İçerik bildirme geçmişi
     </a>
     <a mat-list-item routerLinkActive='active' routerLink='/help' (click)='onClicked()'>
-      <app-icon name='help'></app-icon>
-      <span>Yardım</span>
+      <app-icon name='help' matListItemIcon />
+      Yardım
     </a>
     <a mat-list-item routerLinkActive='active' (click)='onClicked(); openFeedbackDialog()'>
-      <app-icon name='feedback'></app-icon>
-      <span>Geri bildirim gönder</span>
+      <app-icon name='feedback' matListItemIcon />
+      Geri bildirim gönder
     </a>
   </mat-nav-list>
-  <mat-divider></mat-divider>
+  <mat-divider />
   <div id='copyright'>© 2022 Google LLC</div>
 </div>

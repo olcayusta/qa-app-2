@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TagsService } from './tags.service';
 import { filter, switchMap } from 'rxjs/operators';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
+import { MatInputModule } from '@angular/material/input';
 import { TagListComponent } from './components/tag-list/tag-list.component';
 
 @Component({

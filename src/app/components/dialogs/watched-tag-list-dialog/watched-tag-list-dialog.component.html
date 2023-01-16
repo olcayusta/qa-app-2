@@ -2,13 +2,13 @@
 <mat-dialog-content>
   <p>watched-tag-list-dialog works!</p>
 
-  <mat-chip-list>
-    <mat-chip removable>
+  <mat-chip-listbox>
+    <mat-chip-option removable>
       Angular
       <button matChipRemove>
         <mat-icon>cancel</mat-icon>
       </button>
-    </mat-chip>
+    </mat-chip-option>
 
   <!--  <mat-form-field>
       <mat-chip-list #chipList>
@@ -18,7 +18,7 @@
       <input [matChipInputFor]="chipList">
     </mat-form-field>-->
 
-  </mat-chip-list>
+  </mat-chip-listbox>
 </mat-dialog-content>
 <mat-dialog-actions [align]='"end"'>
   <button mat-button>CANCEL</button>

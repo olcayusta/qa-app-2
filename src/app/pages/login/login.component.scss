@@ -50,7 +50,7 @@ input.custom-autofill {
   // background-color: var(--card-background);
   border-radius: 12px;
   background-color: transparent;
-
+  /*TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version.*/
   mat-progress-bar {
     position: absolute;
     top: 0;
@@ -173,6 +173,7 @@ button[mat-stroked-button] {
 }
 
 @media (max-width: 599px) {
+  /*TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version.*/
   mat-card {
     box-shadow: none !important;
   }
@@ -183,18 +184,19 @@ button[mat-stroked-button] {
   }
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
 .mat-form-field-appearance-standard .mat-form-field-underline {
   background-color: rgba(0, 0, 0, .12);
 }
 
 .button-link-row {
-  .mat-button {
+  .mat-mdc-button {
     margin-left: -8px;
     // letter-spacing: 1.25px;
   }
 }
 
-.mat-button {
+.mat-mdc-button {
   letter-spacing: 0;
 }
 

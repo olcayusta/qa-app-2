@@ -5,10 +5,10 @@ import { AnswerService } from '@shared/services/answer.service';
 import { MarkedService } from '@shared/services/marked.service';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { EditorButtonsComponent } from './editor-buttons/editor-buttons.component';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-answer-form',

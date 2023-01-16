@@ -9,7 +9,7 @@ import {
   ChangeDetectorRef,
   ViewContainerRef, inject
 } from '@angular/core';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { DOCUMENT, NgComponentOutlet } from '@angular/common';
@@ -21,8 +21,9 @@ import { TopAppBarComponent } from './components/top-bar/top-app-bar.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { StickyDirective } from './components/top-bar/directives/sticky.directive';
 import { ExtendedFabDirective } from './directives/extended-fab.directive';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 import { IconComponent } from '@components/icon/icon.component';
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: 'app-main',
@@ -36,7 +37,8 @@ import { IconComponent } from '@components/icon/icon.component';
     NgComponentOutlet,
     RouterOutlet,
     RouterLink,
-    IconComponent
+    IconComponent,
+    MatIconModule
   ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],

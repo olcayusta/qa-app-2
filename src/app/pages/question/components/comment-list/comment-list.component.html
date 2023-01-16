@@ -1,15 +1,15 @@
 <ng-container *ngIf='comments$ | async as comments; else loading'>
-  <mat-divider></mat-divider>
+  <mat-divider />
   <div class='comment-list'>
-    <app-comment-list-item *ngFor='let comment of comments' [comment]='comment'></app-comment-list-item>
+    <app-comment-list-item *ngFor='let comment of comments' [comment]='comment' />
   </div>
 </ng-container>
 
 <ng-template #loading>
   <div class='spinner-container'>
-    <mat-spinner diameter='32' color='accent'></mat-spinner>
+    <mat-spinner diameter='32' color='accent' />
   </div>
 </ng-template>
 
-<app-comment-form></app-comment-form>
+<app-comment-form />
 

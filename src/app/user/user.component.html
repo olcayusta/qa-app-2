@@ -48,7 +48,7 @@
   </div>
 </header>
 
-<nav mat-tab-nav-bar mat-align-tabs='center' [tabPanel]='tabPanel'>
+<nav mat-tab-nav-bar mat-stretch-tabs="false" mat-align-tabs="center" [tabPanel]='tabPanel' fitInkBarToContent>
   <a mat-tab-link *ngFor='let link of links'
      [routerLinkActiveOptions]='{exact: true}'
      routerLinkActive='mat-tab-label-active'

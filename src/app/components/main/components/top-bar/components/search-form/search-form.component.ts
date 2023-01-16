@@ -4,18 +4,18 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { ISearchResult, SearchService } from '@shared/services/search.service';
 import {
-  MatLegacyAutocompleteModule as MatAutocompleteModule,
-  MatLegacyAutocompleteSelectedEvent as MatAutocompleteSelectedEvent,
-  MatLegacyAutocompleteTrigger as MatAutocompleteTrigger
-} from '@angular/material/legacy-autocomplete';
+  MatAutocompleteModule,
+  MatAutocompleteSelectedEvent,
+  MatAutocompleteTrigger
+} from '@angular/material/autocomplete';
 import { Router, RouterLink } from '@angular/router';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { HighlightSearchPipe } from './pipes/highlight-search.pipe';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { IconComponent } from '@components/icon/icon.component';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 
 @Component({

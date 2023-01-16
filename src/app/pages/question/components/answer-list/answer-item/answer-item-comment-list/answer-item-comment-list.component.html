@@ -1,7 +1,7 @@
 <ng-container *ngIf='comments$ | async as comments'>
   <h5 class='headline-5' *ngIf='comments.length > 0'>Yorumlar</h5>
   <div class='comment-list'>
-    <app-comment-list-item *ngFor='let comment of comments' [comment]='comment'></app-comment-list-item>
+    <app-comment-list-item *ngFor='let comment of comments' [comment]='comment' />
   </div>
 </ng-container>
 

@@ -3,7 +3,7 @@
   <!-- Tab -->
   <button mat-button [matMenuTriggerFor]='tabMenu'>
     <span>Senin için önerilenler</span>
-    <app-icon name='keyboard_arrow_down'></app-icon>
+    <app-icon name='keyboard_arrow_down' />
   </button>
 
   <mat-menu #tabMenu overlapTrigger>
@@ -13,13 +13,13 @@
 
   <!-- Sort By -->
   <button mat-button class='menu-button' [matMenuTriggerFor]='sortMenu' matTooltip='Yorumları sırala'>
-    <app-icon name='sort'></app-icon>
+    <app-icon name='sort' />
     <span>Sıralama ölçütü</span>
   </button>
 
   <!-- Filter By -->
   <button mat-button class='menu-button' [matMenuTriggerFor]='filterMenu'>
-    <app-icon name='filter_list'></app-icon>
+    <app-icon name='filter_list' />
     <span>Filtre</span>
   </button>
 
@@ -86,7 +86,7 @@
       *ngFor='let filter of filters; let index = index'
       (click)='filterMenuItemClicked(index)'
     >
-      <app-icon name='check' *ngIf='filter.checked'></app-icon>
+      <app-icon name='check' *ngIf='filter.checked' />
       {{ filter.viewValue }}
     </button>
     <span class='divider-text'>ÖZEL FİLTRELER</span>

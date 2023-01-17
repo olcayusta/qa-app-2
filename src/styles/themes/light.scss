@@ -58,7 +58,6 @@ $secondary-gray-theme: mat.define-light-theme((
 @include mat.form-field-theme($light-theme);
 @include mat.slide-toggle-theme($light-theme);
 @include mat.card-theme($light-theme);
-@include mat.tabs-theme($light-theme);
 
 @include mat.list-theme($gray-theme);
 @include mat.divider-theme($gray-theme);
@@ -107,22 +106,6 @@ svg {
   fill: var(--medium-emphasis-color);
 }
 
-/**
-  Progress-bar
-  ====================
- */
-/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version. */
-.mat-progress-bar-background {
-  fill: #D2BBF4;
-  // fill: #C2C2C2;
-}
-
-/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version. */
-.mat-progress-bar-buffer {
-  background-color: #D2BBF4;
-  // background-color: #C2C2C2;
-}
-
 .mat-mdc-list-item.active {
   // color: var(--mdc-theme-primary) !important;
   // background-color: rgba(0, 0, 0, .12);
@@ -147,12 +130,4 @@ svg {
   // background: linear-gradient(0deg, rgba(187, 134, 252, 0.12), rgba(187, 134, 252, 0.12)), #FFFFFF;
   // background-color: var(--mdc-theme-primary-overlay-selected);
   background-color: rgba(0, 0, 0, .08);
-}
-
-/**
-  mat-badge-warn
- */
-.mat-badge-warn .mat-badge-content {
-  color: white;
-  background: #B00020;
 }

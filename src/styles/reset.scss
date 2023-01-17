@@ -3,22 +3,10 @@
 
 $my-palette: light-theme.$deep-purple-palette;
 
-.mat-mdc-simple-snack-bar {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.outlined-menu-button {
-  padding: 0 16px !important;
-}
-
 /*.outlined-menu-button[aria-expanded=true] {
   background: #000;
 }*/
 
-.mat-mdc-simple-snack-bar {
-  letter-spacing: 0.25px;
-}
 
 /**
   Material Design Reset
@@ -40,6 +28,10 @@ $my-palette: light-theme.$deep-purple-palette;
 
 .flex-spacer {
   flex: 1 0 auto;
+}
+
+.mdc-tooltip__surface {
+  padding: 8px !important;
 }
 
 .mat-mdc-tooltip {

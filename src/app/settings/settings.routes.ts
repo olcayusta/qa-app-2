@@ -1,13 +1,14 @@
 import { Routes } from '@angular/router';
 import { SettingsComponent } from './settings.component';
-import { SettingsResolver } from './settings.resolver';
+import { inject } from '@angular/core';
+import { SettingsService } from './settings.service';
 
 export default [
   {
     path: '',
     component: SettingsComponent,
     resolve: {
-      user: SettingsResolver
+      user: () => inject(SettingsService).getAccountSettings()
     }
   }
 ] as Routes;

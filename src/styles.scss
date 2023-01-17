@@ -13,20 +13,12 @@
 //  you can delete this line and instead use:
 //    `@include mat.legacy-typography-hierarchy($typography-configuration);`
 
-$custom-typography: mat.define-typography-config(
-  $font-family: 'Archivo, sans-serif',
-);
-
 $headlines-and-subtitles-typography: mat.define-typography-config(
   $font-family: 'Archivo, sans-serif'
 );
 
 $body-and-captions-typography: mat.define-typography-config(
   $font-family: 'Roboto, sans-serif',
-);
-
-$snackbar-typo: mat.define-typography-config(
-  $font-family: 'Archivo, sans-serif',
 );
 
 $my-custom-level: mat.define-typography-level(14px, 24px, 700, $letter-spacing: 10px);
@@ -55,7 +47,6 @@ $chip-typography: mat.define-typography-config(
 );
 
 @include mat.tabs-typography($headlines-and-subtitles-typography);
-@include mat.form-field-typography($body-and-captions-typography);
 @include mat.radio-typography($body-and-captions-typography);
 @include mat.option-typography($body-and-captions-typography);
 @include mat.tooltip-typography($body-and-captions-typography);
@@ -69,8 +60,6 @@ $chip-typography: mat.define-typography-config(
 @include mat.button-typography($body-and-captions-typography);
 @include mat.menu-typography($body-and-captions-typography);
 @include mat.optgroup-typography($body-and-captions-typography);
-@include mat.option-typography($badge-typo);
-@include mat.autocomplete-typography($body-and-captions-typography);
 @include mat.snack-bar-typography($badge-typo);
 @include mat.button-typography($badge-typo);
 @include mat.card-typography($badge-typo);
@@ -98,7 +87,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Archivo, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 * {

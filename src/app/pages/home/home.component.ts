@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { StateService } from '@shared/services/state.service';
 import { SocketService } from '@shared/services/socket.service';
 import { Subscription } from 'rxjs';
@@ -42,16 +48,15 @@ function scrollFactory(overlay: Overlay): () => CloseScrollStrategy {
 export class HomeComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
 
-  constructor(
-    private socketService: SocketService,
-    private stateService: StateService
-  ) {
-  }
+  private socketService = inject(SocketService);
+  private stateService = inject(StateService);
 
   ngOnInit(): void {
-    this.subscription = this.socketService.watch('watch', 'home').subscribe((value) => {
-      console.log(value);
-    });
+    this.subscription = this.socketService
+      .watch('watch', 'home')
+      .subscribe((value) => {
+        console.log(value);
+      });
 
     this.stateService.show();
   }

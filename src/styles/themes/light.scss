@@ -64,7 +64,11 @@ $secondary-gray-theme: mat.define-light-theme((
 @include mat.divider-theme($gray-theme);
 @include mat.sidenav-theme($gray-theme);*/
 
+@include mat.input-theme($secondary-gray-theme);
 @include mat.all-component-themes($light-theme);
+@include mat.input-theme($secondary-gray-theme);
+
+
 
 @media (prefers-color-scheme: light) {
   :root {

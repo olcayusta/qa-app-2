@@ -4,7 +4,7 @@
         cdkOverlayOrigin
         (click)='togglePopup()'>
   <app-icon name='notifications' matBadge='{{notificationCount$ | async}}' matBadgeColor='warn'
-            [matBadgeHidden]='(notificationCount$ | async) === 0'></app-icon>
+            [matBadgeHidden]='(notificationCount$ | async) === 0' />
 </button>
 
 <ng-template

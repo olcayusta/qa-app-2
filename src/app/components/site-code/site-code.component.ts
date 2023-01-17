@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Input,
+  OnInit
+} from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,7 +15,13 @@ import { IsiklandirDirective } from '@shared/directives/isiklandir.directive';
 @Component({
   selector: 'app-site-code',
   standalone: true,
-  imports: [MatButtonModule, MatTooltipModule, NgIf, IconComponent, IsiklandirDirective],
+  imports: [
+    MatButtonModule,
+    MatTooltipModule,
+    NgIf,
+    IconComponent,
+    IsiklandirDirective
+  ],
   templateUrl: './site-code.component.html',
   styleUrls: ['./site-code.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -20,12 +32,13 @@ export class SiteCodeComponent implements OnInit {
   @Input() HTMLPreText!: HTMLPreElement;
   @Input() helloWorld!: number;
 
-  constructor(private snackBar: MatSnackBar) {
-  }
+  private snackBar = inject(MatSnackBar);
 
   async copyCodeToClipboard() {
     await navigator.clipboard.writeText(this.text.textContent!);
-    this.snackBar.open('Kod panoya kopyalandı');
+    this.snackBar.open('Kod panoya kopyalandı', 'TAMAM', {
+      duration: 500000000
+    });
   }
 
   ngOnInit() {

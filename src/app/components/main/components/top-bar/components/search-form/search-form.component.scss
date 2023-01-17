@@ -1,5 +1,4 @@
 :host {
-  display: block;
   display: flex;
   align-items: center;
   grid-gap: 8px;
@@ -55,8 +54,6 @@ input::placeholder, input::-moz-placeholder {
 
   .mat-mdc-option {
     min-height: 32px !important;
-    // padding-left: 56px !important;
-    // letter-spacing: .25px;
   }
 
   .mat-mdc-optgroup-label {
@@ -94,24 +91,22 @@ input::placeholder, input::-moz-placeholder {
   border-radius: 10px;
 }
 
-/*TODO(mdc-migration): The following rule targets internal classes of option that may no longer apply for the MDC version.
-*/
-::ng-deep .mat-option-text {
-  display: flex !important;
-  align-items: center;
-}
-
 .user-option {
   height: 48px;
-}
 
-.option-user-img {
-  display: flex;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 16px;
+  .mdc-list-item__primary-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .option-user-img {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+  }
 }
 
 @media (max-width: 599px) {
@@ -123,7 +118,6 @@ input::placeholder, input::-moz-placeholder {
     display: none;
   }
 }
-
 
 ::ng-deep mark {
   background-color: transparent;

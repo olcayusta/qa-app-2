@@ -68,8 +68,6 @@ $secondary-gray-theme: mat.define-light-theme((
 @include mat.all-component-themes($light-theme);
 @include mat.input-theme($secondary-gray-theme);
 
-
-
 @media (prefers-color-scheme: light) {
   :root {
     // color-scheme: light;
@@ -150,45 +148,6 @@ svg {
   // background-color: var(--mdc-theme-primary-overlay-selected);
   background-color: rgba(0, 0, 0, .08);
 }
-
-/**
-  Snackbar
- */
-.mat-mdc-snack-bar-container {
-  color: #fff;
-  background-color: #121212;
-}
-
-.mat-mdc-simple-snack-bar {
-  color: #fff;
-}
-
-.mat-mdc-snack-bar-action {
-  color: #BB86FC;
-}
-
-/**
-  Tooltip
- */
-/*.mat-tooltip {
-  background: #666 !important;
-  color: #fff !important;
-}*/
-
-.mat-mdc-chip-highlighted {
-  background-color: #6200ee12 !important;
-  color: black !important;
-}
-
-/**
-  Chip
- */
-.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
-  background-color: #fff !important;
-  border: 1px solid rgba(0, 0, 0, .12);
-}
-
-
 
 /**
   Badge

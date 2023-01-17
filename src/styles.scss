@@ -41,11 +41,6 @@ $list-typography: mat.define-typography-config(
   )
 );
 
-// Chips typography
-$chip-typography: mat.define-typography-config(
-  $font-family: 'Roboto, sans-serif'
-);
-
 @include mat.tabs-typography($headlines-and-subtitles-typography);
 @include mat.radio-typography($body-and-captions-typography);
 @include mat.option-typography($body-and-captions-typography);
@@ -56,11 +51,9 @@ $chip-typography: mat.define-typography-config(
  */
 @include mat.badge-typography($body-and-captions-typography);
 @include mat.checkbox-typography($body-and-captions-typography);
-@include mat.snack-bar-typography($body-and-captions-typography);
 @include mat.button-typography($body-and-captions-typography);
 @include mat.menu-typography($body-and-captions-typography);
 @include mat.optgroup-typography($body-and-captions-typography);
-@include mat.snack-bar-typography($badge-typo);
 @include mat.button-typography($badge-typo);
 @include mat.card-typography($badge-typo);
 
@@ -171,15 +164,6 @@ svg {
 }
 
 /**
-  Mat-ink-bar
- */
-.mat-ink-bar {
-  height: 3px !important;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-
-/**
   Noscript
  */
 noscript {
@@ -222,7 +206,6 @@ noscript {
     background-color: var(--thumb-bg-hover);
   }
 }
-
 
 .material-symbols-outlined {
   color: var(--medium-emphasis-color);

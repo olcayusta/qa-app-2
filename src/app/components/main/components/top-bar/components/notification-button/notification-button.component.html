@@ -14,7 +14,7 @@
   [cdkConnectedOverlayOpen]='popupOpened'
   (overlayOutsideClick)='closePopupOnOutsideClicked($event)'>
   <app-popup-container (close)='popupOpened = false'>
-    <ng-container *ngComponentOutlet='NotificationListPopupComponent'></ng-container>
+    <ng-container *ngComponentOutlet='NotificationListPopupComponent' />
   </app-popup-container>
 </ng-template>
 

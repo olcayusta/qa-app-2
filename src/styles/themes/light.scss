@@ -32,7 +32,7 @@ $gray-theme: mat.define-light-theme((
 
 $secondary-gray-theme: mat.define-light-theme((
   color: (
-    primary: mat.define-palette(mat.$gray-palette),
+    primary: mat.define-palette(mat.$gray-palette, 900),
     accent: mat.define-palette(mat.$gray-palette)
   )
 ));
@@ -150,7 +150,7 @@ svg {
 }
 
 /**
-  Badge
+  mat-badge-warn
  */
 .mat-badge-warn .mat-badge-content {
   color: white;

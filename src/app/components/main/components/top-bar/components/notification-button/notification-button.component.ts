@@ -5,12 +5,17 @@ import {
   Type,
   ElementRef,
   ChangeDetectorRef,
-  Injectable
+  Injectable,
+  inject
 } from '@angular/core';
 import { map, shareReplay } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { NotificationService } from '@shared/services/notification.service';
-import { OverlayModule, ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
+import {
+  OverlayModule,
+  ScrollStrategy,
+  ScrollStrategyOptions
+} from '@angular/cdk/overlay';
 
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,7 +34,17 @@ export class Greeter {
 @Component({
   selector: 'app-notification-button',
   standalone: true,
-  imports: [OverlayModule, MatButtonModule, MatBadgeModule, MatTooltipModule, AsyncPipe, NgComponentOutlet, IconComponent, PopupContainerComponent, MatIconModule],
+  imports: [
+    OverlayModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatTooltipModule,
+    AsyncPipe,
+    NgComponentOutlet,
+    IconComponent,
+    PopupContainerComponent,
+    MatIconModule
+  ],
   templateUrl: './notification-button.component.html',
   styleUrls: ['./notification-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -39,16 +54,14 @@ export class NotificationButtonComponent implements OnInit {
 
   popupOpened = false;
 
-  scrollStrategy: ScrollStrategy = this.sso.block();
   NotificationListPopupComponent!: Type<NotificationListPopupComponent>;
 
-  constructor(
-    private notificationService: NotificationService,
-    private sso: ScrollStrategyOptions,
-    private elementRef: ElementRef,
-    private cdr: ChangeDetectorRef
-  ) {
-  }
+  private notificationService = inject(NotificationService);
+  private sso = inject(ScrollStrategyOptions);
+  private elementRef = inject(ElementRef);
+  private cdr = inject(ChangeDetectorRef);
+
+  scrollStrategy: ScrollStrategy = this.sso.block();
 
   ngOnInit(): void {
     this.notificationCount$ = this.notificationService.getUnseenCount().pipe(
@@ -68,7 +81,9 @@ export class NotificationButtonComponent implements OnInit {
   }
 
   async loadComponent() {
-    const { NotificationListPopupComponent } = await import('@popups/notification-list-popup/notification-list-popup.component')
+    const { NotificationListPopupComponent } = await import(
+      '@popups/notification-list-popup/notification-list-popup.component'
+    );
     this.NotificationListPopupComponent = NotificationListPopupComponent;
   }
 

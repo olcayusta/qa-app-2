@@ -2,7 +2,7 @@
   <div class='header__user'>
     <div class='header-user__avatar'>
       <app-img-shadow [width]='160' [height]='160' [src]='user.picture' [alt]='user.displayName'
-                       class='user-img-renderer'></app-img-shadow>
+                       class='user-img-renderer' />
     </div>
 
     <div class='header__details'>
@@ -42,7 +42,6 @@
             <img src='https://webdev.imgix.net/images/icons/twitter.svg' alt=''>
           </a>
         </div>
-
       </div>
     </div>
   </div>
@@ -56,6 +55,6 @@
      routerLink='/user/{{user.id}}/{{link.path.toLocaleLowerCase()}}'
      [active]='rla.isActive'> {{link.label}} </a>
 </nav>
-<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<mat-tab-nav-panel #tabPanel />
 
-<router-outlet></router-outlet>
+<router-outlet />

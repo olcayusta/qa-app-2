@@ -49,7 +49,6 @@ $list-typography: mat.define-typography-config(
 /**
   Body and captions
  */
-@include mat.badge-typography($body-and-captions-typography);
 @include mat.checkbox-typography($body-and-captions-typography);
 @include mat.button-typography($body-and-captions-typography);
 @include mat.menu-typography($body-and-captions-typography);

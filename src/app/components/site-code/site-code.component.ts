@@ -36,7 +36,7 @@ export class SiteCodeComponent implements OnInit {
 
   async copyCodeToClipboard() {
     await navigator.clipboard.writeText(this.text.textContent!);
-    this.snackBar.open('Kod panoya kopyalandı', 'TAMAM', {
+    this.snackBar.open('Kod panoya kopyalandı', 'Action', {
       duration: 500000000
     });
   }

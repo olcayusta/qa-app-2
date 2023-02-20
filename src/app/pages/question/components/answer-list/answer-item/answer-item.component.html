@@ -4,7 +4,7 @@
     <div class='answer-item-user'>
 
       <app-img-shadow [src]='answer.user.picture' [width]='64' [height]='64' [alt]='answer.user.displayName'
-                       class='answer-item-user-renderer'></app-img-shadow>
+                       class='answer-item-user-renderer' />
 
       <div class='user-info'>
         <div itemprop='author' itemscope itemtype='https://schema.org/Person'>
@@ -32,17 +32,17 @@
   </div>
 </div>
 
-<app-answer-item-comment-list [answerId]='answer.id'></app-answer-item-comment-list>
+<app-answer-item-comment-list [answerId]='answer.id' />
 
 <!--<div class='buttons'>
   <div>
     <button mat-button matTooltip='Bunu beğendim'>
-      <app-gf-icon name='favorite'></app-gf-icon>
+      <app-icon name='favorite'></app-icon>
       <span>Beğen</span>
     </button>
 
     <button mat-button matTooltip='Paylaş'>
-      <app-gf-icon name='share'></app-gf-icon>
+      <app-icon name='share'></app-icon>
       <span>Paylaş</span>
     </button>
 
@@ -52,7 +52,7 @@
     </button>
 
     <button mat-button matTooltip='Favorilere ekle'>
-      <app-gf-icon name='bookmark_add'></app-gf-icon>
+      <app-icon name='bookmark_add'></app-icon>
       <span>Favorilere ekle</span>
     </button>
 
@@ -63,7 +63,7 @@
     <mat-menu #flagMenu='matMenu'>
       <ng-template matMenuContent>
         <button mat-menu-item>
-          <app-gf-icon name='flag'></app-gf-icon>
+          <app-icon name='flag'></app-icon>
           <span>Bildir</span>
         </button>
       </ng-template>

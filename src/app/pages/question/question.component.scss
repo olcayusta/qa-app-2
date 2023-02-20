@@ -21,6 +21,9 @@ a:hover {
     display: flex;
     align-items: center;
     padding-top: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
   }
 
   p {
@@ -101,6 +104,36 @@ a:hover {
 .author-info {
   display: flex;
   flex-direction: column;
+}
+
+.author-info-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .verified-icon-container {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #00000099;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ::ng-deep svg {
+      width: 12px;
+      height: 12px;
+      fill: white;
+    }
+  }
+}
+
+.headline-4 {
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 44px;
+  // font-family: Roboto flex, sans-serif;
+  // font-variation-settings: "wght" 200, "wdth" 100, "opsz" 8;
 }
 
 #author-name {

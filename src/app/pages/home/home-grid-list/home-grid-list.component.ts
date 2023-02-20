@@ -10,11 +10,19 @@ import { QuestionService } from '../../question/question.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgForOf, NgIf } from '@angular/common';
 import { HomeQuestionListItemComponent } from '@components/home-question-list-item/home-question-list-item.component';
+import { MatProgressBarModule } from "@angular/material/progress-bar";
 
 @Component({
   selector: 'app-home-grid-list',
   standalone: true,
-  imports: [MatProgressSpinnerModule, HomeQuestionListItemComponent, IsVisibleDirective, NgForOf, NgIf],
+  imports: [
+    MatProgressSpinnerModule,
+    HomeQuestionListItemComponent,
+    IsVisibleDirective,
+    NgForOf,
+    NgIf,
+    MatProgressBarModule
+  ],
   templateUrl: './home-grid-list.component.html',
   styleUrls: ['./home-grid-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,7 +31,12 @@ import { HomeQuestionListItemComponent } from '@components/home-question-list-it
       transition(':enter', [
         query('.hero', [
           style({ opacity: 0, transform: 'translateY(-100px)' }),
-          stagger(100, [animate('400ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))])
+          stagger(100, [
+            animate(
+              '400ms cubic-bezier(0.35, 0, 0.25, 1)',
+              style({ opacity: 1, transform: 'none' })
+            )
+          ])
         ])
       ])
     ])
@@ -61,7 +74,10 @@ export class HomeGridListComponent implements OnInit, OnDestroy {
     this.recentQuestionsSubscription = this.route.queryParamMap
       .pipe(
         switchMap((paramMap) => {
-          return this.filterService.getQuestionsByFiltered(paramMap.get('sort'), paramMap.get('filter'));
+          return this.filterService.getQuestionsByFiltered(
+            paramMap.get('sort'),
+            paramMap.get('filter')
+          );
         })
       )
       .subscribe((questions) => {
@@ -75,7 +91,8 @@ export class HomeGridListComponent implements OnInit, OnDestroy {
      * Subscription if not unsubscribed, will cause memory leak,
      * so we unsubscribe here
      */
-    !this.recentQuestionsSubscription.closed && this.recentQuestionsSubscription.unsubscribe();
+    !this.recentQuestionsSubscription.closed &&
+      this.recentQuestionsSubscription.unsubscribe();
 
     /**
      * Same as above

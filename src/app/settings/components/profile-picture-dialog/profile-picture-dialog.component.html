@@ -1,9 +1,11 @@
 <h2 mat-dialog-title>Profil resmi</h2>
-<div>
-  <p>profile-picture-dialog works!</p>
-  <img [src]='user.picture' alt='' id='img'>
-</div>
+<mat-dialog-content>
+  <div>
+    <p>profile-picture-dialog works!</p>
+    <img [src]='user.picture' alt='' id='img'>
+  </div>
+</mat-dialog-content>
 <mat-dialog-actions align='end'>
-  <button mat-button [mat-dialog-close]='false'>İPTAL</button>
-  <button mat-button [mat-dialog-close]='true' color='primary'>TAMAM</button>
+  <button mat-button [mat-dialog-close]='false'>İptal</button>
+  <button mat-button [mat-dialog-close]='true' color='primary'>Tamam</button>
 </mat-dialog-actions>

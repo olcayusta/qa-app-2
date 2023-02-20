@@ -1,4 +1,4 @@
-<mat-toolbar class='mat-elevation-z4'>
+<mat-toolbar>
   <div class='mat-toolbar__start'>
     <button mat-icon-button aria-label='Open navigation drawer' (click)='toggleSidenav()' class='menu-button'>
       <app-icon name='menu' />
@@ -81,8 +81,8 @@
       <app-icon name='more_vert' />
     </button>
 
-    <a mat-button routerLink='/login' (click)='signInButtonClicked()'>
-      OTURUM AÇ
+    <a mat-stroked-button color="primary" routerLink='/login' (click)='signInButtonClicked()'>
+      Oturum aç
     </a>
 
     <!-- Apps Menu -->
@@ -97,13 +97,13 @@
     <mat-menu #settingsMenu xPosition='before'>
       <ng-template matMenuContent>
         <button mat-menu-item>
-          <mat-icon>dark_mode</mat-icon>
-          <span>Görünüm: Cihaz teması</span>
+          <app-dark-mode-icon matMenuItemIcon />
+          Görünüm: Cihaz teması
         </button>
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Ayarlar</span>
-        </button>
+        <a routerLink="/settings" mat-menu-item>
+          <app-settings-icon matMenuItemIcon />
+          Ayarlar
+        </a>
         <a mat-menu-item routerLink='/help'>
           <mat-icon>help_outline</mat-icon>
           <span>Yardım</span>
@@ -113,8 +113,8 @@
           <span>Geri bildirim gönder</span>
         </button>
         <button mat-menu-item>
-          <mat-icon>keyboard</mat-icon>
-          <span>Klavye kısayolları</span>
+          <app-keyboard-icon matMenuItemIcon />
+          Klavye kısayolları
         </button>
       </ng-template>
     </mat-menu>

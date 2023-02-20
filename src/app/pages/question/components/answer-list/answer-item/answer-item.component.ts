@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { IconComponent } from '@components/icon/icon.component';
 
 @Component({
   selector: 'app-answer-item',
@@ -20,7 +22,9 @@ import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.com
     MatIconModule,
     ImgShadowComponent,
     RelativeTimeFormatPipe,
-    RouterLink
+    RouterLink,
+    MatMenuModule,
+    IconComponent
   ],
   templateUrl: './answer-item.component.html',
   styleUrls: ['./answer-item.component.scss'],
@@ -31,13 +35,18 @@ export class AnswerItemComponent {
   @Input() acceptedAnswer!: boolean;
   @Input() questionId!: number;
 
-  constructor(private answerService: AnswerService, private route: ActivatedRoute, private snackBar: MatSnackBar) {
-  }
+  constructor(
+    private answerService: AnswerService,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar
+  ) {}
 
   acceptAnswer() {
     const questionId = Number(this.route.snapshot.paramMap.get('questionId'));
-    this.answerService.acceptAnswer(this.answer.id, questionId).subscribe((value) => {
-      this.snackBar.open('Doğru cevap olarak işaretlendi');
-    });
+    this.answerService
+      .acceptAnswer(this.answer.id, questionId)
+      .subscribe((value) => {
+        this.snackBar.open('Doğru cevap olarak işaretlendi');
+      });
   }
 }

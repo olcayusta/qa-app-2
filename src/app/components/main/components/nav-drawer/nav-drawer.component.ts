@@ -7,7 +7,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { IconComponent } from '@components/icon/icon.component';
-import { MatIconModule } from "@angular/material/icon";
+import { MatIconModule } from '@angular/material/icon';
+import { HomeIconComponent } from '../../../../home-icon/home-icon.component';
+import { NgIf } from '@angular/common';
+import { NavDrawerComposeComponent } from '@components/nav-drawer-compose/nav-drawer-compose.component';
 
 @Component({
   selector: 'app-nav-drawer',
@@ -21,7 +24,10 @@ import { MatIconModule } from "@angular/material/icon";
     RouterLinkActive,
     IconComponent,
     RouterLink,
-    MatIconModule
+    MatIconModule,
+    HomeIconComponent,
+    NgIf,
+    NavDrawerComposeComponent
   ],
   templateUrl: './nav-drawer.component.html',
   styleUrls: ['./nav-drawer.component.scss'],
@@ -51,15 +57,20 @@ export class NavDrawerComponent {
   }
 
   async openFeedbackDialog() {
-    const { FeedbackDialogComponent } = await import('@dialogs/feedback-dialog/feedback-dialog.component');
+    const { FeedbackDialogComponent } = await import(
+      '@dialogs/feedback-dialog/feedback-dialog.component'
+    );
     this.dialog.open(FeedbackDialogComponent, {
       autoFocus: 'dialog',
-      minWidth: 640
+      minWidth: 312,
+      maxWidth: 540
     });
   }
 
   async openWatchedTagsDialog() {
-    const { WatchedTagListDialogComponent } = await import('@dialogs/watched-tag-list-dialog/watched-tag-list-dialog.component');
+    const { WatchedTagListDialogComponent } = await import(
+      '@dialogs/watched-tag-list-dialog/watched-tag-list-dialog.component'
+    );
     this.dialog.open(WatchedTagListDialogComponent, {
       minWidth: 512,
       autoFocus: false
@@ -70,5 +81,9 @@ export class NavDrawerComponent {
     this.drawerService.toggle().then((value) => {
       console.log('Mat Sidenav Bileseni Kapatildi.');
     });
+  }
+
+  onActiveChange($event: boolean) {
+    console.log($event);
   }
 }

@@ -1,0 +1,23 @@
+.compose-btn-container {
+  margin: 16px 16px 32px 16px;
+
+  a {
+    height: 56px;
+    width: 100%;
+    border-radius: 16px !important;
+    display: flex;
+    justify-content: flex-start;
+    letter-spacing: 0;
+    background-color: var(--tertiary-container-color);
+    color: var(--on-tertiary-container-color);
+
+    ::ng-deep svg {
+      fill: currentColor;
+    }
+
+    app-icon {
+      display: inline-flex !important;
+      margin-right: 24px;
+    }
+  }
+}

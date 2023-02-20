@@ -7,6 +7,13 @@ $my-palette: light-theme.$deep-purple-palette;
   background: #000;
 }*/
 
+/**
+Common Buttons
+ */
+.mat-mdc-outlined-button {
+  padding: 0 24px !important;
+  height: 40px !important;
+}
 
 /**
   Material Design Reset
@@ -131,9 +138,44 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent !important;
 }
 
-::selection {
+/*::selection {
   background: #6200ee12;
   color: #000;
+}*/
+
+// M3 typo
+
+.headline-large {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  // font-family: 'Roboto Flex', sans-serif;
+  font-variation-settings: "wght" 100, "wdth" 100, "opsz" 8;
 }
 
+.m3-headline-small {
+  //styleName: M3/headline/small;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+}
 
+.m3-body-medium {
+  //styleName: M3/body/medium;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  text-align: left;
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-subhead-line-height: 32px;
+  --mdc-dialog-subhead-size: 24px;
+  --mdc-dialog-subhead-weight: 400;
+  --mdc-dialog-supporting-text-size: 14px;
+  --mdc-dialog-supporting-text-line-height: 20px;
+}

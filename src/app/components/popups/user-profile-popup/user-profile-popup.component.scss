@@ -1,6 +1,6 @@
 :host {
   display: block;
-  width: 344px;
+  width: 360px;
 }
 
 .popup-page {
@@ -8,14 +8,16 @@
   max-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 28px;
 
   header {
     padding: 16px;
     display: flex;
     align-items: center;
-    column-gap: 16px;
+    gap: 16px;
+    background-color: #00000012;
+    margin: 8px;
+    border-radius: 28px;
   }
 
   &__avatar {
@@ -24,10 +26,9 @@
     height: 64px;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
+    object-fit: cover;
   }
 }
-
-
 
 .avatar {
   display: inline-flex;
@@ -39,8 +40,8 @@
 }
 
 .title {
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: 500;
 }
 

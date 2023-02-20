@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { User } from '@models/user.model';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgOptimizedImage } from "@angular/common";
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
 import { MyDatePipe } from '@shared/pipes/my-date.pipe';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,7 +21,8 @@ import { getSnapshotData } from '../core/router.utils';
     RouterOutlet,
     NgForOf,
     RouterLinkActive,
-    RouterLink
+    RouterLink,
+    NgOptimizedImage
   ],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
@@ -52,5 +53,4 @@ export class UserComponent {
       label: 'Bookmarks'
     }
   ];
-
 }

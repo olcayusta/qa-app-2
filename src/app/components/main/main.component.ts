@@ -7,12 +7,17 @@ import {
   Renderer2,
   Type,
   ChangeDetectorRef,
-  ViewContainerRef, inject
+  ViewContainerRef,
+  inject
 } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDrawerMode, MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { DOCUMENT, NgComponentOutlet } from '@angular/common';
+import {
+  MatDrawerMode,
+  MatSidenav,
+  MatSidenavModule
+} from '@angular/material/sidenav';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { AsyncPipe, DOCUMENT, NgComponentOutlet } from '@angular/common';
 import { SideSheetComponent } from './components/side-sheet/side-sheet.component';
 import { NavDrawerComponent } from './components/nav-drawer/nav-drawer.component';
 import { DrawerService } from './services/drawer.service';
@@ -23,7 +28,11 @@ import { StickyDirective } from './components/top-bar/directives/sticky.directiv
 import { ExtendedFabDirective } from './directives/extended-fab.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { IconComponent } from '@components/icon/icon.component';
-import { MatIconModule } from "@angular/material/icon";
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import { MiniGuideRendererComponent } from '../../mini-guide-renderer/mini-guide-renderer.component';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main',
@@ -38,7 +47,10 @@ import { MatIconModule } from "@angular/material/icon";
     RouterOutlet,
     RouterLink,
     IconComponent,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule,
+    MiniGuideRendererComponent,
+    AsyncPipe
   ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
@@ -63,6 +75,13 @@ export default class MainComponent implements OnInit, AfterViewInit {
   private drawerService = inject(DrawerService);
   private socketService = inject(SocketService);
 
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((breakpointState) => breakpointState.matches),
+      shareReplay()
+    );
+
   ngAfterViewInit() {
     this.drawerService.setSidenav(this.navSidenav);
   }
@@ -73,7 +92,8 @@ export default class MainComponent implements OnInit, AfterViewInit {
   }
 
   initializeDrawerMode() {
-    this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
+    this.isSmallScreen =
+      this.breakpointObserver.isMatched('(max-width: 599px)');
     this.isSmallScreen ? (this.mode = 'over') : 'side';
     this.mode = 'side';
   }
@@ -96,24 +116,28 @@ export default class MainComponent implements OnInit, AfterViewInit {
 
   async sidenavOpenedStart() {
     await this.loadNavDrawerComponent();
-    this.hideScrollBar();
+    // this.hideScrollBar();
   }
 
   sidenavClosedStart(): void {
-    this.showScrollBar();
+    // this.showScrollBar();
   }
 
   /**
    * Loads the nav drawer component
    */
   async loadNavDrawerComponent() {
-    const { NavDrawerComponent } = await import('./components/nav-drawer/nav-drawer.component');
+    const { NavDrawerComponent } = await import(
+      './components/nav-drawer/nav-drawer.component'
+    );
     this.NavDrawerComponent = NavDrawerComponent;
     this.changeDetectorRef.markForCheck();
   }
 
   async loadSidenavSheetComponent() {
-    const { SideSheetComponent } = await import('./components/side-sheet/side-sheet.component');
+    const { SideSheetComponent } = await import(
+      './components/side-sheet/side-sheet.component'
+    );
     this.SideSheetComponent = SideSheetComponent;
     this.changeDetectorRef.markForCheck();
   }

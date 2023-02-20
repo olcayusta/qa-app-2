@@ -7,19 +7,29 @@ $my-palette: mat.define-palette(lightpurple.$deep-purple-palette);
 $light-primary: mat.define-palette(lightpurple.$deep-purple-palette);
 $light-accent: mat.define-palette(lightpurple.$deep-purple-palette);
 
-$my-typography: mat.define-typography-config();
+$my-typography: mat.define-typography-config(
+  $font-family: "Archivo, Roboto, sans-serif"
+);
 
-$light-theme: mat.define-light-theme((
+/*$light-theme: mat.define-light-theme((
   color: (
     primary: $light-primary,
     accent: $light-accent
   ),
   typography: $my-typography
-));
+));*/
 
 /* Gray Theme */
 $gray-theme-primary: mat.define-palette(mat.$gray-palette, 900);
 $gray-theme-accent: mat.define-palette(mat.$gray-palette);
+
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $gray-theme-primary,
+    accent: $light-accent
+  ),
+  typography: $my-typography
+));
 
 // $gray-theme-warn: mat.define-palette($mat-red);
 
@@ -72,15 +82,13 @@ $secondary-gray-theme: mat.define-light-theme((
     // color-scheme: light;
     --html-bg-color: #fff;
     --color: rgba(0, 0, 0, .87);
-    --mdc-theme-on-primary: #fff;
-    --mdc-theme-primary: #6200ee;
     --mdc-theme-primary-200: 187, 134, 252;
     --mdc-theme-primary-overlay-selected: rgba(var(--mdc-theme-primary-200), 0.12);
     --medium-emphasis-color: rgba(0, 0, 0, 0.6);
     --surface: #fff;
     --topbar-background: #fff;
     --high-emphasis-color: black;
-    --card-bg-color: white;
+    --card-bg-color: #fff;
     --fab-icon-color: #fff;
     --text-color: rgba(0, 0, 0, .87);
     --icon-color: rgba(0, 0, 0, .6);
@@ -94,19 +102,50 @@ $secondary-gray-theme: mat.define-light-theme((
     --scrollbar-bg-color: #fafafa;
     --scrollbar-thumb-background: #c2c2c2;
     --thumb-bg-hover: #7d7d7d;
-
+    --on-surface-variant: #49454F;
+    --mdc-outlined-button-outline-color: #79747E;
+    --outline-variant: rgba(0,0,0,.12);
+    --tertiary-container-color: #FFD8E4;
+    --on-tertiary-container-color: #31111D;
   }
 }
 
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #6750A4;
+}
+
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color: #6750A4;
+}
+
+.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+  background-color: #E7E0EC;
+}
+
+/*.mdc-button {
+  --mdc-typography-button-line-heigh: 40px;
+}
+
+.mat-mdc-button.mat-mdc-button-base, .mat-mdc-raised-button.mat-mdc-button-base, .mat-mdc-unelevated-button.mat-mdc-button-base, .mat-mdc-outlined-button.mat-mdc-button-base {
+  height: 40px !important;
+}*/
+
 // Override chips theme
-/*.mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
-  --mdc-chip-elevated-container-color: #6200ee12
+.mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
+  --mdc-chip-elevated-container-color: #fff;
+  --mdc-chip-label-text-color: black;
+  border: none;
+  border: 1px solid rgba(0,0,0,.32);
+
+  a {
+    color: black;
+  }
 }
 
 .mat-mdc-standard-chip {
   --mdc-chip-elevated-container-color: #fff;
   border: 1px solid rgba(0, 0, 0, .12)
-}*/
+}
 
 /**
   Highlight.js
@@ -114,7 +153,7 @@ $secondary-gray-theme: mat.define-light-theme((
 @import "highlight.js/scss/github";
 
 svg {
-  fill: var(--medium-emphasis-color);
+  fill: var(--on-surface-variant);
 }
 
 .mat-mdc-list-item.active {
@@ -142,3 +181,4 @@ svg {
   // background-color: var(--mdc-theme-primary-overlay-selected);
   background-color: rgba(0, 0, 0, .08);
 }
+

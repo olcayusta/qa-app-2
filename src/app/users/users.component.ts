@@ -9,5 +9,4 @@ import { UserListComponent } from './components/user-list/user-list.component';
   styleUrls: ['./users.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersComponent {
-}
+export class UsersComponent {}

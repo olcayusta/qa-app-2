@@ -1,4 +1,4 @@
-<div class='popup-page one-dp'>
+<div class='popup-page mat-elevation-z3'>
   <header>
     <img class='popup-page__avatar' src='{{user.picture}}' alt='{{user.displayName}}'>
     <div>
@@ -10,26 +10,29 @@
   <section>
     <mat-nav-list>
       <a mat-list-item routerLink='/settings'>
-        <app-icon name='settings' matListItemIcon></app-icon>
+        <app-icon name='settings' matListItemIcon />
         <span>Hesap & ayarlar</span>
       </a>
       <a mat-list-item routerLink='/help'>
-        <app-icon name='help' matListItemIcon></app-icon>
+        <app-icon name='help' matListItemIcon />
         <span>Yardım</span>
       </a>
       <mat-list-item (click)='logout()'>
-        <app-icon name='logout' matListItemIcon></app-icon>
+        <app-icon name='logout' matListItemIcon />
         <span>Oturumu kapat</span>
       </mat-list-item>
     </mat-nav-list>
+
     <mat-divider />
+
     <mat-nav-list>
       <a mat-list-item routerLink='/settings'>
-        <app-icon name='dark_mode' matListItemIcon></app-icon>
+        <app-icon name='dark_mode' matListItemIcon />
         <span>Görünüm: Cihaz Teması</span>
+        <mat-slide-toggle></mat-slide-toggle>
       </a>
       <a mat-list-item routerLink='/settings'>
-        <app-icon name='keyboard' matListItemIcon></app-icon>
+        <app-icon name='keyboard' matListItemIcon />
         <span>Klavye kısayolları</span>
       </a>
     </mat-nav-list>

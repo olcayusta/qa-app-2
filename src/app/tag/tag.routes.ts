@@ -1,19 +1,26 @@
-import { Routes } from '@angular/router';
-import { tagResolveFn } from './tag.resolver';
+import { ActivatedRouteSnapshot, Routes } from '@angular/router';
 import { TagComponent } from './tag.component';
-import { tagTitleResolveFn } from './resolvers/tag-title.resolver';
+import { inject } from '@angular/core';
+import { TagService } from './tag.service';
+import { Tag } from '@models/tag.model';
+import { of } from 'rxjs';
 
 export default [
   {
     path: '',
     resolve: {
-      tag: tagResolveFn
+      tag: (route: ActivatedRouteSnapshot) => {
+        return inject(TagService).getTag(route.paramMap.get('tagId'));
+      }
     },
     children: [
       {
         path: '',
         component: TagComponent,
-        title: tagTitleResolveFn
+        title: (route: ActivatedRouteSnapshot) => {
+          const { tag } = route.parent!.data as { tag: Tag };
+          return of(tag.title);
+        }
       }
     ]
   }

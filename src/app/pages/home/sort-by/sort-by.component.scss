@@ -1,5 +1,15 @@
 :host {
   display: block;
+  --mdc-text-button-container-height: 40px;
+  --mdc-text-button-container-shape: 28px;
+}
+
+app-icon ::ng-deep {
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .container {
@@ -8,7 +18,6 @@
   column-gap: 8px;
 
   .menu-button {
-    font-family: Archivo, sans-serif;
 
     mat-icon {
       margin-right: 8px;

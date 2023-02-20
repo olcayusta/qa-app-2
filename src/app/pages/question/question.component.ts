@@ -1,7 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef, inject,
+  ElementRef,
+  inject,
   OnDestroy,
   OnInit,
   TemplateRef,
@@ -17,7 +18,11 @@ import { map, shareReplay } from 'rxjs/operators';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ShareDialogComponent } from '@dialogs/share-dialog/share-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Overlay, OverlayRef, ScrollStrategyOptions } from '@angular/cdk/overlay';
+import {
+  Overlay,
+  OverlayRef,
+  ScrollStrategyOptions
+} from '@angular/cdk/overlay';
 import { AuthService } from '@auth/auth.service';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { AsyncPipe, DOCUMENT, NgIf, NgOptimizedImage } from '@angular/common';
@@ -33,6 +38,8 @@ import { MatCardModule } from '@angular/material/card';
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
 import { MatButtonModule } from '@angular/material/button';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
+import { MatIconModule } from '@angular/material/icon';
+import { IconComponent } from '@components/icon/icon.component';
 
 @Component({
   selector: 'app-question',
@@ -51,7 +58,9 @@ import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.com
     NgIf,
     MatButtonModule,
     RouterLink,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatIconModule,
+    IconComponent
   ],
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
@@ -86,8 +95,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private socketService: SocketService,
     private voteService: VoteService
-  ) {
-  }
+  ) {}
 
   initializeSchema() {
     this.document.body.setAttribute('itemscope', '');
@@ -105,10 +113,12 @@ export class QuestionComponent implements OnInit, OnDestroy {
       map((data) => data['question']),
       tap(({ id: questionId }) => {
         this.questionId = questionId;
-        this.subA = this.socketService.watch('watch', `q:${questionId}`).subscribe((messageForA) => {
-          console.log(messageForA);
-          this.snackBar.open('1 yeni cevap gönderildi', 'TAMAM');
-        });
+        this.subA = this.socketService
+          .watch('watch', `q:${questionId}`)
+          .subscribe((messageForA) => {
+            console.log(messageForA);
+            this.snackBar.open('1 yeni cevap gönderildi', 'TAMAM');
+          });
       }),
       shareReplay()
     );
@@ -126,14 +136,19 @@ export class QuestionComponent implements OnInit, OnDestroy {
    * @param questionId
    */
   addToFavoriteToQuestion(questionId: number): void {
-    this.snackBar.open('Bu soruyu bir favori listesine eklemek için oturum açın', 'TAMAM');
+    this.snackBar.open(
+      'Bu soruyu bir favori listesine eklemek için oturum açın',
+      'TAMAM'
+    );
     /*   this.favoriteService.addToFavorite(questionId).subscribe((value) => {
       console.log(value);
     });*/
   }
 
   async openShareDialog() {
-    const { ShareDialogComponent } = await import('@dialogs/share-dialog/share-dialog.component');
+    const { ShareDialogComponent } = await import(
+      '@dialogs/share-dialog/share-dialog.component'
+    );
     this.dialog
       .open(ShareDialogComponent, {
         minWidth: 360,
@@ -174,8 +189,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
   /**
    * Like question event
    */
-  likeQuestion() {
-  }
+  likeQuestion() {}
 
   /**
    * Open login dialog
@@ -185,7 +199,9 @@ export class QuestionComponent implements OnInit, OnDestroy {
   }
 
   async openFlagDialog() {
-    const { FlagDialogComponent } = await import('@dialogs/flag-dialog/flag-dialog.component')
+    const { FlagDialogComponent } = await import(
+      '@dialogs/flag-dialog/flag-dialog.component'
+    );
     this.dialog.open(FlagDialogComponent, {
       autoFocus: false,
       minWidth: 560

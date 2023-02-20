@@ -1,11 +1,13 @@
 <div class='my-content'>
 
-  <!--  <h6 class='headline-6'>Soru Sor</h6>-->
+  <header>
+    <h2 class='headline-5'>Herkese açık soru oluştur</h2>
+  </header>
 
   <form autocomplete='off' spellcheck='false' [formGroup]='questionForm' (submit)='submit()'>
     <div class='form-body'>
 
-      <mat-form-field hideRequiredMarker>
+      <mat-form-field hideRequiredMarker appearance="outline">
         <mat-label>Başlık</mat-label>
         <input aria-label='Başlık' matInput formControlName='title'>
         <mat-error *ngIf="questionForm.get('title')?.hasError('required')">Bir başlık girin</mat-error>
@@ -59,7 +61,7 @@
       <app-chips-autocomplete />
 
       <div class='form-actions'>
-        <button type='submit' mat-raised-button color='primary'>GÖNDER</button>
+        <button type='submit' mat-raised-button color='primary'>Gönder</button>
       </div>
     </div>
   </form>

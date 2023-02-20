@@ -1,8 +1,11 @@
 <header class='header'>
   <div class='header__user'>
     <div class='header-user__avatar'>
-      <app-img-shadow [width]='160' [height]='160' [src]='user.picture' [alt]='user.displayName'
+      <app-img-shadow [width]='192' [height]='192' [src]='user.picture' [alt]='user.displayName'
                        class='user-img-renderer' />
+
+<!--      <img ngSrc="{{user.picture}}" alt="{{user.displayName}}" width="192" height="192" priority>-->
+
     </div>
 
     <div class='header__details'>

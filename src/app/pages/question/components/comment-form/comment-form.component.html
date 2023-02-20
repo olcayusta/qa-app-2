@@ -6,14 +6,14 @@
     </div>-->
   <div class='media__reply'>
     <form autocomplete='off' spellcheck='false' (submit)='saveComment()'>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Yorum ekleyin...</mat-label>
         <input matInput placeholder='Aa' [formControl]='commentControl'>
         <!--<mat-hint>{{commentControl.value.length}}</mat-hint>-->
       </mat-form-field>
       <div class='media__form-actions'>
         <button type='button' mat-button>İptal</button>
-        <button type='submit' mat-raised-button color='primary'>Yorum yap</button>
+        <button type='submit' mat-flat-button color='primary'>Yorum yap</button>
       </div>
     </form>
   </div>

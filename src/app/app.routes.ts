@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { authGuardFn } from "@auth/auth.guard";
+import { authGuardFn } from '@auth/auth.guard';
 import { LoggedGuard } from '@auth/logged.guard';
 
-export const APP_ROUTES: Routes = [
+export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./components/main/main.component'),
@@ -39,7 +39,7 @@ export const APP_ROUTES: Routes = [
       },
       {
         path: 'watched_tags',
-        loadChildren: () => import('./pages/watched-tags/watched-tags.routes')
+        loadChildren: () => import('./watched-tags/watched-tags.routes')
       },
       {
         path: 'user/:userId',
@@ -51,7 +51,8 @@ export const APP_ROUTES: Routes = [
       },
       {
         path: 'questions/create',
-        loadChildren: () => import('./pages/create-question/create-question.routes')
+        loadChildren: () =>
+          import('./pages/create-question/create-question.routes')
       },
       {
         path: 'edit',
@@ -83,7 +84,8 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: '500',
-    loadChildren: () => import('./page-internal-server-error/page-internal-server-error.routes')
+    loadChildren: () =>
+      import('./page-internal-server-error/page-internal-server-error.routes')
   },
   {
     path: '**',

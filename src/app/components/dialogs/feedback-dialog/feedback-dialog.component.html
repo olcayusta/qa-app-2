@@ -13,16 +13,20 @@
   <button type='submit' mat-button color='primary' form='feedbackForm'>TAMAM</button>
 </mat-dialog-actions>-->
 
-<h1 mat-dialog-title>Geri bildirim gonder</h1>
-<mat-dialog-actions>
+<h1 mat-dialog-title>Geri bildirim gönder</h1>
+<mat-dialog-content>
   <form autocomplete='off' spellcheck='false' id='feedbackForm' [formGroup]='feedbackForm' (submit)='sendFeedback($event)'>
-    <mat-form-field appearance='outline'>
+    <p>
+      A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.
+    </p>
+<!--    <mat-form-field appearance='outline'>
       <mat-label>Write text</mat-label>
       <textarea matInput cdkTextareaAutosize formControlName='feedbackText' [cdkAutosizeMinRows]='4'></textarea>
       <mat-error *ngIf='formControl.hasError("required")'>Text bos gecilemez!</mat-error>
-    </mat-form-field>
+    </mat-form-field>-->
   </form>
-</mat-dialog-actions>
+</mat-dialog-content>
 <mat-dialog-actions [align]='"end"'>
-  <button type='submit' mat-button color='primary' form='feedbackForm'>TAMAM</button>
+  <button type='submit' mat-button form='feedbackForm'>İptal</button>
+  <button type='submit' mat-flat-button color='primary' form='feedbackForm'>Tamam</button>
 </mat-dialog-actions>

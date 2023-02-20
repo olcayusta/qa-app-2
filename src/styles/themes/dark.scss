@@ -15,27 +15,33 @@ $dark-theme: mat.define-dark-theme((
 @media (prefers-color-scheme: dark) {
   :root {
     // color-scheme: dark;
-    --html-bg-color: #121212;
+    --html-bg-color: #1C1B1F;
     --color: white;
-    --mdc-theme-primary: #bb86fc;
     --medium-emphasis-color: rgba(255, 255, 255, 0.6);
-    --surface: #121212;
-    --topbar-background: #272727;
+    --surface: #1C1B1F;
+    --topbar-background: #1C1B1F;
     --high-emphasis-color: rgba(255, 255, 255, 0.6);
-    --card-bg-color: #1e1e1e;
+    --card-bg-color: #25232a;
     --fab-icon-color: black;
     --text-color: #fff;
     --icon-color: rgba(255, 255, 255, 0.6);
-    --drawer-background: #353535;
+    --drawer-background: #1C1B1F;
     --autocomplete-background: #2f2f2f;
-    --search-background: rgba(255, 255, 255, 0.12);
+    --search-background: #302d38;
     --code-background: #1e1e1e;
     --border-color: rgba(255, 255, 255, 0.12);
-    --scrollbar-color: hotpink transparent;
+    --scrollbar-color: ffffff64 #1c1b1f;
     --scrollbar-bg-color: #2e2e2e;
     --thumb-bg-color: #757575;
     --scrollbar-thumb-background: #757575;
     --thumb-bg-hover: #9e9e9e;
+    --mdc-theme-surface: #2b2831;
+    --mdc-theme-on-surface: #E6E1E5;
+    --mdc-outlined-button-outline-color: #938F99;
+    --mdc-outlined-button-label-text-color: #D0BCFF;
+    --outline-variant: #49454F;
+    --tertiary-container-color: #633B48;
+    --on-tertiary-container-color: #FFD8E4;
   }
 }
 
@@ -43,13 +49,23 @@ $dark-theme: mat.define-dark-theme((
 
 @import "highlight.js/scss/github-dark-dimmed";
 
+.mat-mdc-outlined-button:not(:disabled) {
+  --mdc-outlined-button-label-text-color: #D0BCFF;
+  --mdc-outlined-button-outline-color: #938F99;
+}
+
+.mat-mdc-outlined-button.mat-primary {
+  --mat-mdc-button-persistent-ripple-color: #322f3a;
+  --mat-mdc-button-ripple-color: rgba(208, 188, 255, 0.12);
+}
+
 svg {
-  fill: rgba(255, 255, 255, 0.6);
+  fill: #CAC4D0;
 }
 
 .mat-mdc-list-item.active {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff !important;
+  background: #4A4458;
+  color: #E8DEF8 !important;
 
   mat-icon {
     color: #BB86FC !important;
@@ -93,3 +109,24 @@ svg {
   background: #03DAC5;
   color: black;
 }
+
+.mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
+  --mdc-chip-elevated-container-color: #4A4458;
+  --mdc-chip-elevated-disabled-container-color: #4A4458;
+  --mdc-chip-label-text-color: #E8DEF8;
+  border: none;
+}
+
+.mat-mdc-standard-chip {
+  --mdc-chip-elevated-container-color: transparent;
+  --mdc-chip-elevated-disabled-container-color: transparent;
+  --mdc-chip-label-text-color: #CAC4D0;
+  --mdc-chip-disabled-label-text-color: #fafafa;
+  --mdc-chip-with-icon-icon-color: #fafafa;
+  --mdc-chip-with-icon-disabled-icon-color: #fafafa;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: #fafafa;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: #fafafa;
+  --mdc-chip-with-icon-selected-icon-color: #fafafa;
+  border: 1px solid #938F99;
+}
+

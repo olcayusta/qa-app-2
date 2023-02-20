@@ -1,17 +1,32 @@
-import { Routes } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Routes
+} from '@angular/router';
 import { UserComponent } from './user.component';
-import { userResolverFn } from './user.resolver';
-import { userTitleResolverFn } from './resolvers/user-title.resolver';
-import { UserQuestionsResolver } from './components/user-questions/user-questions.resolver';
-import { UserAnswersResolver } from './components/user-answers/user-answers.resolver';
+import { inject } from '@angular/core';
+import { UserService } from './user.service';
+import { Observable, of } from 'rxjs';
+import { User } from '@models/user.model';
 
+const userTitleResolverFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): Observable<string> => {
+  const { user } = route.parent?.data as { user: User };
+  return of(user.displayName);
+};
 
 export default [
   {
     path: '',
     component: UserComponent,
     resolve: {
-      user: userResolverFn
+      user: (route: ActivatedRouteSnapshot) => {
+        return inject(UserService).getUser(
+          Number(route.paramMap.get('userId'))
+        );
+      }
     },
     children: [
       {
@@ -20,16 +35,28 @@ export default [
         children: [
           {
             path: 'questions',
-            loadComponent: () => import('./components/user-questions/user-questions.component'),
+            loadComponent: () =>
+              import('./components/user-questions/user-questions.component'),
             resolve: {
-              questions: UserQuestionsResolver
+              questions: (route: ActivatedRouteSnapshot) => {
+                const userId: number = Number(
+                  route.parent!.parent!.paramMap.get('userId')
+                );
+                return inject(UserService).getUserQuestions(userId);
+              }
             }
           },
           {
             path: 'answers',
-            loadComponent: () => import('./components/user-answers/user-answers.component'),
+            loadComponent: () =>
+              import('./components/user-answers/user-answers.component'),
             resolve: {
-              answers: UserAnswersResolver
+              answers: (route: ActivatedRouteSnapshot) => {
+                const userId: number = Number(
+                  route.parent!.parent!.paramMap.get('userId')
+                );
+                return inject(UserService).getUserAnswers(userId);
+              }
             }
           }
         ]

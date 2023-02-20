@@ -4,8 +4,13 @@ a {
 }
 
 .site-link {
-  // font-family: Roboto, "Helvetica Neue", sans-serif;
-  margin-left: 24px;
+  margin-left: 16px;
+
+  span {
+    font-family: 'Roboto Flex', Roboto, sans-serif;
+    font-variation-settings: "wght" 600, "wdth" 151, "opsz" 8;
+    letter-spacing: -1px;
+  }
 }
 
 sup {

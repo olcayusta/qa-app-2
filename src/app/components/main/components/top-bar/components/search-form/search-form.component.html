@@ -1,12 +1,14 @@
-<form id='search-form' (submit)='formSubmit($event)'>
-  <div class='search-form' matAutocompleteOrigin #origin='matAutocompleteOrigin'>
-    <button mat-icon-button aria-label='Ara' matTooltip='Ara'>
-      <app-icon name='search' />
+<form id="search-form" (submit)="formSubmit($event)">
+  <div class="search-form" matAutocompleteOrigin #origin="matAutocompleteOrigin">
+    <button mat-icon-button aria-label="Ara" matTooltip="Ara" disabled>
+      <app-icon name="search" />
     </button>
-    <input aria-label='Ara' autocomplete='off' spellcheck='false' placeholder='Ara'
+    <input aria-label="Ara" autocomplete="off" spellcheck="false" placeholder="Ara"
            #autocompleteTrigger="matAutocompleteTrigger"
-           [formControl]='searchControl'
-           [matAutocomplete]='auto' [matAutocompleteConnectedTo]='origin'>
+           matAutocompletePosition="below"
+           [formControl]="searchControl"
+           [matAutocomplete]="auto" [matAutocompleteConnectedTo]="origin">
+    <!--    <mat-icon *ngIf="searchControl.value.length">close</mat-icon>-->
   </div>
 </form>
 
@@ -28,36 +30,36 @@
   </svg>
 </button>-->
 
-<mat-autocomplete #auto='matAutocomplete' class='my-autocomplete mat-elevation-z2' [displayWith]='displayFn'
-                  (optionSelected)='selectedOption($event)'>
+<mat-autocomplete #auto="matAutocomplete" class="my-autocomplete mat-elevation-z2" [displayWith]="displayFn"
+                  (opened)="onOpened()" (closed)="onClosed()"
+                  (optionSelected)="selectedOption($event)">
 
-  <ng-container *ngIf='filteredResults$ | async as filteredResults'>
-    <mat-optgroup label='Sorular' *ngIf='filteredResults.questions' class="optgroup-label">
-      <mat-option *ngFor='let question of filteredResults.questions' [value]='question'>
-        <span [innerHTML]='question.title | highlightSearch: searchControl.value'></span>
+  <ng-container *ngIf="filteredResults$ | async as filteredResults">
+    <mat-optgroup label="Sorular" *ngIf="filteredResults.questions" class="optgroup-label">
+      <mat-option *ngFor="let question of filteredResults.questions" [value]="question">
+        <span [innerHTML]="question.title | highlightSearch: searchControl.value"></span>
       </mat-option>
     </mat-optgroup>
 
-    <mat-optgroup label='Etiketler' *ngIf='filteredResults.tags'>
-      <mat-option *ngFor='let tag of filteredResults.tags' [value]='tag'>
-        <span [innerHTML]='tag.title | highlightSearch: searchControl.value'></span>
+    <mat-optgroup label="Etiketler" *ngIf="filteredResults.tags">
+      <mat-option *ngFor="let tag of filteredResults.tags" [value]="tag">
+        <span [innerHTML]="tag.title | highlightSearch: searchControl.value"></span>
       </mat-option>
     </mat-optgroup>
 
-    <mat-optgroup label='Kullanıcılar' *ngIf='filteredResults.users'>
-      <mat-option *ngFor='let user of filteredResults.users' [value]='user' class='user-option'>
-        <img class='option-user-img' src='{{user.picture}}' alt=''>
-        {{user.displayName}}
+    <mat-optgroup label="Kullanıcılar" *ngIf="filteredResults.users">
+      <mat-option *ngFor="let user of filteredResults.users" [value]="user" class="user-option">
+        <img class="option-user-img" src="{{user.picture}}" alt="">
+        <span class="user-display-name">{{user.displayName}}</span>
         <!--    <span [innerHTML]='user.displayName | highlightSearch: searchControl.value'></span>-->
       </mat-option>
     </mat-optgroup>
   </ng-container>
 
-  <div class='autocomplete-action-row'>
-
-    <a mat-button color='primary' routerLink='/search' [queryParams]='{q: searchControl.value}'
-       (click)='closeAutocomplete()'>
-      "{{searchControl.value}}" İÇİN TÜM SONUÇLARI GÖSTER
+  <div class="autocomplete-action-row">
+    <a mat-button color="primary" routerLink="/search" [queryParams]="{q: searchControl.value}"
+       (click)="closeAutocomplete()">
+      "{{searchControl.value}}" için tüm sonuçları göster
     </a>
   </div>
 </mat-autocomplete>

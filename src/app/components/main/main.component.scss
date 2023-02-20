@@ -23,7 +23,7 @@ mat-sidenav-container {
   }
 
   mat-sidenav {
-    width: 360px;
+    width: 280px;
     min-height: 100vh;
     // padding: 12px;
     background-color: var(--drawer-background);
@@ -75,9 +75,7 @@ mat-sidenav-container {
   visibility: hidden;
 }
 
-/*
-  Main Page Update Chips
-*/
+// content-update-chip - experimental
 .content-update-chip {
   position: fixed;
   left: 50%;
@@ -87,6 +85,7 @@ mat-sidenav-container {
   transform: translate3d(-50%, 0, 0);
 }
 
+// extended-fab with animation - experimental
 .extended-fab {
   width: auto;
   max-width: 200px;
@@ -120,20 +119,9 @@ mat-sidenav-container {
   z-index: 1;
 
   app-icon {
-    display: inline-flex;
-    align-items: center;
-    margin-right: 12px;
-  }
-
-  ::ng-deep svg {
-    fill: var(--fab-icon-color);
-  }
-
-  span {
-    font-size: 14px;
-    line-height: 16px;
-    // text-transform: uppercase;
-    // letter-spacing: 1.25px
+    ::ng-deep svg {
+      fill: currentColor;
+    }
   }
 }
 

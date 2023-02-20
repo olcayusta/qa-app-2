@@ -1,58 +1,71 @@
-<div class='item'>
-  <a class='avatar-link' routerLink='/user/{{question.user.id}}' title='{{question.user.displayName}}'>
+<div class="item">
+  <a class="avatar-link" routerLink="/user/{{question.user.id}}" title="{{question.user.displayName}}">
 
-<!--
-    <div class='author-image-renderer'>
-      <img ngSrc='{{question.user.picture}}' alt='' width='40' height='40'>
-    </div>
--->
+    <!--
+        <div class='author-image-renderer'>
+          <img ngSrc='{{question.user.picture}}' alt='' width='40' height='40'>
+        </div>
+    -->
 
-    <app-img-shadow [width]='40' [height]='40' src='{{question.user.picture}}' alt='' class='author-image-renderer' />
+    <app-img-shadow [width]="40" [height]="40" src="{{question.user.picture}}" alt="" class="author-image-renderer" />
+
+    <!--    <div class="app-img-shadow">
+          <img ngSrc="{{question.user.picture}}" alt="" width="40" height="40">
+        </div>-->
 
   </a>
 
-  <div class='item__right'>
-    <div class='flex-cl'>
+  <div class="item__right">
+    <div class="flex-cl">
 
-      <!--       <span  class='bountie' *ngIf="question.id === 60">+50</span>-->
+      <!--       <span  class='bountie' *ngIf="question.id === 126">+50</span>-->
 
-      <a routerLink='/question/{{question.id}}' class='simple-endpoint'>
-        <div class='subtitle-1'>{{question.title}}</div>
+      <a routerLink="/question/{{question.id}}" class="simple-endpoint">
+        <div class="subtitle-1">{{question.title}}</div>
       </a>
 
-      <!--<mat-icon class='check-icon' *ngIf='question.acceptedAnswerId'>done</mat-icon>-->
-      <span class='check-title' *ngIf='question.id === 20'>CEVAPLANDI</span>
-      <!-- <mat-icon class='hot-fire-question' *ngIf="question.id === 115">local_fire_department</mat-icon> -->
+      <mat-icon class="check-icon" *ngIf="question.id === 20">done</mat-icon>
 
     </div>
 
-    <div class='item__footer'>
-      <div class='item__footer--username'>
-        <a routerLink='/user/{{question.user.id}}'>{{question.user.displayName}}</a>
-        <!--  <mat-icon *ngIf='question.user.isVerified'>local_police</mat-icon>-->
+    <div class="item__footer">
+
+      <div class="post1">
+        <div class="item__footer--username">
+          <a routerLink="/user/{{question.user.id}}">{{question.user.displayName}}</a>
+          <!--  <mat-icon *ngIf='question.user.isVerified'>local_police</mat-icon>-->
+        </div>
+        <span class="item__footer--bracket">—</span>
+
+        <div class="item__footer--time">
+          <!--   <time>{{question.creationTime | timeAgo}}</time>-->
+          <time>{{question.creationTime | relativeTimeFormat}}</time>
+        </div>
       </div>
-      <span class='item__footer--bracket'>—</span>
 
-      <div class='item__footer--time'>
-        <!--   <time>{{question.creationTime | timeAgo}}</time>-->
-        <time>{{question.creationTime | relativeTimeFormat}}</time>
-      </div>
+      <ng-container *ngIf="question.answerTime">
+        <div class="answer-mini-post">
+          <!--<img src="http://localhost:4200/assets/avatars/28.png" alt="">-->
 
-      <!--<ng-container *ngIf='question.answerTime'>
-        <span class='bracket'>•</span>
-        <img src='https://img.freepik.com/vrije-vector/portret-van-een-sterke-moslimvrouw-in-profiel-die-een-zwarte-hijab-draagt-zelfverzekerde-jonge-arabische-meisje_102172-433.jpg?size=338&ext=jpg'>
-        <span>Olcay Usta</span>
+          <mat-icon>
 
-        <span class='bracket'>—</span>
-        <time>{{question.answerTime | relativeTimeFormat}} cevaplandi</time>
-      </ng-container>-->
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M180 876h44l443-443-44-44-443 443v44Zm614-486L666 262l41.823-41.823Q725 203 750.5 203.5T793 221l43 43q17 17 17 42t-16.963 41.963L794 390ZM150.327 936q-12.889 0-21.608-8.714Q120 918.571 120 905.689v-85.627Q120 814 122 809q2-5 7-10l495-495 128 128-495 495q-5 5-10.217 7-5.218 2-10.783 2h-85.673ZM645 411l-22-22 44 44-22-22Z"/></svg>
+          </mat-icon>
 
-      <!-- <div class="master-span" *ngIf="question.id === 20">
-         <span>CEVAPLANDI</span>
-       </div>-->
+          <a routerLink="/user/{{question.user.id}}">Olcay Usta</a>
+
+          <span class="bracket">—</span>
+          <a routerLink="/">
+            <time>{{question.answerTime | relativeTimeFormat}} </time>
+          </a>
+        </div>
+      </ng-container>
+
     </div>
 
-    <mat-chip-set aria-label='Fish selection'>
+
+
+    <mat-chip-set aria-label="Fish selection" role="list">
 
       <!--       <mat-chip [selected]='tag.selected' *ngFor='let tag of question.tags'>
                <a routerLink='/tag/{{tag.id}}'>
@@ -60,20 +73,27 @@
                </a>
              </mat-chip>-->
 
-      <mat-chip [highlighted]="tag.id === 2" *ngFor='let tag of question.tags'>
-        <a routerLink='/tag/{{tag.id}}'>
-<!--          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>-->
+<!--      <mat-chip [highlighted]="tag.id === 2" *ngFor="let tag of question.tags">
+        <a routerLink="/tag/{{tag.id}}">
+          &lt;!&ndash;          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>&ndash;&gt;
           {{tag.title}}
         </a>
-      </mat-chip>
+      </mat-chip>-->
+
+        <a routerLink="/tag/{{t.id}}" mat-chip role="listitem"   [highlighted]="t.id === 2" *ngFor="let t of question.tags">
+          <!--          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>-->
+          {{t.title}}
+        </a>
+
 
       <!--     <mat-chip routerLink='/tag/{{tag.id}}' [selected]='tag.selected' selectable *ngFor='let tag of question.tags'>
              {{tag.title}}
            </mat-chip>-->
 
       <!-- TODO -->
-      <mat-chip *ngIf='!question.tags'>Test</mat-chip>
+      <mat-chip *ngIf="!question.tags">Test</mat-chip>
     </mat-chip-set>
+
 
     <mat-divider />
   </div>

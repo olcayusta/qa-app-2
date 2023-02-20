@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgForOf, NgIf } from '@angular/common';
 import { IconComponent } from '@components/icon/icon.component';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 interface Food {
   value: string;
@@ -31,7 +32,16 @@ export interface Fruit {
 @Component({
   selector: 'app-sort-by',
   standalone: true,
-  imports: [MatMenuModule, MatButtonModule, MatTooltipModule, RouterLink, NgForOf, NgIf, IconComponent],
+  imports: [
+    MatMenuModule,
+    MatButtonModule,
+    MatTooltipModule,
+    RouterLink,
+    NgForOf,
+    NgIf,
+    IconComponent,
+    MatIconModule
+  ],
   templateUrl: './sort-by.component.html',
   styleUrls: ['./sort-by.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

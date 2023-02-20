@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, inject, Input, Renderer2 } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostBinding,
+  inject,
+  Input,
+  Renderer2
+} from '@angular/core';
 import { LazyImgDirective } from '@shared/directives/lazy-img.directive';
 
 @Component({
@@ -14,8 +22,8 @@ export class ImgShadowComponent {
   @Input() alt!: string;
   @Input() itemprop = false;
 
-  @HostBinding('style.width.px') @Input() width: number = 40;
-  @HostBinding('style.height.px') @Input() height: number = 40;
+  @HostBinding('style.width.px') @Input() width: number | string = 40;
+  @HostBinding('style.height.px') @Input() height: number | string = 40;
 
   private elementRef: ElementRef<HTMLElement> = inject(ElementRef);
   private renderer = inject(Renderer2);

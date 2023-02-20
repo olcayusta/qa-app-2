@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  inject
+} from '@angular/core';
 import { Question } from '@models/question.model';
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
@@ -9,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { MatButtonModule } from "@angular/material/button";
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-list',
@@ -33,8 +38,8 @@ export class ListComponent implements OnInit {
 
   isLoggedIn$!: Observable<boolean>;
 
-  private listService = inject(ListService);
-  private authService = inject(AuthService);
+  private readonly listService = inject(ListService);
+  private readonly authService = inject(AuthService);
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn$;

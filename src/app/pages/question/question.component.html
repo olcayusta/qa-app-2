@@ -17,8 +17,6 @@
           <div>
             <h4 itemprop="name" class="headline-4">{{question.title}}</h4>
 
-            <a routerLink="/question/120">soruya git</a>
-
             <div class="body-2 header-one-description">
               <p>{{question.viewCount}} görüntüleme</p>
               <span class="bracket">—</span>
@@ -92,10 +90,14 @@
                             [alt]="question.user.displayName" />
 
             <div class="author-info">
-              <div>
+              <div class="author-info-inner">
                 <a routerLink="/user/{{question.user.id}}">
                   <div itemprop="name" id="author-name">{{question.user.displayName}}</div>
                 </a>
+           <!--     <div class="verified-icon-container">
+                  <app-icon name="check"></app-icon>
+                 &lt;!&ndash; <mat-icon>gavel</mat-icon>&ndash;&gt;
+                </div>-->
               </div>
               <div class="author-badge">Seviye 1</div>
             </div>

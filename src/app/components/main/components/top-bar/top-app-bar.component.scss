@@ -13,6 +13,8 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     background-color: var(--topbar-background);
+    height: 72px;
+    padding-bottom: 8px;
   }
 
   .mat-toolbar {
@@ -49,20 +51,7 @@ a[mat-button], a[mat-stroked-button] {
 }
 
 a[mat-stroked-button] {
-  border-radius: 28px;
-  padding: 0 16px;
-  color: var(--mdc-theme-primary);
-  height: 40px;
-  line-height: 40px;
-  margin-right: 24px !important;
-
-  ::ng-deep svg {
-    fill: var(--mdc-theme-primary);
-  }
-
-  mat-icon {
-    margin-right: 8px;
-  }
+  --mdc-outlined-button-container-shape: 28px;
 }
 
 .badge-icon ::ng-deep .mat-badge-content {

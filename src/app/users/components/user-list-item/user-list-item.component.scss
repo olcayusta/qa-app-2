@@ -1,6 +1,10 @@
 :host {
   display: block;
 
+  app-img-shadow {
+    aspect-ratio: 1 / 1;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -16,10 +20,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 30vw;
 
     .user-picture-renderer {
-      width: 140px;
-      height: 140px;
+      width: 100%;
+      height: 100%;
     }
 
     .user-info {
@@ -32,7 +37,8 @@
       font-size: 14px;
       line-height: 20px;
       font-weight: 500;
-      margin: 4px 0;
+      letter-spacing: 0.1px;
+      margin: 16px 0;
     }
   }
 }

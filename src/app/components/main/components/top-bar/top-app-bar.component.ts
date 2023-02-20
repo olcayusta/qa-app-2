@@ -27,6 +27,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { IconComponent } from '@components/icon/icon.component';
+import { SettingsIconComponent } from '../../../../material-icons/settings-icon/settings-icon.component';
+import { DarkModeIconComponent } from '@icons/dark-mode-icon/dark-mode-icon.component';
+import { KeyboardIconComponent } from '@icons/keyboard-icon/keyboard-icon.component';
 
 @Component({
   selector: 'app-top-app-bar',
@@ -44,7 +47,10 @@ import { IconComponent } from '@components/icon/icon.component';
     RouterLink,
     MatBadgeModule,
     MatIconModule,
-    IconComponent
+    IconComponent,
+    SettingsIconComponent,
+    DarkModeIconComponent,
+    KeyboardIconComponent
   ],
   templateUrl: './top-app-bar.component.html',
   styleUrls: ['./top-app-bar.component.scss'],
@@ -73,17 +79,17 @@ export class TopAppBarComponent implements OnInit {
     private changeDetectorRef: ChangeDetectorRef,
     private drawerService: DrawerService,
     private router: Router
-  ) {
-  }
+  ) {}
 
   async ngOnInit(): Promise<void> {
     this.isLoggedIn$ = this.authService.isLoggedIn$;
 
     if (this.authService.userValue) {
-      const [{ NotificationButtonComponent }, { AvatarButtonComponent }] = await Promise.all([
-        this.loadNotificationButtonComponent(),
-        this.loadAvatarButtonComponent()
-      ]);
+      const [{ NotificationButtonComponent }, { AvatarButtonComponent }] =
+        await Promise.all([
+          this.loadNotificationButtonComponent(),
+          this.loadAvatarButtonComponent()
+        ]);
 
       this.AvatarButtonComponent = AvatarButtonComponent;
       this.NotificationButtonComponent = NotificationButtonComponent;
@@ -95,15 +101,21 @@ export class TopAppBarComponent implements OnInit {
     /**
      * Load components if breakpoint is wider than handset.
      */
-    this.breakpointObserver.observe(Breakpoints.Web).subscribe(async ({ matches }) => {
-      if (matches) {
-        await this.loadSearchFormComponent();
-      }
-    });
+    this.breakpointObserver
+      .observe(Breakpoints.Web)
+      .subscribe(async ({ matches }) => {
+        if (matches) {
+          await this.loadSearchFormComponent();
+        }
+      });
 
-    this.isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(({ matches }) => matches));
+    this.isHandset$ = this.breakpointObserver
+      .observe(Breakpoints.Handset)
+      .pipe(map(({ matches }) => matches));
 
-    this.isWeb$ = this.breakpointObserver.observe(Breakpoints.Web).pipe(map(({ matches }) => matches));
+    this.isWeb$ = this.breakpointObserver
+      .observe(Breakpoints.Web)
+      .pipe(map(({ matches }) => matches));
 
     this.router.events.subscribe((value: Event) => {
       if (value instanceof NavigationStart) {
@@ -118,14 +130,18 @@ export class TopAppBarComponent implements OnInit {
   }
 
   async loadNotificationButtonComponent() {
-    return await import('./components/notification-button/notification-button.component');
+    return await import(
+      './components/notification-button/notification-button.component'
+    );
   }
 
   /**
    * Search Form Bileşenini desktop ise yükle...
    */
   async loadSearchFormComponent() {
-    const { SearchFormComponent } = await import('./components/search-form/search-form.component');
+    const { SearchFormComponent } = await import(
+      './components/search-form/search-form.component'
+    );
     this.searchFormComponentOutlet = SearchFormComponent;
     this.changeDetectorRef.markForCheck();
   }

@@ -4,6 +4,14 @@
 
 mat-toolbar {
   background: transparent;
+
+  .sheet-title {
+    margin-left: 16px;
+  }
+
+  .flex-spacer {
+    flex: 1 0 auto;
+  }
 }
 
 mat-toolbar mat-icon {
@@ -18,11 +26,13 @@ mat-toolbar mat-icon {
   margin-top: 0;
 }
 
+.mat-mdc-list-base {
+  --mdc-list-list-item-container-shape: 28px;
+}
+
 .mat-mdc-list-item {
   width: auto !important;
   margin: 0 12px;
-  border-radius: 28px;
-  overflow: hidden;
 }
 
 /*::ng-deep .overflow-container::-webkit-scrollbar {
@@ -89,7 +99,7 @@ mat-toolbar mat-icon {
 
 mat-divider {
   width: auto;
-  margin: 0 24px;
+  margin: 0 16px;
 }
 
 #copyright {
@@ -98,3 +108,4 @@ mat-divider {
   color: rgba(0, 0, 0, .54);
   padding: 16px 24px;
 }
+

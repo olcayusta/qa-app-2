@@ -1,9 +1,10 @@
 <mat-sidenav-container id='drawer-container'>
   <mat-sidenav
     #sidenav
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
     position='start'
+    [fixedTopGap]="(isHandset$ | async) ? 0 : 64"
     fixedInViewport
-    [autoFocus]='false'
     (openedStart)='sidenavOpenedStart()'
     (closedStart)='sidenavClosedStart()'
   >
@@ -14,8 +15,7 @@
     #sheet
     position='end'
     fixedInViewport
-    [autoFocus]='false'
-    [fixedTopGap]="mode == 'side' ? 64 : 0"
+    [fixedTopGap]="mode === 'side' ? 64 : 0"
     [mode]='mode'
     (openedStart)='sheetOpenedStart()'
     (closedStart)='sheetClosedStart()'
@@ -26,33 +26,12 @@
   <mat-sidenav-content>
     <app-top-app-bar appSticky (openSheet)='loadSidenavSheetComponent(); sheet.toggle()' />
 
+<!--    <app-mini-guide-renderer />-->
+
     <main>
       <div id='content'>
         <div class='my-content'>
           <router-outlet />
-
-          <div class='fixed-fab-btn'>
-        <!--    <a mat-fab routerLink='/questions/create' class='extended-fab' appExtendedFab>
-              <app-icon name='create'></app-icon>
-              <span>Soru sor</span>
-            </a>-->
-
-            <a mat-fab color="primary" routerLink="/quesionts/create" extended>
-              <mat-icon>create</mat-icon>
-              Soru sor
-            </a>
-
-   <!--         <a mat-fab routerLink="/questions/create" extended>
-              <mat-icon>create</mat-icon>
-              Soru sor
-            </a>-->
-
-          </div>
-
-        <!--  <div class='content-update-chip'>
-            <mat-chip class='mat-elevation-z4'>Yeni sorular (3)</mat-chip>
-          </div>-->
-
         </div>
       </div>
     </main>

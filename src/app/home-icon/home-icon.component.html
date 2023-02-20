@@ -1,0 +1,11 @@
+<ng-container *ngIf="isActive; else unfilled">
+  <svg height="24" width="24">
+    <path d="M4 21V9l8-6 8 6v12h-6v-7h-4v7Z" />
+  </svg>
+</ng-container>
+
+<ng-template #unfilled>
+  <svg>
+    <path d="M4 21.5V9.5L12 3.5L20 9.5V21.5H14V14.5H10V21.5H4ZM6 19.5H8V12.5H16V19.5H18V10.5L12 6L6 10.5V19.5Z" />
+  </svg>
+</ng-template>

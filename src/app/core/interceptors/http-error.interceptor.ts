@@ -3,7 +3,8 @@ import {
   HttpRequest,
   HttpEvent,
   HttpErrorResponse,
-  HttpContextToken, HttpHandlerFn
+  HttpContextToken,
+  HttpHandlerFn
 } from '@angular/common/http';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -11,7 +12,10 @@ import { Router } from '@angular/router';
 
 export const BYPASS_ERROR = new HttpContextToken(() => false);
 
-export function errorInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
+export function errorInterceptor(
+  req: HttpRequest<unknown>,
+  next: HttpHandlerFn
+): Observable<HttpEvent<unknown>> {
   const router = inject(Router);
 
   if (req.context.has(BYPASS_ERROR)) {

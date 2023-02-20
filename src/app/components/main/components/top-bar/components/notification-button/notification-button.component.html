@@ -1,20 +1,21 @@
-<button mat-icon-button aria-label='Bildirimler'
-        matTooltip='Bildirimler'
-        #notificationButton='cdkOverlayOrigin'
+<button mat-icon-button
+        aria-label="Bildirimler"
+        matTooltip="Bildirimler"
+        #notificationButton="cdkOverlayOrigin"
         cdkOverlayOrigin
-        (click)='togglePopup()'>
-  <app-icon name='notifications' matBadge='{{notificationCount$ | async}}' matBadgeColor='warn'
-            [matBadgeHidden]='(notificationCount$ | async) === 0' />
+        (click)="togglePopup()">
+  <app-icon name="notifications" matBadge="{{notificationCount$ | async}}" matBadgeColor="warn" matBadgeSize="small"
+            [matBadgeHidden]="(notificationCount$ | async) === 0" />
 </button>
 
 <ng-template
   cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]='notificationButton'
-  [cdkConnectedOverlayScrollStrategy]='scrollStrategy'
-  [cdkConnectedOverlayOpen]='popupOpened'
-  (overlayOutsideClick)='closePopupOnOutsideClicked($event)'>
-  <app-popup-container (close)='popupOpened = false'>
-    <ng-container *ngComponentOutlet='NotificationListPopupComponent' />
+  [cdkConnectedOverlayOrigin]="notificationButton"
+  [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+  [cdkConnectedOverlayOpen]="popupOpened"
+  (overlayOutsideClick)="closePopupOnOutsideClicked($event)">
+  <app-popup-container (close)="popupOpened = false">
+    <ng-container *ngComponentOutlet="NotificationListPopupComponent" />
   </app-popup-container>
 </ng-template>
 

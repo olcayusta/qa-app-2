@@ -11,6 +11,13 @@ header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
+#img {
+  display: flex;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
 .header {
   &__user {
     display: flex;

@@ -13,3 +13,7 @@ export function getSnapshotData(name: string): Data {
 export function getObservableData(): Observable<Data> {
   return inject(ActivatedRoute).data;
 }
+
+export function getResolvedData(): Observable<Data> {
+  return inject(ActivatedRoute).data;
+}

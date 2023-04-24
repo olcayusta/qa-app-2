@@ -1,10 +1,22 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
+import { Observable, tap } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  switchMap
+} from 'rxjs/operators';
 import { ISearchResult, SearchService } from '@shared/services/search.service';
 import {
   MatAutocompleteModule,
+  MatAutocompleteOrigin,
   MatAutocompleteSelectedEvent,
   MatAutocompleteTrigger
 } from '@angular/material/autocomplete';
@@ -16,7 +28,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { IconComponent } from '@components/icon/icon.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
 
 @Component({
   selector: 'app-search-form',
@@ -40,21 +51,39 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchFormComponent implements OnInit {
-  searchControl: FormControl<string> = new FormControl<string>('', { initialValueIsDefault: true });
+  searchControl: FormControl<string> = new FormControl<string>('', {
+    initialValueIsDefault: true
+  });
   filteredResults$!: Observable<ISearchResult>;
 
   @ViewChild('autocompleteTrigger', { read: MatAutocompleteTrigger })
   autoComplete!: MatAutocompleteTrigger;
 
-  constructor(private searchService: SearchService, private router: Router, private dialog: MatDialog) {
-  }
+  @ViewChild('origin')
+  origin!: MatAutocompleteOrigin;
+
+  autocompleteOpened = false;
+
+  constructor(
+    private searchService: SearchService,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.filteredResults$ = this.searchControl.valueChanges.pipe(
       filter((value) => value.length > 0),
       debounceTime(400),
       distinctUntilChanged(),
-      switchMap((searchTerm: string) => this.searchService.searchQuestion(searchTerm))
+      switchMap((searchTerm: string) =>
+        this.searchService.searchQuestion(searchTerm)
+      ),
+      tap((value) => {
+        console.log(value);
+
+        /*  if (value.tags || value.users || value.questions) {
+        }*/
+      })
     );
   }
 
@@ -84,13 +113,12 @@ export class SearchFormComponent implements OnInit {
     this.autoComplete.closePanel();
   }
 
-  openTestDialog() {
-
-  }
+  openTestDialog() {}
 
   searchWithAudio() {
-    //@ts-ignore
-    const SpeechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition =
+      // @ts-ignore
+      window.speechRecognition || window.webkitSpeechRecognition;
 
     //@ts-ignore
     const recognition = new SpeechRecognition();
@@ -119,5 +147,19 @@ export class SearchFormComponent implements OnInit {
         q: this.searchControl.value
       }
     });
+  }
+
+  /**
+   * on opened autocomplete
+   */
+  onOpenedAutocomplete() {
+    this.autocompleteOpened = true;
+  }
+
+  /**
+   * on closed autocomplete panel
+   */
+  onClosedAutocomplete() {
+    this.autocompleteOpened = false;
   }
 }

@@ -1,5 +1,5 @@
 <form id="search-form" (submit)="formSubmit($event)">
-  <div class="search-form" matAutocompleteOrigin #origin="matAutocompleteOrigin">
+  <div class="search-form" matAutocompleteOrigin #origin="matAutocompleteOrigin" [class.search-form-opened]="autocompleteOpened">
     <button mat-icon-button aria-label="Ara" matTooltip="Ara" disabled>
       <app-icon name="search" />
     </button>
@@ -31,7 +31,7 @@
 </button>-->
 
 <mat-autocomplete #auto="matAutocomplete" class="my-autocomplete mat-elevation-z2" [displayWith]="displayFn"
-                  (opened)="onOpened()" (closed)="onClosed()"
+                  (opened)="onOpenedAutocomplete()" (closed)="onClosedAutocomplete()"
                   (optionSelected)="selectedOption($event)">
 
   <ng-container *ngIf="filteredResults$ | async as filteredResults">

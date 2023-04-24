@@ -9,9 +9,8 @@ export default [
   {
     path: '',
     resolve: {
-      tag: (route: ActivatedRouteSnapshot) => {
-        return inject(TagService).getTag(route.paramMap.get('tagId'));
-      }
+      tag: ({ paramMap }: ActivatedRouteSnapshot) =>
+        inject(TagService).getTag(paramMap.get('tagId'))
     },
     children: [
       {

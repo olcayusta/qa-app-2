@@ -1,128 +1,127 @@
-<ng-container *ngIf="question$ | async as question">
-  <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-    <div class="layout-container">
-      <header>
+<div itemprop='mainEntity' itemscope itemtype='https://schema.org/Question'>
+  <div class='layout-container'>
+    <header>
 
-        <!--        <div class='grid-left'>
-                  <button mat-icon-button>
-                    <mat-icon>arrow_drop_up</mat-icon>
-                  </button>
-                  <div class='score'>1</div>
-                  <button mat-icon-button>
-                    <mat-icon>arrow_drop_down</mat-icon>
-                  </button>
-                </div>-->
+      <!--        <div class='grid-left'>
+                <button mat-icon-button>
+                  <mat-icon>arrow_drop_up</mat-icon>
+                </button>
+                <div class='score'>1</div>
+                <button mat-icon-button>
+                  <mat-icon>arrow_drop_down</mat-icon>
+                </button>
+              </div>-->
 
-        <div class="header-one">
-          <div>
-            <h4 itemprop="name" class="headline-4">{{question.title}}</h4>
+      <div class='header-one'>
+        <div>
+          <h4 itemprop='name' class='headline-4'>{{question.title}}</h4>
 
-            <div class="body-2 header-one-description">
-              <p>{{question.viewCount}} görüntüleme</p>
-              <span class="bracket">—</span>
-              <time itemprop="dateCreated"
-                    [attr.datetime]="question.creationTime">{{question.creationTime | relativeTimeFormat}}</time>
-            </div>
-          </div>
-
-          <!-- <div class='button-grid-list'>
-             <button mat-button matTooltip='Bunu beğendim' aria-label='Diğer 100 kişi gibi bu soruyu beğen' (click)='voteQuestion()' #trigger>
-               <app-gf-icon name='favorite'></app-gf-icon>
-               <span>Beğen</span>
-             </button>
-
-             <button mat-button (click)='openShareDialog()' matTooltip='Paylaş'>
-               <app-gf-icon name='share'></app-gf-icon>
-               <span>Paylaş</span>
-             </button>
-
-             <a mat-button routerLink='/edit' matTooltip='Duzenle'>
-               <app-gf-icon name='edit'></app-gf-icon>
-               <span>Düzenle</span>
-             </a>
-
-             <button mat-button matTooltip='Favorilere ekle' (click)='addToFavoriteToQuestion(question.id)'>
-               <app-gf-icon name='bookmark_add'></app-gf-icon>
-               <span>Favorilere ekle</span>
-             </button>
-
-             <button mat-button (click)='openFlagDialog()'>
-               <app-gf-icon name='flag'></app-gf-icon>
-               <span>Bildir</span>
-             </button>
-
-        &lt;!&ndash;     <button mat-icon-button [matMenuTriggerFor]='flagMenu'>
-               <mat-icon fontSet='material-icons-two-tone'>more_horiz</mat-icon>
-             </button>&ndash;&gt;
-
-             <mat-menu #flagMenu='matMenu'>
-               <ng-template matMenuContent>
-                 <button mat-menu-item>
-                   <app-gf-icon name='flag'></app-gf-icon>
-                   <span>Bildir</span>
-                 </button>
-               </ng-template>
-             </mat-menu>
-           </div>-->
-
-        </div>
-
-        <!--        <div>
-                  <button mat-raised-button color="primary">
-                    <mat-icon>thumb_up</mat-icon>
-                    <span>BEĞEN</span>
-                  </button>
-
-                  <button mat-raised-button>
-                    <mat-icon>thumb_down</mat-icon>
-                    <span>BEĞENME</span>
-                  </button>
-                </div>-->
-
-        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <div class="author">
-
-            <!--      <img ngSrc='{{question.user.picture}}' width='64' height='64' itemprop alt='{{question.user.displayName}}' class='question-user-picture-render'>-->
-
-            <app-img-shadow class="question-user-picture-render"
-                            [src]="question.user.picture" [width]="64"
-                            [height]="64" [itemprop]="true"
-                            [alt]="question.user.displayName" />
-
-            <div class="author-info">
-              <div class="author-info-inner">
-                <a routerLink="/user/{{question.user.id}}">
-                  <div itemprop="name" id="author-name">{{question.user.displayName}}</div>
-                </a>
-           <!--     <div class="verified-icon-container">
-                  <app-icon name="check"></app-icon>
-                 &lt;!&ndash; <mat-icon>gavel</mat-icon>&ndash;&gt;
-                </div>-->
-              </div>
-              <div class="author-badge">Seviye 1</div>
-            </div>
+          <div class='body-2 header-one-description'>
+            <p>{{question.viewCount}} görüntüleme</p>
+            <span class='bracket'>—</span>
+            <time itemprop='dateCreated'
+                  [attr.datetime]='question.creationTime'>{{question.creationTime | relativeTimeFormat}}</time>
           </div>
         </div>
 
-      </header>
-    </div>
+        <!-- <div class='button-grid-list'>
+           <button mat-button matTooltip='Bunu beğendim' aria-label='Diğer 100 kişi gibi bu soruyu beğen' (click)='voteQuestion()' #trigger>
+             <app-gf-icon name='favorite'></app-gf-icon>
+             <span>Beğen</span>
+           </button>
 
-    <app-question-text [content]="question.content" />
-    <app-comment-list />
-    <app-answer-list [acceptedAnswerId]="question?.acceptedAnswerId" />
+           <button mat-button (click)='openShareDialog()' matTooltip='Paylaş'>
+             <app-gf-icon name='share'></app-gf-icon>
+             <span>Paylaş</span>
+           </button>
 
+           <a mat-button routerLink='/edit' matTooltip='Duzenle'>
+             <app-gf-icon name='edit'></app-gf-icon>
+             <span>Düzenle</span>
+           </a>
+
+           <button mat-button matTooltip='Favorilere ekle' (click)='addToFavoriteToQuestion(question.id)'>
+             <app-gf-icon name='bookmark_add'></app-gf-icon>
+             <span>Favorilere ekle</span>
+           </button>
+
+           <button mat-button (click)='openFlagDialog()'>
+             <app-gf-icon name='flag'></app-gf-icon>
+             <span>Bildir</span>
+           </button>
+
+      &lt;!&ndash;     <button mat-icon-button [matMenuTriggerFor]='flagMenu'>
+             <mat-icon fontSet='material-icons-two-tone'>more_horiz</mat-icon>
+           </button>&ndash;&gt;
+
+           <mat-menu #flagMenu='matMenu'>
+             <ng-template matMenuContent>
+               <button mat-menu-item>
+                 <app-gf-icon name='flag'></app-gf-icon>
+                 <span>Bildir</span>
+               </button>
+             </ng-template>
+           </mat-menu>
+         </div>-->
+
+      </div>
+
+      <!--        <div>
+                <button mat-raised-button color="primary">
+                  <mat-icon>thumb_up</mat-icon>
+                  <span>BEĞEN</span>
+                </button>
+
+                <button mat-raised-button>
+                  <mat-icon>thumb_down</mat-icon>
+                  <span>BEĞENME</span>
+                </button>
+              </div>-->
+
+      <div itemprop='author' itemscope itemtype='https://schema.org/Person'>
+        <div class='author'>
+
+          <!--      <img ngSrc='{{question.user.picture}}' width='64' height='64' itemprop alt='{{question.user.displayName}}' class='question-user-picture-render'>-->
+
+          <app-img-shadow class='question-user-picture-render'
+                          [src]='question.user.picture' [width]='64'
+                          [height]='64' [itemprop]='true'
+                          [alt]='question.user.displayName' />
+
+          <div class='author-info'>
+            <div class='author-info-inner'>
+              <a routerLink='/user/{{question.user.id}}'>
+                <div itemprop='name' id='author-name'>{{question.user.displayName}}</div>
+              </a>
+              <!--     <div class="verified-icon-container">
+                     <app-icon name="check"></app-icon>
+                    &lt;!&ndash; <mat-icon>gavel</mat-icon>&ndash;&gt;
+                   </div>-->
+            </div>
+            <div class='author-badge'>Seviye 1</div>
+          </div>
+        </div>
+      </div>
+
+    </header>
   </div>
 
-  <app-answer-form />
-</ng-container>
+  <app-question-text [content]='question.content' />
+  <app-comment-list [questionId]='question.id' />
+  <app-answer-list [acceptedAnswerId]='question.acceptedAnswerId' [questionId]='question.id' />
+
+</div>
+
+<app-answer-form />
+
 
 <ng-template #loginPopup>
-  <mat-card appearance="outlined" class="mat-elevation-z4">
+  <mat-card appearance='outlined' class='mat-elevation-z4'>
     <mat-card-title>Bu soruyu beğendiniz mi?</mat-card-title>
     <mat-card-subtitle>Düşüncelerinizi paylaşmak için oturum açın.</mat-card-subtitle>
 
     <mat-card-actions>
-      <button color="primary" mat-button>OTURUM AÇ</button>
+      <button color='primary' mat-button>OTURUM AÇ</button>
     </mat-card-actions>
   </mat-card>
 </ng-template>

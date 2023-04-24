@@ -1,15 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { User } from '@models/user.model';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { AsyncPipe, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
+import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { RelativeTimeFormatPipe } from '@shared/pipes/relative-time-format.pipe';
 import { MyDatePipe } from '@shared/pipes/my-date.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { getResolvedData } from '../core/router.utils';
 
 @Component({
   selector: 'app-user',
@@ -25,7 +22,6 @@ import { getResolvedData } from '../core/router.utils';
     RouterLinkActive,
     RouterLink,
     NgOptimizedImage,
-    AsyncPipe,
     NgIf
   ],
   templateUrl: './user.component.html',
@@ -33,7 +29,7 @@ import { getResolvedData } from '../core/router.utils';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent {
-  user$: Observable<User> = getResolvedData().pipe(map(({ user }) => user));
+  @Input() user!: User;
 
   links = [
     {

@@ -1,8 +1,4 @@
-import {
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Routes
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Routes } from '@angular/router';
 import { UserComponent } from './user.component';
 import { inject } from '@angular/core';
 import { UserService } from './user.service';
@@ -10,8 +6,7 @@ import { Observable, of } from 'rxjs';
 import { User } from '@models/user.model';
 
 const userTitleResolverFn = (
-  route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot
+  route: ActivatedRouteSnapshot
 ): Observable<string> => {
   const { user } = route.parent?.data as { user: User };
   return of(user.displayName);
@@ -22,11 +17,8 @@ export default [
     path: '',
     component: UserComponent,
     resolve: {
-      user: (route: ActivatedRouteSnapshot) => {
-        return inject(UserService).getUser(
-          Number(route.paramMap.get('userId'))
-        );
-      }
+      user: ({ paramMap }: ActivatedRouteSnapshot) =>
+        inject(UserService).getUser(paramMap.get('userId')!)
     },
     children: [
       {

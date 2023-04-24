@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
   private http = inject(HttpClient);
 
-  getUser(userId: number): Observable<User> {
+  getUser(userId: string): Observable<User> {
     return this.http.get<User>(`${API_URL}/users/${userId}`);
   }
 

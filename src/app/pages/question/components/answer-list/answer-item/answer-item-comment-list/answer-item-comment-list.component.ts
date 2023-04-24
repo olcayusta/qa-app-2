@@ -1,4 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  inject
+} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Comment } from '@models/comment.model';
 import { CommentService } from '@shared/services/comment.service';
@@ -15,9 +21,10 @@ import { CommentListItemComponent } from '../../../comment-list-item/comment-lis
 })
 export class AnswerItemCommentListComponent implements OnInit {
   @Input() answerId!: number;
+
   comments$!: Observable<Comment[]>;
 
-  constructor(private commentService: CommentService) {}
+  private commentService = inject(CommentService);
 
   ngOnInit(): void {
     this.comments$ = this.commentService.getAnswerComments(this.answerId);

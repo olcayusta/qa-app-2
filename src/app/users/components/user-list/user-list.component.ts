@@ -1,8 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { User } from '@models/user.model';
 import { UserListItemComponent } from '../user-list-item/user-list-item.component';
 import { NgForOf } from '@angular/common';
-import { getSnapshotData } from '../../../core/router.utils';
 
 @Component({
   selector: 'app-user-list',
@@ -13,5 +12,6 @@ import { getSnapshotData } from '../../../core/router.utils';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent {
-  users: User[] = <User[]>getSnapshotData('users');
+  // users: User[] = <User[]>getSnapshotData('users');
+  @Input() users!: User[];
 }

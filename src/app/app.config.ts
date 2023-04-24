@@ -1,7 +1,7 @@
-import { ApplicationConfig } from '@angular/platform-browser';
 import {
   provideRouter,
   TitleStrategy,
+  withComponentInputBinding,
   withInMemoryScrolling,
   withRouterConfig
 } from '@angular/router';
@@ -13,8 +13,8 @@ import { jwtInterceptor } from '@auth/interceptors/jwt.interceptor';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MAT_ICON_DEFAULT_OPTIONS } from '@angular/material/icon';
 import { AppTitleStrategy } from './core/app-title.strategy';
-import { importProvidersFrom, isDevMode } from '@angular/core';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { ApplicationConfig, isDevMode } from '@angular/core';
+import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,7 +27,8 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({
         anchorScrolling: 'enabled',
         scrollPositionRestoration: 'enabled'
-      })
+      }),
+      withComponentInputBinding()
     ),
     provideAnimations(),
     {
@@ -44,11 +45,9 @@ export const appConfig: ApplicationConfig = {
       provide: TitleStrategy,
       useClass: AppTitleStrategy
     },
-    importProvidersFrom(
-      ServiceWorkerModule.register('ngsw-worker.js', {
-        enabled: !isDevMode(),
-        registrationStrategy: 'registerWhenStable:30000'
-      })
-    )
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ]
 };

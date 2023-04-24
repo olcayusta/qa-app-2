@@ -6,7 +6,8 @@ import {
   AfterViewInit,
   ViewChildren,
   QueryList,
-  OnDestroy, inject
+  OnDestroy,
+  inject
 } from '@angular/core';
 import { AnswerService } from '@shared/services/answer.service';
 import { Observable, tap } from 'rxjs';
@@ -28,13 +29,23 @@ interface SortItem {
 @Component({
   selector: 'app-answer-list',
   standalone: true,
-  imports: [AnswerItemComponent, MatMenuModule, MatIconModule, MatButtonModule, MatTooltipModule, AsyncPipe, NgIf, NgForOf],
+  imports: [
+    AnswerItemComponent,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
+    AsyncPipe,
+    NgIf,
+    NgForOf
+  ],
   templateUrl: './answer-list.component.html',
   styleUrls: ['./answer-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AnswerListComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input('acceptedAnswerId') acceptedAnswerId?: number;
+  @Input('acceptedAnswerId') acceptedAnswerId: number | null | undefined;
+  @Input('questionId') questionId!: number;
   @ViewChildren(AnswerItemComponent) items!: QueryList<AnswerItemComponent>;
 
   answers$!: Observable<Answer[]>;
@@ -73,10 +84,11 @@ export class AnswerListComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.selectedIndex = 1;
 
-    const questionId = this.route.snapshot.paramMap.get('questionId');
-    this.answers$ = this.answerService.getAnswers(Number(questionId)).pipe(
+    this.answers$ = this.answerService.getAnswers(this.questionId!).pipe(
       tap((value) => {
-        value.filter((value1) => (value1.id === 26 ? (value1.accepted = true) : null));
+        value.filter((value1) =>
+          value1.id === 26 ? (value1.accepted = true) : null
+        );
       })
     );
   }

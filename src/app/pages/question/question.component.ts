@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   inject,
+  Input,
   OnDestroy,
   OnInit,
   TemplateRef,
@@ -13,8 +14,7 @@ import { Question } from '@models/question.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AnswerService } from '@shared/services/answer.service';
 import { StateService } from '@shared/services/state.service';
-import { Observable, Subscription, tap } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ShareDialogComponent } from '@dialogs/share-dialog/share-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,7 +25,7 @@ import {
 } from '@angular/cdk/overlay';
 import { AuthService } from '@auth/auth.service';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { AsyncPipe, DOCUMENT, NgIf, NgOptimizedImage } from '@angular/common';
+import { DOCUMENT, NgIf, NgOptimizedImage } from '@angular/common';
 import { SocketService } from '@shared/services/socket.service';
 import { VoteService } from '@shared/services/vote.service';
 import { FavoriteService } from 'src/app/favorites/favorite.service';
@@ -54,22 +54,20 @@ import { IconComponent } from '@components/icon/icon.component';
     RelativeTimeFormatPipe,
     MatCardModule,
     MatDialogModule,
-    AsyncPipe,
     NgIf,
     MatButtonModule,
-    RouterLink,
+
     NgOptimizedImage,
     MatIconModule,
-    IconComponent
+    IconComponent,
+    RouterLink
   ],
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuestionComponent implements OnInit, OnDestroy {
-  question$!: Observable<Question>;
-
-  questionId!: number;
+  @Input() question!: Question;
 
   popupOpened = false;
 
@@ -81,21 +79,18 @@ export class QuestionComponent implements OnInit, OnDestroy {
   subA!: Subscription;
 
   private document = inject(DOCUMENT);
-  private activatedRoute = inject(ActivatedRoute);
   private answerService = inject(AnswerService);
   private dialog = inject(MatDialog);
   private sso = inject(ScrollStrategyOptions);
   private overlay = inject(Overlay);
   private vcr = inject(ViewContainerRef);
 
-  constructor(
-    private stateService: StateService,
-    private favoriteService: FavoriteService,
-    private snackBar: MatSnackBar,
-    private authService: AuthService,
-    private socketService: SocketService,
-    private voteService: VoteService
-  ) {}
+  private stateService = inject(StateService);
+  private favoriteService = inject(FavoriteService);
+  private snackBar = inject(MatSnackBar);
+  private authService = inject(AuthService);
+  private socketService = inject(SocketService);
+  private voteService = inject(VoteService);
 
   initializeSchema() {
     this.document.body.setAttribute('itemscope', '');
@@ -109,26 +104,22 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeSchema();
-    this.question$ = this.activatedRoute.data.pipe(
-      map((data) => data['question']),
-      tap(({ id: questionId }) => {
-        this.questionId = questionId;
-        this.subA = this.socketService
-          .watch('watch', `q:${questionId}`)
-          .subscribe((messageForA) => {
-            console.log(messageForA);
-            this.snackBar.open('1 yeni cevap gönderildi', 'TAMAM');
-          });
-      }),
-      shareReplay()
-    );
+
+    this.subA = this.socketService
+      .watch('watch', `q:${this.question.id}`)
+      .subscribe((messageForA) => {
+        console.log(messageForA);
+        this.snackBar.open('1 yeni cevap gönderildi', 'TAMAM');
+      });
 
     // this.stateService.hide();
   }
 
   ngOnDestroy() {
     this.destroySchema();
-    this.subA.unsubscribe();
+    if (this.subA) {
+      this.subA.unsubscribe();
+    }
   }
 
   /**
@@ -209,7 +200,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
   }
 
   voteQuestion() {
-    this.voteService.upvoteQuestion(this.questionId).subscribe((value) => {
+    this.voteService.upvoteQuestion(this.question.id).subscribe((value) => {
       console.log(value);
     });
   }

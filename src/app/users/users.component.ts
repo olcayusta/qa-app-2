@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { User } from '@models/user.model';
 
 @Component({
   selector: 'app-users',
@@ -9,4 +10,6 @@ import { UserListComponent } from './components/user-list/user-list.component';
   styleUrls: ['./users.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersComponent {}
+export class UsersComponent {
+  @Input() users!: User[];
+}

@@ -1,9 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Tag } from '@models/tag.model';
 import { TagListItemComponent } from '../tag-list-item/tag-list-item.component';
 import { NgForOf } from '@angular/common';
-import { getSnapshotData } from '../../../core/router.utils';
-
 @Component({
   selector: 'app-tag-list',
   standalone: true,
@@ -13,5 +11,5 @@ import { getSnapshotData } from '../../../core/router.utils';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TagListComponent {
-  tags: Tag[] = <Tag[]>getSnapshotData('tags');
+  @Input() tags!: Tag[];
 }

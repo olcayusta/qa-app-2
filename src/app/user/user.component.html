@@ -1,11 +1,10 @@
-<ng-container *ngIf="user$ | async as user">
-  <header class='header'>
+ <header class='header'>
     <div class='header__user'>
       <div class='header-user__avatar'>
         <app-img-shadow [width]='192' [height]='192' [src]='user.picture' [alt]='user.displayName'
                         class='user-img-renderer' />
 
-        <img id="img" class="user-img-renderer" ngSrc="{{user.picture}}" alt="{{user.displayName}}" width="192" height="192" priority>
+    <!--    <img id="img" class="user-img-renderer" ngSrc="{{user.picture}}" alt="{{user.displayName}}" width="192" height="192" priority>-->
 
         <!--      <img ngSrc="{{user.picture}}" alt="{{user.displayName}}" width="192" height="192" priority>-->
 
@@ -65,5 +64,5 @@
 
   <router-outlet />
 
-</ng-container>
+
 

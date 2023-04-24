@@ -1,6 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  inject,
+  Input
+} from '@angular/core';
 import { Tag } from '@models/tag.model';
-import { ActivatedRoute } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TagsService } from './tags.service';
 import { filter, switchMap } from 'rxjs/operators';
@@ -16,18 +21,21 @@ import { TagListComponent } from './components/tag-list/tag-list.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TagsComponent implements OnInit {
-  tags!: Tag[];
+  //tags!: Tag[];
+
+  @Input() tags!: Tag[];
 
   searchControl = new FormControl<string>('');
 
-  private activatedRoute = inject(ActivatedRoute);
   private tagsService = inject(TagsService);
 
   ngOnInit(): void {
     this.searchControl.valueChanges
       .pipe(
         filter((value) => value?.length! > 0),
-        switchMap((searchTerm) => this.tagsService.getAllTagsBySearchTerm(searchTerm!))
+        switchMap((searchTerm) =>
+          this.tagsService.getAllTagsBySearchTerm(searchTerm!)
+        )
       )
       .subscribe((tags) => {
         console.log(tags);

@@ -10,7 +10,7 @@ export interface Question {
   creationTime: Date;
   answerTime: Date;
   viewCount: number;
-  acceptedAnswerId?: number;
+  acceptedAnswerId: number | null | undefined;
   userId: number;
   user: User;
   tags: Tag[];

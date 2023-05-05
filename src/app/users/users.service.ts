@@ -10,9 +10,6 @@ import { HttpClient } from '@angular/common/http';
 export class UsersService {
   private http = inject(HttpClient);
 
-  /*
-   * Get all users from database
-   * */
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${API_URL}/users`);
   }

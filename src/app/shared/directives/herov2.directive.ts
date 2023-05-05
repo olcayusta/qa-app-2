@@ -3,11 +3,14 @@ import {
   ElementRef,
   EmbeddedViewRef,
   inject,
-  Input, OnChanges, SimpleChanges,
+  Input,
+  OnChanges,
+  Renderer2,
+  SimpleChanges,
   ViewContainerRef
 } from '@angular/core';
-import { SiteCodeComponent } from '@components/site-code/site-code.component';
-import { DOCUMENT } from '@angular/common';
+
+import { CopyCodeComponent } from '../../site-code/copy-code.component';
 
 @Directive({
   selector: '[appHerov2]',
@@ -16,22 +19,28 @@ import { DOCUMENT } from '@angular/common';
 export class Herov2Directive implements OnChanges {
   @Input() text!: string;
 
-  private viewContainerRef = inject(ViewContainerRef);
+  private vcr = inject(ViewContainerRef);
   private elementRef: HTMLElement = inject(ElementRef).nativeElement;
-  private document = inject(DOCUMENT);
+  private renderer = inject(Renderer2);
 
-  divElement: HTMLDivElement = this.document.createElement('div');
+  divElement: HTMLDivElement = this.renderer.createElement('div');
 
   ngOnChanges(changes: SimpleChanges) {
     this.divElement.innerHTML = this.text;
 
-    Array.from(this.divElement.children).forEach((el) => {
+    const htmlCollection = this.divElement.children;
+
+    Array.from(htmlCollection).forEach((el) => {
       if (el.nodeName === 'PRE') {
         // FIXME (Fragment ile cevaba scroll edilince, PRE etiketi margin-padding algilanmiyor.)
         // this.viewContainerRef.clear();
-        const { instance, hostView } = this.viewContainerRef.createComponent(SiteCodeComponent);
-        instance.text = el as HTMLPreElement;
-        const { rootNodes } = hostView as EmbeddedViewRef<SiteCodeComponent>;
+        const comp = this.vcr.createComponent(CopyCodeComponent);
+
+        comp.setInput('htmlPreElement1', el);
+
+        comp.instance.htmlPreElement1 = el as HTMLPreElement;
+        const { rootNodes } =
+          comp.hostView as EmbeddedViewRef<CopyCodeComponent>;
         el.replaceWith(rootNodes[0]);
       }
     });

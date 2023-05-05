@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 import { User } from '@models/user.model';
 
 @Component({

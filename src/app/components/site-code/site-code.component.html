@@ -1,9 +1,0 @@
-<button mat-icon-button class='copy-code-btn' aria-label='Kod örneğini kopyala'
-        matTooltip='Kod örneğini kopyala' (click)='copyCodeToClipboard()'>
-  <app-icon name='content_copy' />
-</button>
-
-<div class='language-code' *ngIf='language'>{{language}}</div>
-
-<pre [innerHTML]='text.innerHTML' appIsiklandir></pre>
-

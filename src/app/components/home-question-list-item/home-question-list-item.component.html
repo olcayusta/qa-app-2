@@ -21,7 +21,7 @@
       <!--       <span  class='bountie' *ngIf="question.id === 126">+50</span>-->
 
       <a routerLink="/question/{{question.id}}" class="simple-endpoint">
-        <div class="subtitle-1">{{question.title}}</div>
+        <div class="m3-title-medium">{{question.title}}</div>
       </a>
 
       <mat-icon class="check-icon" *ngIf="question.id === 20">done</mat-icon>
@@ -30,7 +30,7 @@
 
     <div class="item__footer">
 
-      <div class="post1">
+      <div class="post1 m3-body-medium">
         <div class="item__footer--username">
           <a routerLink="/user/{{question.user.id}}">{{question.user.displayName}}</a>
           <!--  <mat-icon *ngIf='question.user.isVerified'>local_police</mat-icon>-->
@@ -62,8 +62,6 @@
       </ng-container>
 
     </div>
-
-
 
     <mat-chip-set aria-label="Fish selection" role="list">
 

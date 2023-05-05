@@ -1,0 +1,15 @@
+<button mat-icon-button
+        class='copy-code-btn' aria-label='Kod örneğini kopyala'
+        matTooltip='Kod örneğini kopyala' matTooltipHideDelay='100000000' (click)='copyCodeToClipboard()'>
+  <mat-icon>content_copy</mat-icon>
+</button>
+
+<div class='language-code' *ngIf='language'>{{language}}</div>
+
+<!--<ng-container *ngIf='htmlPreElement'>
+  <pre [innerHTML]='htmlPreElement.innerHTML' codeHighlight></pre>
+
+</ng-container>-->
+
+<pre [innerHTML]='htmlPreElement1.innerHTML' codeHighlight></pre>
+

@@ -1,4 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  inject,
+  Input
+} from '@angular/core';
 import { User } from '@models/user.model';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -11,23 +17,29 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [MatExpansionModule, MatInputModule, MatButtonModule, MatSlideToggleModule, MatDialogModule, NgIf],
+  imports: [
+    MatExpansionModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatDialogModule,
+    NgIf
+  ],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsComponent implements OnInit {
-  user!: User;
+  @Input() user!: User;
 
-  private activatedRoute = inject(ActivatedRoute);
   private dialog = inject(MatDialog);
 
-  ngOnInit(): void {
-    this.user = this.activatedRoute.snapshot.data['user'];
-  }
+  ngOnInit(): void {}
 
   async openProfilePictureDialog() {
-    const { ProfilePictureDialogComponent } = await import('./components/profile-picture-dialog/profile-picture-dialog.component');
+    const { ProfilePictureDialogComponent } = await import(
+      './components/profile-picture-dialog/profile-picture-dialog.component'
+    );
     this.dialog.open(ProfilePictureDialogComponent, {
       autoFocus: false,
       minWidth: 560

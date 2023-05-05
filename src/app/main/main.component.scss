@@ -1,0 +1,164 @@
+:host {
+  display: block;
+}
+
+main {
+  margin-top: 64px;
+  padding-bottom: 64px;
+}
+
+mat-sidenav-container {
+  background-color: var(--surface);
+  min-height: 100vh;
+
+  // min-height: 100vh;
+  // height: auto !important;
+  // overflow: unset !important;
+
+  mat-sidenav-content {
+    min-height: 100vh;
+    z-index: 2;
+
+    // overflow: unset !important;
+  }
+
+  mat-sidenav {
+    width: 280px;
+    min-height: 100vh;
+    // padding: 12px;
+    background-color: var(--drawer-background);
+    border: 0;
+  }
+
+  .mat-drawer.mat-drawer-side {
+    z-index: 1 !important;
+  }
+
+  .mat-drawer.mat-drawer-end {
+    width: 364px;
+    background-color: #fff;
+  }
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, .32);
+}
+
+.my-content {
+  --padding: 48px;
+  // --padding: 128px;
+  /*  max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 160px;
+    // padding: 64px 160px;
+    box-sizing: content-box;
+    // height: calc(100vh - 64px);*/
+
+    width: min(100% - var(--padding, 48px), 1440px);
+    margin-inline: auto;
+
+  // Alternative
+  // margin-inline: max((100% - 1600px) / 2, 24px);
+
+  // Alternative
+  // width: clamp(599px, 100% - 48px, 1600px);
+}
+
+/*
+  app-top-bar fixed solution
+*/
+#content:before {
+  content: '';
+  display: block;
+  height: calc(64px);
+  margin-top: calc(-64px);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+// content-update-chip - experimental
+.content-update-chip {
+  position: fixed;
+  left: 50%;
+  top: 64px + 24;
+  display: flex;
+  justify-content: center;
+  transform: translate3d(-50%, 0, 0);
+}
+
+// extended-fab with animation - experimental
+.extended-fab {
+  width: auto;
+  max-width: 200px;
+  height: 48px;
+  padding: 0 20px 0 12px;
+  border-radius: 28px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  // transition: width 0.5s ease-out;
+  overflow: hidden;
+  letter-spacing: 0;
+  transition: all 0.2s ease-in;
+}
+
+.mini-fab {
+  max-width: 48px;
+  // transition: width 0.25s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+#main {
+  display: block;
+  min-height: calc(100% - 64px);
+}
+
+.fixed-fab-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1;
+
+  app-icon {
+    ::ng-deep svg {
+      fill: currentColor;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .fixed-fab-btn {
+    button, a {
+      /*     padding: 16px 20px 16px 16px;
+           width: auto;
+           height: 56px;
+           !* M3/sys/light/primary-container *!
+
+           background: #EADDFF;
+           !* M3/Elevation Light/3 *!
+
+           box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+           border-radius: 16px;*/
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  main {
+    margin-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  #content:before {
+    content: '';
+    display: block;
+    height: calc(56px);
+    margin-top: calc(-56px);
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .my-content {
+    --padding: 0;
+  }
+}

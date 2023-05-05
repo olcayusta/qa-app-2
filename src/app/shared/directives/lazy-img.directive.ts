@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Directive,
   ElementRef,
+  inject,
   OnDestroy,
   OnInit
 } from '@angular/core';
@@ -16,22 +17,22 @@ export class LazyImgDirective implements OnInit, OnDestroy, AfterViewInit {
 
   intersectionObserver!: IntersectionObserver;
 
-  constructor(private elementRef: ElementRef<HTMLImageElement>) {
-  }
+  private elementRef = inject(ElementRef<HTMLImageElement>);
 
-  ngAfterViewInit() {
-  }
+  ngAfterViewInit() {}
 
   init() {
     const { nativeElement } = this.elementRef;
     this.imgSrc = nativeElement.src;
 
-    this.intersectionObserver = new IntersectionObserver(([{ isIntersecting }]) => {
-      if (isIntersecting) {
-        nativeElement.src = this.imgSrc;
-        this.intersectionObserver.unobserve(nativeElement);
+    this.intersectionObserver = new IntersectionObserver(
+      ([{ isIntersecting }]) => {
+        if (isIntersecting) {
+          nativeElement.src = this.imgSrc;
+          this.intersectionObserver.unobserve(nativeElement);
+        }
       }
-    });
+    );
     this.intersectionObserver.observe(nativeElement);
   }
 

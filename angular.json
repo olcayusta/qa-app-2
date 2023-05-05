@@ -58,12 +58,7 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.scss",
-              {
-                "inject": false,
-                "input": "src/styles/themes/light.scss",
-                "bundleName": "light"
-              }
+              "src/styles.scss"
             ],
             "sourceMap": true,
             "scripts": [],

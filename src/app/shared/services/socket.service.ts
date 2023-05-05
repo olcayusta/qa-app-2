@@ -19,7 +19,13 @@ export interface SubjectData {
   payload: object;
 }
 
-type eventType = 'new answer' | 'message' | 'hello' | 'sport news' | 'chat';
+type eventType =
+  | 'new answer'
+  | 'message'
+  | 'hello'
+  | 'sport news'
+  | 'chat'
+  | 'new question';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +36,7 @@ export class SocketService {
     protocol: <string>localStorage.getItem('token')
   });
 
-  constructor() {
-  }
+  constructor() {}
 
   reconnect() {
     this.subject.pipe(

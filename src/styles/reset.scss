@@ -1,32 +1,9 @@
-@use '@angular/material' as mat;
-@use 'themes/deep-purple-light' as light-theme;
-
-$my-palette: light-theme.$deep-purple-palette;
-
 /*.outlined-menu-button[aria-expanded=true] {
   background: #000;
 }*/
 
-/**
-Common Buttons
- */
-.mat-mdc-outlined-button {
-  padding: 0 24px !important;
-  height: 40px !important;
-}
-
-/**
-  Material Design Reset
-  START
- */
-.mat-mdc-dialog-container {
-  border-radius: 28px !important;
-}
-
-@media (prefers-color-scheme: dark) {
-  .mat-mdc-dialog-container {
-    background-color: #383838 !important;
-  }
+.mdc-button {
+  --mdc-typography-button-letter-spacing: 0;
 }
 
 .mat-mdc-chip-set {
@@ -35,18 +12,6 @@ Common Buttons
 
 .flex-spacer {
   flex: 1 0 auto;
-}
-
-/**
-  use mobile version tooltip
- */
-.mdc-tooltip__surface {
-  padding: 8px !important;
-}
-
-.page-description {
-  margin: 0;
-  color: var(--medium-emphasis-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,13 +49,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 20px;
   line-height: 24px;
   letter-spacing: .15px;
-}
-
-.subtitle-1 {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  // letter-spacing: .15px;
 }
 
 .subtitle-2 {
@@ -162,16 +120,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0;
 }
 
-.m3-body-medium {
-  //styleName: M3/body/medium;
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0.25px;
-  text-align: left;
-}
-
 .mat-mdc-dialog-container {
   --mdc-dialog-subhead-line-height: 32px;
   --mdc-dialog-subhead-size: 24px;
@@ -179,3 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   --mdc-dialog-supporting-text-size: 14px;
   --mdc-dialog-supporting-text-line-height: 20px;
 }
+
+@import "m3.text.sys";
+@import "m3.button.sys";
+@import "m3.chips.sys";

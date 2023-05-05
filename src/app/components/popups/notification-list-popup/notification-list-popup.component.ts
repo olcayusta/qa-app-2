@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit
+} from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { NotificationService } from '@shared/services/notification.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -27,7 +32,7 @@ import { MatLineModule } from '@angular/material/core';
 export class NotificationListPopupComponent implements OnInit {
   notifications$!: Observable<Notification[]>;
 
-  constructor(private notificationService: NotificationService) {}
+  private notificationService = inject(NotificationService);
 
   ngOnInit(): void {
     this.notifications$ = this.notificationService.getAllNotifications();

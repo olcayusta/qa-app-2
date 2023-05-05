@@ -1,13 +1,20 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject, NgZone, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+  NgZone,
+  OnInit
+} from '@angular/core';
 import { SwPush, SwUpdate, VersionReadyEvent } from '@angular/service-worker';
 import { RouterOutlet } from '@angular/router';
 import { PushNotificationService } from '@shared/services/push-notification.service';
-import { ProgressBarComponent } from '@components/progress-bar/progress-bar.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { filter, map } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
 import { BroadcastChannelService } from '@shared/services/broadcast-channel.service';
 import { PUBLIC_VAPID_KEY_OF_SERVER } from '@environments/environment';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +29,9 @@ export class AppComponent implements OnInit {
   async ismetakey($event: KeyboardEvent) {
     const { metaKey, key, shiftKey } = $event;
     if ((metaKey && key === '/') || (shiftKey && key === '?')) {
-      const { HotkeyDialogComponent } = await import('@components/dialogs/hotkey-dialog/hotkey-dialog.component');
+      const { HotkeyDialogComponent } = await import(
+        '@components/dialogs/hotkey-dialog/hotkey-dialog.component'
+      );
       /*    this.dialog.open(HotkeyDialogComponent, {
         minWidth: 560
       });*/

@@ -28,7 +28,7 @@ export default [
           {
             path: 'questions',
             loadComponent: () =>
-              import('./components/user-questions/user-questions.component'),
+              import('./user-questions/user-questions.component'),
             resolve: {
               questions: (route: ActivatedRouteSnapshot) => {
                 const userId: number = Number(
@@ -41,7 +41,7 @@ export default [
           {
             path: 'answers',
             loadComponent: () =>
-              import('./components/user-answers/user-answers.component'),
+              import('./user-answers/user-answers.component'),
             resolve: {
               answers: (route: ActivatedRouteSnapshot) => {
                 const userId: number = Number(

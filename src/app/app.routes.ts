@@ -5,12 +5,12 @@ import { LoggedGuard } from '@auth/logged.guard';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./components/main/main.component'),
+    loadComponent: () => import('./main/main.component'),
     children: [
       {
         path: '',
         pathMatch: 'full',
-        loadChildren: () => import('./pages/home/home.routes')
+        loadChildren: () => import('./home/home.routes')
       },
       {
         path: 'users',
@@ -47,12 +47,11 @@ export const routes: Routes = [
       },
       {
         path: 'question/:questionId',
-        loadChildren: () => import('./pages/question/question.routes')
+        loadChildren: () => import('./question/question.routes')
       },
       {
         path: 'questions/create',
-        loadChildren: () =>
-          import('./pages/create-question/create-question.routes')
+        loadChildren: () => import('./create-question/create-question.routes')
       },
       {
         path: 'edit',
@@ -70,12 +69,12 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.routes'),
+    loadChildren: () => import('./login/login.routes'),
     canLoad: [LoggedGuard]
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.routes'),
+    loadChildren: () => import('./register/register.routes'),
     canLoad: [LoggedGuard]
   },
   {

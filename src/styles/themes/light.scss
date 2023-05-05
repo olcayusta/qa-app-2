@@ -25,7 +25,7 @@ $gray-theme-accent: mat.define-palette(mat.$gray-palette);
 
 $light-theme: mat.define-light-theme((
   color: (
-    primary: $gray-theme-primary,
+    primary: $light-primary,
     accent: $light-accent
   ),
   typography: $my-typography
@@ -73,65 +73,42 @@ $secondary-gray-theme: mat.define-light-theme((
 @include mat.divider-theme($gray-theme);
 @include mat.sidenav-theme($gray-theme);*/
 
-@include mat.input-theme($secondary-gray-theme);
 @include mat.all-component-themes($light-theme);
-@include mat.input-theme($secondary-gray-theme);
 
-@media (prefers-color-scheme: light) {
-  :root {
-    // color-scheme: light;
-    --html-bg-color: #fff;
-    --color: rgba(0, 0, 0, .87);
-    --mdc-theme-primary-200: 187, 134, 252;
-    --mdc-theme-primary-overlay-selected: rgba(var(--mdc-theme-primary-200), 0.12);
-    --medium-emphasis-color: rgba(0, 0, 0, 0.6);
-    --surface: #fff;
-    --topbar-background: #fff;
-    --high-emphasis-color: black;
-    --card-bg-color: #fff;
-    --fab-icon-color: #fff;
-    --text-color: rgba(0, 0, 0, .87);
-    --icon-color: rgba(0, 0, 0, .6);
-    --drawer-background: #fff;
-    --autocomplete-background: #fff;
-    // --search-background: rgba(0, 0, 0, 0.04);
-    --search-background: #f1f3f4;
-    --code-background: white;
-    --border-color: rgba(0, 0, 0, .12);
-    --scrollbar-color: #00000060 transparent;
-    --scrollbar-bg-color: #fafafa;
-    --scrollbar-thumb-background: #c2c2c2;
-    --thumb-bg-hover: #7d7d7d;
-    --on-surface-variant: #49454F;
-    --mdc-outlined-button-outline-color: #79747E;
-    --outline-variant: rgba(0,0,0,.12);
-    --tertiary-container-color: #FFD8E4;
-    --on-tertiary-container-color: #31111D;
-  }
+
+:root {
+  // color-scheme: light;
+  --html-bg-color: #fff;
+  --color: #1C1B1F;
+  --on-surface: #1C1B1F;
+  --mdc-theme-primary-200: 187, 134, 252;
+  --mdc-theme-primary-overlay-selected: rgba(var(--mdc-theme-primary-200), 0.12);
+  --medium-emphasis-color: rgba(0, 0, 0, 0.6);
+  --surface: #fff;
+  --topbar-background: #fff;
+  --high-emphasis-color: black;
+  --card-bg-color: #fff;
+  --fab-icon-color: #fff;
+  --text-color: rgba(0, 0, 0, .87);
+  --icon-color: rgba(0, 0, 0, .6);
+  --drawer-background: #fff;
+  --autocomplete-background: #fff;
+  --code-background: white;
+  --border-color: rgba(0, 0, 0, .12);
+  --scrollbar-color: #00000060 transparent;
+  --scrollbar-bg-color: #fafafa;
+  --scrollbar-thumb-background: #c2c2c2;
+  --thumb-bg-hover: #7d7d7d;
+  --on-surface-variant: #49454F;
+  --mdc-outlined-button-outline-color: #79747E;
+  --outline-variant: #79747E;
+  --tertiary-container-color: #FFD8E4;
+  --on-tertiary-container-color: #31111D;
 }
 
-.mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #6750A4;
-}
-
-.mat-mdc-progress-bar {
-  --mdc-linear-progress-active-indicator-color: #6750A4;
-}
-
-.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
-  background-color: #E7E0EC;
-}
-
-/*.mdc-button {
-  --mdc-typography-button-line-heigh: 40px;
-}
-
-.mat-mdc-button.mat-mdc-button-base, .mat-mdc-raised-button.mat-mdc-button-base, .mat-mdc-unelevated-button.mat-mdc-button-base, .mat-mdc-outlined-button.mat-mdc-button-base {
-  height: 40px !important;
-}*/
 
 // Override chips theme
-.mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
+/*.mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
   --mdc-chip-elevated-container-color: #fff;
   --mdc-chip-label-text-color: black;
   border: none;
@@ -145,7 +122,7 @@ $secondary-gray-theme: mat.define-light-theme((
 .mat-mdc-standard-chip {
   --mdc-chip-elevated-container-color: #fff;
   border: 1px solid rgba(0, 0, 0, .12)
-}
+}*/
 
 /**
   Highlight.js

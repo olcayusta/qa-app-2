@@ -15,14 +15,6 @@
   display: flex;
   gap: 16px;
 
-  .subtitle-1 {
-    letter-spacing: .5px;
-  }
-
-  .avatar-link {
-    // height: 40px;
-  }
-
   .author-image-renderer {
     width: 40px;
     height: 40px;
@@ -35,16 +27,13 @@
   &__footer {
     display: flex;
     align-items: center;
-    color: var(--medium-emphasis-color);
+    color: var(--on-surface-variant);
 
     &--bracket {
       margin: 0 4px;
     }
 
-    &--username, &--bracket, &--time {
-      font-size: 14px;
-      line-height: 20px;
-    }
+
   }
 
 }

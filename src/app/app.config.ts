@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
 import { errorInterceptor } from './core/interceptors/http-error.interceptor';
 import { jwtInterceptor } from '@auth/interceptors/jwt.interceptor';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
@@ -18,7 +18,9 @@ import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withInterceptors([errorInterceptor, jwtInterceptor])),
+    provideHttpClient(
+      withInterceptors([errorInterceptor, jwtInterceptor])
+    ),
     provideRouter(
       routes,
       withRouterConfig({

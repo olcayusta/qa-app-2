@@ -4,7 +4,7 @@
         #notificationButton="cdkOverlayOrigin"
         cdkOverlayOrigin
         (click)="togglePopup()">
-  <app-icon name="notifications" matBadge="{{notificationCount$ | async}}" matBadgeColor="warn" matBadgeSize="small"
+  <app-icon name="notifications" matBadge="{{notificationCount$ | async}}" matBadgeColor="warn" matBadgeSize="medium"
             [matBadgeHidden]="(notificationCount$ | async) === 0" />
 </button>
 

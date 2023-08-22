@@ -7,6 +7,9 @@ $my-palette: mat.define-palette(lightpurple.$deep-purple-palette);
 $light-primary: mat.define-palette(lightpurple.$deep-purple-palette);
 $light-accent: mat.define-palette(lightpurple.$deep-purple-palette);
 
+/*$light-primary: mat.define-palette(mat.$gray-palette, 900);
+$light-accent: mat.define-palette(mat.$amber-palette);*/
+
 $my-typography: mat.define-typography-config(
   $font-family: "Archivo, Roboto, sans-serif"
 );

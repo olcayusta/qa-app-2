@@ -2,11 +2,10 @@
   /*  --mdc-chip-elevated-container-color: #6200ee12 !important;
     --mdc-chip-label-text-color: #000 !important;*/
   --mdc-chip-label-text-color: #1D1B20 !important;
-  letter-spacing: 0.1px !important;
 }
 
 .mat-mdc-standard-chip:not(.mat-primary.mat-mdc-chip-selected) {
-  --mdc-chip-elevated-container-color: #fff !important;
+  --mdc-chip-elevated-container-color: transparent !important;
   border: 1px solid #79747E;
   color: #1D1B20 !important;
   font-weight: 500;
@@ -17,3 +16,14 @@
   --mdc-chip-label-text-color: #1D192B !important;
   border: none !important;
 }
+
+/*
+.mat-mdc-standard-chip {
+  --mdc-chip-elevated-container-color: trasparent !important;
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  border: 1px solid #79747E;
+}
+
+*/

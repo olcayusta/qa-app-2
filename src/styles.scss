@@ -16,7 +16,7 @@ $list-typography: mat.define-typography-config(
 @include mat.list-typography($list-typography);
 
 html {
-  background-color: var(--html-bg-color);
+  background-color: var(--mat-sidenav-container-background-color);
   color: var(--color);
   // scrollbar-gutter: stable;
 

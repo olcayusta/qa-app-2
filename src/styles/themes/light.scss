@@ -81,21 +81,16 @@ $secondary-gray-theme: mat.define-light-theme((
 
 :root {
   // color-scheme: light;
-  --html-bg-color: #fff;
   --color: #1C1B1F;
   --on-surface: #1C1B1F;
   --mdc-theme-primary-200: 187, 134, 252;
   --mdc-theme-primary-overlay-selected: rgba(var(--mdc-theme-primary-200), 0.12);
   --medium-emphasis-color: rgba(0, 0, 0, 0.6);
-  --surface: #fff;
-  --topbar-background: #fff;
   --high-emphasis-color: black;
   --card-bg-color: #fff;
   --fab-icon-color: #fff;
   --text-color: rgba(0, 0, 0, .87);
   --icon-color: rgba(0, 0, 0, .6);
-  --drawer-background: #fff;
-  --autocomplete-background: #F1F3F4;
   --code-background: white;
   --border-color: rgba(0, 0, 0, .12);
   --scrollbar-color: #00000060 transparent;
@@ -104,7 +99,6 @@ $secondary-gray-theme: mat.define-light-theme((
   --thumb-bg-hover: #7d7d7d;
   --on-surface-variant: #49454F;
   --mdc-outlined-button-outline-color: #79747E;
-  --outline-variant: #79747E;
   --tertiary-container-color: #FFD8E4;
   --on-tertiary-container-color: #31111D;
   --mat-sidenav-container-background-color: #FFFBFA;
@@ -113,6 +107,8 @@ $secondary-gray-theme: mat.define-light-theme((
   --mat-toolbar-standard-height: 72px;
   --mat-autocomplete-background-color: var(--m-3-sys-light-surface-container-high);
   --m-3-sys-light-surface-container-high: #ECE6F0;
+  --mat-divider-color: #CAC4D0;
+  --mat-menu-container-color: #F3EDF7;
 }
 
 
@@ -138,6 +134,10 @@ $secondary-gray-theme: mat.define-light-theme((
  */
 @import "highlight.js/scss/github";
 
+.mat-mdc-icon-button svg {
+  fill: var(--on-surface-variant);
+}
+
 svg {
   fill: var(--on-surface-variant);
 }
@@ -145,6 +145,7 @@ svg {
 .mat-mdc-list-item.active {
   // color: var(--mdc-theme-primary) !important;
   // background-color: rgba(0, 0, 0, .12);
+  background-color: #E8DEF8;
 
   .mdc-list-item__primary-text {
     color: black;
@@ -161,10 +162,5 @@ svg {
     // fill: mat.get-color-from-palette($my-palette, 500)
     fill: black;
   }
-
-  /* Primary Overlay */
-  // background: linear-gradient(0deg, rgba(187, 134, 252, 0.12), rgba(187, 134, 252, 0.12)), #FFFFFF;
-  // background-color: var(--mdc-theme-primary-overlay-selected);
-  background-color: rgba(0, 0, 0, .08);
 }
 

@@ -29,6 +29,19 @@
     align-items: center;
     color: var(--on-surface-variant);
 
+    .verified-user-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      font-size: 10px;
+      background-color: #00000087;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 4px;
+    }
+
     &--bracket {
       margin: 0 4px;
     }
@@ -61,17 +74,28 @@
 }
 
 .check-icon {
-  line-height: 1;
   font-size: 10px;
   width: 14px;
   height: 14px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: #6200ee;
-  color: #fff;
-  border-radius: 50%;
+}
+
+.best-answered {
+  background: #ffd8ea;
+  color: #601410;
+  border-radius: 28px;
+  font-size: 10px;
+  height: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   margin: 0 8px;
+  font-stretch: semi-expanded;
+  padding: 0 8px;
 }
 
 /* TODO(mdc-migration): The following rule targets internal classes of chips that may no longer apply for the MDC version.*/

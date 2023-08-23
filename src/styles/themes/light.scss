@@ -95,7 +95,7 @@ $secondary-gray-theme: mat.define-light-theme((
   --text-color: rgba(0, 0, 0, .87);
   --icon-color: rgba(0, 0, 0, .6);
   --drawer-background: #fff;
-  --autocomplete-background: #fff;
+  --autocomplete-background: #F1F3F4;
   --code-background: white;
   --border-color: rgba(0, 0, 0, .12);
   --scrollbar-color: #00000060 transparent;
@@ -107,6 +107,12 @@ $secondary-gray-theme: mat.define-light-theme((
   --outline-variant: #79747E;
   --tertiary-container-color: #FFD8E4;
   --on-tertiary-container-color: #31111D;
+  --mat-sidenav-container-background-color: #FFFBFA;
+  --mat-sidenav-content-background-color: #FFFBFA;
+  --mat-toolbar-container-background-color: var(--mat-sidenav-content-background-color);
+  --mat-toolbar-standard-height: 72px;
+  --mat-autocomplete-background-color: var(--m-3-sys-light-surface-container-high);
+  --m-3-sys-light-surface-container-high: #ECE6F0;
 }
 
 

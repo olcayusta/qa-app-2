@@ -31,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class CopyCodeComponent implements OnInit {
   // htmlPreElement!: HTMLPreElement;
   @Input() htmlPreElement1!: HTMLPreElement;
+  @Input() xd!: string;
 
   language: string = '';
   @Input() HTMLPreText!: HTMLPreElement;

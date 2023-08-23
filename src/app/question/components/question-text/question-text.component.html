@@ -1,3 +1,19 @@
 <div class='content'>
   <div itemprop='text' appHerov2 [text]='content'></div>
+
+<!--  <div *ngFor="let el of htmlCollection">
+    <ng-container *ngIf="el.nodeName === 'PRE'; else defaultTemp">
+      <button mat-icon-button>
+        <mat-icon>content_copy</mat-icon>
+      </button>
+      <pre [innerHTML]="el.innerHTML" codeHighlight></pre>
+    </ng-container>
+
+    <ng-template #defaultTemp>
+      <div [innerHTML]="el.textContent"></div>
+    </ng-template>
+  </div>-->
+
 </div>
+
+

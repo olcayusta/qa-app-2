@@ -3,7 +3,6 @@
 
 @include mat.core();
 
-// List typography
 $list-typography: mat.define-typography-config(
   $body-1: mat.define-typography-level(
     // $font-family: 'Archivo, sans-serif',

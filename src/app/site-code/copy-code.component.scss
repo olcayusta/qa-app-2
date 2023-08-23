@@ -52,17 +52,16 @@ pre {
   display: block;
   max-height: 600px;
   font-family: Roboto Mono, monospace;
-  background-color: #FFF !important;
   font-size: 14px;
   line-height: 24px;
   overflow: auto;
   margin: 0;
   padding: 32px 16px !important;
-  border: 1px solid var(--outline-variant);
   scrollbar-width: thin;
   scrollbar-color: #c1c1c1 transparent;
   word-wrap: normal;
-  border-radius: 28px;
+  border-radius: 12px;
+  background: #E6E0E9;
 }
 
 /*

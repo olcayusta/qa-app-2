@@ -11,7 +11,6 @@
     display: inline-flex;
     width: 320px;
     height: 270px;
-    border: 2px solid black;
     border-radius: 100vh;
   }
 
@@ -33,4 +32,8 @@
   .error-text {
     padding: 24px 0;
   }
+}
+
+h4 {
+  font-stretch: 112.5%;
 }

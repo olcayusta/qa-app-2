@@ -7,7 +7,7 @@
         </div>
     -->
 
-    <app-img-shadow [width]="40" [height]="40" src="{{question.user.picture}}" alt="" class="author-image-renderer" />
+    <app-img-shadow [width]="40" [height]="40" src="{{question.user.picture}}" alt="" class="author-image-renderer"/>
 
     <!--    <div class="app-img-shadow">
           <img ngSrc="{{question.user.picture}}" alt="" width="40" height="40">
@@ -24,7 +24,11 @@
         <div class="m3-title-medium">{{question.title}}</div>
       </a>
 
-      <mat-icon class="check-icon" *ngIf="question.id === 20">done</mat-icon>
+
+   <!--   <span class="best-answered" *ngIf="question.id === 141">
+        <mat-icon class="check-icon" *ngIf="question.id === 141">done</mat-icon>
+        CEVAPLANDI
+      </span>-->
 
     </div>
 
@@ -33,7 +37,7 @@
       <div class="post1 m3-body-medium">
         <div class="item__footer--username">
           <a routerLink="/user/{{question.user.id}}">{{question.user.displayName}}</a>
-          <!--  <mat-icon *ngIf='question.user.isVerified'>local_police</mat-icon>-->
+          <mat-icon class="verified-user-icon" *ngIf='question.user.isVerified' matTooltip="Doğrulandı">check</mat-icon>
         </div>
         <span class="item__footer--bracket">—</span>
 
@@ -49,7 +53,10 @@
 
           <mat-icon>
 
-            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M180 876h44l443-443-44-44-443 443v44Zm614-486L666 262l41.823-41.823Q725 203 750.5 203.5T793 221l43 43q17 17 17 42t-16.963 41.963L794 390ZM150.327 936q-12.889 0-21.608-8.714Q120 918.571 120 905.689v-85.627Q120 814 122 809q2-5 7-10l495-495 128 128-495 495q-5 5-10.217 7-5.218 2-10.783 2h-85.673ZM645 411l-22-22 44 44-22-22Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48">
+              <path
+                d="M180 876h44l443-443-44-44-443 443v44Zm614-486L666 262l41.823-41.823Q725 203 750.5 203.5T793 221l43 43q17 17 17 42t-16.963 41.963L794 390ZM150.327 936q-12.889 0-21.608-8.714Q120 918.571 120 905.689v-85.627Q120 814 122 809q2-5 7-10l495-495 128 128-495 495q-5 5-10.217 7-5.218 2-10.783 2h-85.673ZM645 411l-22-22 44 44-22-22Z"/>
+            </svg>
           </mat-icon>
 
           <a routerLink="/user/{{question.user.id}}">Olcay Usta</a>
@@ -71,17 +78,17 @@
                </a>
              </mat-chip>-->
 
-<!--      <mat-chip [highlighted]="tag.id === 2" *ngFor="let tag of question.tags">
-        <a routerLink="/tag/{{tag.id}}">
-          &lt;!&ndash;          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>&ndash;&gt;
-          {{tag.title}}
-        </a>
-      </mat-chip>-->
+      <!--      <mat-chip [highlighted]="tag.id === 2" *ngFor="let tag of question.tags">
+              <a routerLink="/tag/{{tag.id}}">
+                &lt;!&ndash;          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>&ndash;&gt;
+                {{tag.title}}
+              </a>
+            </mat-chip>-->
 
-        <a routerLink="/tag/{{t.id}}" mat-chip role="listitem"   [highlighted]="t.id === 2" *ngFor="let t of question.tags">
-          <!--          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>-->
-          {{t.title}}
-        </a>
+      <a routerLink="/tag/{{t.id}}" mat-chip role="listitem" [highlighted]="t.id === 2" *ngFor="let t of question.tags">
+        <!--          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>-->
+        {{t.title}}
+      </a>
 
 
       <!--     <mat-chip routerLink='/tag/{{tag.id}}' [selected]='tag.selected' selectable *ngFor='let tag of question.tags'>
@@ -93,6 +100,6 @@
     </mat-chip-set>
 
 
-    <mat-divider />
+    <mat-divider/>
   </div>
 </div>

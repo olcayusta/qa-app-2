@@ -10,7 +10,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-import { CopyCodeComponent } from '../../site-code/copy-code.component';
+import {CopyCodeComponent} from '../../site-code/copy-code.component';
 
 @Directive({
   selector: '[appHerov2]',
@@ -39,8 +39,7 @@ export class Herov2Directive implements OnChanges {
         comp.setInput('htmlPreElement1', el);
 
         comp.instance.htmlPreElement1 = el as HTMLPreElement;
-        const { rootNodes } =
-          comp.hostView as EmbeddedViewRef<CopyCodeComponent>;
+        const {rootNodes} = comp.hostView as EmbeddedViewRef<CopyCodeComponent>;
         el.replaceWith(rootNodes[0]);
       }
     });

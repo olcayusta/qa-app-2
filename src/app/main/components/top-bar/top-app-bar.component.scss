@@ -10,10 +10,8 @@
   }
 
   mat-toolbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    background-color: var(--topbar-background);
-    height: 72px;
+ /*   display: grid;
+    grid-template-columns: 1fr auto 1fr;*/
     padding-bottom: 8px;
   }
 
@@ -23,6 +21,14 @@
       align-items: center;
     }
 
+    .center-content {
+      width: 1440px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     &__center {
     }
 
@@ -30,6 +36,8 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      position: absolute;
+      right: 16px;
 
       button[mat-icon-button], a[mat-icon-button] {
         margin-right: 8px;

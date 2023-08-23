@@ -13,6 +13,7 @@ import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
 import { MatIconModule } from '@angular/material/icon';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-home-question-list-item',
@@ -26,7 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     NgForOf,
     RouterLink,
     NgOptimizedImage,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   templateUrl: './home-question-list-item.component.html',
   styleUrls: ['./home-question-list-item.component.scss'],

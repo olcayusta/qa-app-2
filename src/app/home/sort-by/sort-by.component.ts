@@ -55,8 +55,6 @@ export class SortByComponent implements OnInit, AfterViewInit {
 
   menuItems!: MatMenuItem[];
 
-  @Output() openFilter = new EventEmitter();
-
   foods: Food[] = [
     { value: 'steak-0', viewValue: 'Steak' },
     { value: 'pizza-1', viewValue: 'Pizza' },

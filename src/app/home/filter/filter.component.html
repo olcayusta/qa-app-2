@@ -1,14 +1,9 @@
 <div class='host-container'>
   <div class='header'>
     <div class='header-buttons'>
-      <app-sort-by (openFilter)='filterOpened =! filterOpened' />
-      <app-filter-by />
+      <app-sort-by/>
+      <app-filter-by/>
     </div>
   </div>
 </div>
 
-<ng-container *ngIf='filterOpened'>
-  <div class='filter-container'>
-    <p>Filtre acildi!</p>
-  </div>
-</ng-container>

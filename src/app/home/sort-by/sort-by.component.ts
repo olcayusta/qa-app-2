@@ -12,7 +12,7 @@ import {
 import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material/chips';
+import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgForOf, NgIf } from '@angular/common';
@@ -40,7 +40,8 @@ export interface Fruit {
     NgForOf,
     NgIf,
     IconComponent,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule
   ],
   templateUrl: './sort-by.component.html',
   styleUrls: ['./sort-by.component.scss'],

@@ -1,6 +1,5 @@
 <div class='host-container'>
   <div class='header'>
-<!--    <h5 class='headline-5'>Senin için önerilenler</h5>-->
     <div class='header-buttons'>
       <app-sort-by (openFilter)='filterOpened =! filterOpened' />
       <app-filter-by />
@@ -8,31 +7,8 @@
   </div>
 </div>
 
-<mat-divider />
-
 <ng-container *ngIf='filterOpened'>
   <div class='filter-container'>
     <p>Filtre acildi!</p>
   </div>
 </ng-container>
-
-<ng-template #bottomExample>
- <!-- <mat-nav-list>
-    <mat-list-item>
-      <mat-icon>visibility</mat-icon>
-      <span>No answers</span>
-    </mat-list-item>
-    <mat-list-item>
-      <mat-icon>share</mat-icon>
-      <span>No accepted answers</span>
-    </mat-list-item>
-    <mat-list-item>
-      <mat-icon>favorite_outline</mat-icon>
-      <span>Has bounty</span>
-    </mat-list-item>
-    <mat-list-item>
-      <mat-icon>link</mat-icon>
-      <span>Copy link</span>
-    </mat-list-item>
-  </mat-nav-list>-->
-</ng-template>

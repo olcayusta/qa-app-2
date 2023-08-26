@@ -45,6 +45,7 @@ export const routes: Routes = [
         path: 'user/:userId',
         loadChildren: () => import('./user/user.routes')
       },
+
       {
         path: 'question/:questionId',
         loadChildren: () => import('./question/question.routes')

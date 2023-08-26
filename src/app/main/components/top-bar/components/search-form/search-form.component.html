@@ -30,7 +30,9 @@
   </svg>
 </button>-->
 
-<mat-autocomplete #auto="matAutocomplete" class="my-autocomplete mat-elevation-z2" [displayWith]="displayFn"
+<mat-autocomplete #auto="matAutocomplete" class="my-autocomplete mat-elevation-z0"
+                  hideSingleSelectionIndicator
+                  [displayWith]="displayFn"
                   (opened)="onOpenedAutocomplete()" (closed)="onClosedAutocomplete()"
                   (optionSelected)="selectedOption($event)">
 
@@ -54,6 +56,14 @@
         <!--    <span [innerHTML]='user.displayName | highlightSearch: searchControl.value'></span>-->
       </mat-option>
     </mat-optgroup>
+
+<!--    <div>
+      <a *ngFor="let user of filteredResults.users" routerLink="`/user/{{user.id}}`">
+        <img class="option-user-img" src="{{user.picture}}" alt="">
+        <span class="user-display-name">{{user.displayName}}</span>
+      </a>
+    </div>-->
+
   </ng-container>
 
   <div class="autocomplete-action-row">

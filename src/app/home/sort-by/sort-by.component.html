@@ -1,5 +1,16 @@
 <div class='container'>
 
+<!--
+  <mat-chip-listbox aria-label="Fish selection" hideSingleSelectionIndicator>
+    <mat-chip-option selected>Tümü</mat-chip-option>
+    <mat-chip-option>Önerilenler</mat-chip-option>
+    <mat-chip-option>Son eklenenler</mat-chip-option>
+    <mat-chip-option>Güncel</mat-chip-option>
+    <mat-chip-option>Cevapsızlar</mat-chip-option>
+    <mat-chip-option>Mükâfatlı</mat-chip-option>
+  </mat-chip-listbox>
+-->
+
   <!-- Tab -->
   <button mat-button [matMenuTriggerFor]='tabMenu'>
     <span>Senin için önerilenler</span>
@@ -22,9 +33,9 @@
   </button>
 
   <!-- Filter By -->
-  <button mat-button class='menu-button' [matMenuTriggerFor]='filterMenu' matTooltip='Arama filtrelerini aç'>
-    <app-icon name='filter_list' />
-    <span>Filtre</span>
+  <button mat-button class='menu-button' [matMenuTriggerFor]='filterMenu' matTooltip='Arama filtreleri'>
+    <mat-icon>tune</mat-icon>
+    <span>Filtreler</span>
   </button>
 
   <!--    <button mat-button class="menu-button" (click)='openFilter.emit()'>
@@ -90,7 +101,8 @@
       *ngFor='let filter of filters; let index = index'
       (click)='filterMenuItemClicked(index)'
     >
-      <app-icon name='check' *ngIf='filter.checked' />
+
+      <app-icon matMenuItemIcon name='check' *ngIf='filter.checked' />
       {{ filter.viewValue }}
     </button>
     <span class='divider-text'>ÖZEL FİLTRELER</span>

@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { FilterByComponent } from '../filter-by/filter-by.component';
 import { SortByComponent } from '../sort-by/sort-by.component';
@@ -17,19 +16,9 @@ import {MatButtonModule} from "@angular/material/button";
 export class FilterComponent implements OnInit {
   filterOpened = false;
 
-  @ViewChild('bottomExample') template!: TemplateRef<any>;
-
-  constructor(private bottomSheet: MatBottomSheet) {
+  constructor() {
   }
 
   ngOnInit() {
-  }
-
-  /**
-   * Mobile => Open Bottom Sheet Component
-   */
-  openBottomSheet(): void {
-    console.log(this.template);
-    this.bottomSheet.open(this.template);
   }
 }

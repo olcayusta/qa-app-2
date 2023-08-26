@@ -102,8 +102,9 @@ mat-icon {
 
 .user-option {
   height: 56px;
+  display: flex;
 
-  .mdc-list-item__primary-text {
+  ::ng-deep .mdc-list-item__primary-text {
     display: flex;
     align-items: center;
   }

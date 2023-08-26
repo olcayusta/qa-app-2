@@ -40,6 +40,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ImgShadowComponent } from '@shared/components/img-shadow/img-shadow.component';
 import { MatIconModule } from '@angular/material/icon';
 import { IconComponent } from '@components/icon/icon.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-question',
@@ -60,7 +61,8 @@ import { IconComponent } from '@components/icon/icon.component';
     NgOptimizedImage,
     MatIconModule,
     IconComponent,
-    RouterLink
+    RouterLink,
+    MatTooltipModule
   ],
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],

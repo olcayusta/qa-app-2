@@ -4,7 +4,7 @@
 $my-palette: mat.define-palette(lightpurple.$deep-purple-palette);
 
 /* Define a light theme */
-$light-primary: mat.define-palette(lightpurple.$deep-purple-palette);
+$light-primary: mat.define-palette(lightpurple.$deep-purple-palette, PURPLE40);
 $light-accent: mat.define-palette(lightpurple.$deep-purple-palette);
 
 /*$light-primary: mat.define-palette(mat.$gray-palette, 900);
@@ -50,45 +50,14 @@ $secondary-gray-theme: mat.define-light-theme((
   )
 ));
 
-/*@include mat.core-theme($light-theme);
-@include mat.toolbar-theme($light-theme);
-@include mat.menu-theme($light-theme);
-@include mat.chips-theme($light-theme);
-@include mat.badge-theme($light-theme);
-@include mat.tooltip-theme($light-theme);
-@include mat.radio-theme($light-theme);
-@include mat.dialog-theme($light-theme);
-@include mat.autocomplete-theme($light-theme);
-@include mat.snack-bar-theme($light-theme);
-@include mat.button-theme($light-theme);
-@include mat.checkbox-theme($light-theme);
-@include mat.icon-theme($light-theme);
-@include mat.progress-bar-theme($light-theme);
-@include mat.progress-spinner-theme($light-theme);
-@include mat.expansion-theme($light-theme);
-@include mat.select-theme($light-theme);
-@include mat.button-toggle-theme($light-theme);
-@include mat.form-field-theme($light-theme);
-@include mat.slide-toggle-theme($light-theme);
-@include mat.card-theme($light-theme);
-
-@include mat.list-theme($gray-theme);
-@include mat.divider-theme($gray-theme);
-@include mat.sidenav-theme($gray-theme);*/
-
 @include mat.all-component-themes($light-theme);
 
 
 :root {
   // color-scheme: light;
   --color: #1C1B1F;
-  --on-surface: #1C1B1F;
-  --mdc-theme-primary-200: 187, 134, 252;
-  --mdc-theme-primary-overlay-selected: rgba(var(--mdc-theme-primary-200), 0.12);
   --medium-emphasis-color: rgba(0, 0, 0, 0.6);
-  --high-emphasis-color: black;
   --card-bg-color: #fff;
-  --fab-icon-color: #fff;
   --text-color: rgba(0, 0, 0, .87);
   --icon-color: rgba(0, 0, 0, .6);
   --code-background: white;
@@ -101,14 +70,18 @@ $secondary-gray-theme: mat.define-light-theme((
   --mdc-outlined-button-outline-color: #79747E;
   --tertiary-container-color: #FFD8E4;
   --on-tertiary-container-color: #31111D;
+  --m-3-sys-light-surface-container-high: #ECE6F0;
   --mat-sidenav-container-background-color: #FFFBFA;
   --mat-sidenav-content-background-color: #FFFBFA;
   --mat-toolbar-container-background-color: var(--mat-sidenav-content-background-color);
   --mat-toolbar-standard-height: 72px;
   --mat-autocomplete-background-color: var(--m-3-sys-light-surface-container-high);
-  --m-3-sys-light-surface-container-high: #ECE6F0;
   --mat-divider-color: #CAC4D0;
   --mat-menu-container-color: #F3EDF7;
+  --mdc-filled-button-container-shape: 100px;
+  --mdc-text-button-container-shape: 100px;
+  --mat-badge-background-color: #B3261E;
+
 }
 
 
@@ -143,8 +116,6 @@ svg {
 }
 
 .mat-mdc-list-item.active {
-  // color: var(--mdc-theme-primary) !important;
-  // background-color: rgba(0, 0, 0, .12);
   background-color: #E8DEF8;
 
   .mdc-list-item__primary-text {
@@ -162,5 +133,9 @@ svg {
     // fill: mat.get-color-from-palette($my-palette, 500)
     fill: black;
   }
+}
+
+.mat-mdc-button.mat-mdc-button-base, .mat-mdc-raised-button.mat-mdc-button-base, .mat-mdc-unelevated-button.mat-mdc-button-base, .mat-mdc-outlined-button.mat-mdc-button-base {
+  height: 40px;
 }
 

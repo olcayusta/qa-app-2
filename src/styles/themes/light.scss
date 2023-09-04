@@ -71,11 +71,11 @@ $secondary-gray-theme: mat.define-light-theme((
   --tertiary-container-color: #FFD8E4;
   --on-tertiary-container-color: #31111D;
   --m-3-sys-light-surface-container-high: #ECE6F0;
-  --mat-sidenav-container-background-color: #FFFBFA;
-  --mat-sidenav-content-background-color: #FFFBFA;
+  --mat-sidenav-container-background-color: #FFF;
+  --mat-sidenav-content-background-color: #FFF;
   --mat-toolbar-container-background-color: var(--mat-sidenav-content-background-color);
   --mat-toolbar-standard-height: 72px;
-  --mat-autocomplete-background-color: var(--m-3-sys-light-surface-container-high);
+  --mat-autocomplete-background-color: #F1F1F1;
   --mat-divider-color: #CAC4D0;
   --mat-menu-container-color: #F3EDF7;
   --mdc-filled-button-container-shape: 100px;

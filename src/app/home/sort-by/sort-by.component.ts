@@ -5,19 +5,17 @@ import {
   ViewChildren,
   QueryList,
   AfterViewInit,
-  OnInit,
-  Output,
-  EventEmitter
+  OnInit
 } from '@angular/core';
-import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import {MatMenu, MatMenuItem, MatMenuModule} from '@angular/material/menu';
+import {ActivatedRoute, RouterLink} from '@angular/router';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { NgForOf, NgIf } from '@angular/common';
-import { IconComponent } from '@components/icon/icon.component';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {NgForOf, NgIf} from '@angular/common';
+import {IconComponent} from '@components/icon/icon.component';
+import {MatIconModule} from '@angular/material/icon';
 
 interface Food {
   value: string;
@@ -56,17 +54,17 @@ export class SortByComponent implements OnInit, AfterViewInit {
   menuItems!: MatMenuItem[];
 
   foods: Food[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
   ];
 
   items = [
-    { sort: '', label: 'Eklenme tarihi (en yeni)' },
-    { sort: 'activity', label: 'Güncelleme tarihi (en yeni)' },
-    { sort: 'popularity', label: 'Highest score (en yüksek)' },
-    { sort: 'date', label: 'Most frequent ', disabled: true },
-    { sort: 'activity', label: 'Bounty ending soon', disabled: true }
+    {sort: '', label: 'Eklenme tarihi (en yeni)'},
+    {sort: 'activity', label: 'Güncelleme tarihi (en yeni)'},
+    {sort: 'popularity', label: 'Highest score (en yüksek)'},
+    {sort: 'date', label: 'Most frequent ', disabled: true},
+    {sort: 'activity', label: 'Bounty ending soon', disabled: true}
   ];
 
   selectedIndex = 0;
@@ -90,14 +88,14 @@ export class SortByComponent implements OnInit, AfterViewInit {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: Fruit[] = [{ name: 'Lemon' }, { name: 'Lime' }, { name: 'Apple' }];
+  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
     // Add our fruit
     if (value) {
-      this.fruits.push({ name: value });
+      this.fruits.push({name: value});
     }
 
     // Clear the input value
@@ -112,7 +110,8 @@ export class SortByComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     const sort = this.route.snapshot.queryParamMap.get('sort');
@@ -121,7 +120,8 @@ export class SortByComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+  }
 
   /**
    *

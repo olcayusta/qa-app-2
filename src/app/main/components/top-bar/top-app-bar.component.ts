@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  EventEmitter,
+  EventEmitter, inject,
   OnInit,
   Output,
   Type
@@ -72,13 +72,15 @@ export class TopAppBarComponent implements OnInit {
   NotificationButtonComponent!: Type<NotificationButtonComponent>;
   AvatarButtonComponent!: Type<AvatarButtonComponent>;
 
+
+  authService = inject(AuthService);
+  router = inject(Router);
+
   constructor(
-    private authService: AuthService,
     private stateService: StateService,
     private breakpointObserver: BreakpointObserver,
     private changeDetectorRef: ChangeDetectorRef,
     private drawerService: DrawerService,
-    private router: Router
   ) {}
 
   async ngOnInit(): Promise<void> {

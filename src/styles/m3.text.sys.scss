@@ -28,11 +28,10 @@
 
 .m3-headline-large {
   /* M3/headline/large */
+  font-size: 32px;
   font-style: normal;
   font-weight: 300;
-  font-size: 32px;
-  line-height: 40px;
-  color: #000000;
+  line-height: 40px; /* 125% */
   font-stretch: semi-expanded;
 }
 
@@ -84,21 +83,19 @@
 
 .m3-body-large {
   /* M3/body/large */
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  // letter-spacing: 0.5px;
-  color: #000000;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.5px;
 }
 
 .m3-body-medium {
-  /* M3/body/medium */
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  // letter-spacing: 0.25px;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.25px;
 }
 
 .m3-body-small {

@@ -8,8 +8,8 @@
     display: flex;
     justify-content: flex-start;
     letter-spacing: 0;
-    background-color: var(--tertiary-container-color);
-    color: var(--on-tertiary-container-color);
+    background-color: #212121;
+    color: #FFF;
 
     ::ng-deep svg {
       fill: currentColor;

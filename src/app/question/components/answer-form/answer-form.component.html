@@ -69,7 +69,7 @@
     </div>
   </inek-editor-buttons>
 
-  <mat-form-field  hideRequiredMarker>
+  <mat-form-field appearance="outline" hideRequiredMarker>
     <textarea #textAreaElement aria-label='Answer text' matInput cdkTextareaAutosize cdkAutosizeMinRows='8'
               placeholder='Açıklayıcı bir şekilde cevap yazın' [formControl]='answerControl'></textarea>
     <mat-error *ngIf="answerControl.hasError('required')">Bir açıklama girin</mat-error>

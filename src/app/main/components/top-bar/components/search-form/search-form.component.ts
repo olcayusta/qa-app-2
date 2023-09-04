@@ -1,16 +1,16 @@
 import {
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   ElementRef,
   OnInit,
   ViewChild
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Observable, tap } from 'rxjs';
+import {Observable, share, tap} from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
-  filter,
+  filter, shareReplay,
   switchMap
 } from 'rxjs/operators';
 import { ISearchResult, SearchService } from '@shared/services/search.service';
@@ -21,13 +21,17 @@ import {
   MatAutocompleteTrigger
 } from '@angular/material/autocomplete';
 import { Router, RouterLink } from '@angular/router';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import {AsyncPipe, NgComponentOutlet, NgForOf, NgIf} from '@angular/common';
 import { HighlightSearchPipe } from './pipes/highlight-search.pipe';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { IconComponent } from '@components/icon/icon.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {MatListModule} from "@angular/material/list";
+import {CdkConnectedOverlay} from "@angular/cdk/overlay";
+import {PopupContainerComponent} from "../../../../../popup-container/popup-container.component";
+import {el} from "timeago.js/lib/lang";
 
 @Component({
   selector: 'app-search-form',
@@ -44,7 +48,11 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     RouterLink,
     IconComponent,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
+    CdkConnectedOverlay,
+    NgComponentOutlet,
+    PopupContainerComponent
   ],
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.scss'],
@@ -64,10 +72,13 @@ export class SearchFormComponent implements OnInit {
 
   autocompleteOpened = false;
 
+  openedSuggestionList = false;
+
   constructor(
     private searchService: SearchService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -78,8 +89,9 @@ export class SearchFormComponent implements OnInit {
       switchMap((searchTerm: string) =>
         this.searchService.searchQuestion(searchTerm)
       ),
+      shareReplay(1),
       tap((value) => {
-        console.log(value);
+        console.log('trsting');
 
         /*  if (value.tags || value.users || value.questions) {
         }*/
@@ -140,6 +152,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   async formSubmit($event: SubmitEvent) {
+    console.log('submitted')
     $event.preventDefault();
     this.closeAutocomplete();
     await this.router.navigate(['search'], {
@@ -161,5 +174,16 @@ export class SearchFormComponent implements OnInit {
    */
   onClosedAutocomplete() {
     this.autocompleteOpened = false;
+  }
+
+  outsideClicked($event: MouseEvent) {
+    const element = $event.target as HTMLElement;
+    if (element.id !== 'search-form-input') {
+      this.openedSuggestionList = false;
+    }
+  }
+
+  inputFocused(trigger: HTMLInputElement) {
+    this.openedSuggestionList = !this.openedSuggestionList;
   }
 }

@@ -1,9 +1,11 @@
 <form id="search-form" (submit)="formSubmit($event)">
-  <div class="search-form" matAutocompleteOrigin #origin="matAutocompleteOrigin" [class.search-form-opened]="autocompleteOpened">
+  <div class="search-form" matAutocompleteOrigin #origin="matAutocompleteOrigin"
+       [class.search-form-opened]="autocompleteOpened">
     <button mat-icon-button aria-label="Ara" matTooltip="Ara" disabled>
-      <app-icon name="search" />
+      <app-icon name="search"/>
     </button>
     <input aria-label="Ara" autocomplete="off" spellcheck="false" placeholder="Ara"
+           (input)="openedSuggestionList = true"
            #autocompleteTrigger="matAutocompleteTrigger"
            matAutocompletePosition="below"
            [formControl]="searchControl"
@@ -30,9 +32,58 @@
   </svg>
 </button>-->
 
+<!--
+<form id="search-form" (submit)="formSubmit($event)" #trigger>
+  <div class="search-form"
+       [class.search-form-opened]="autocompleteOpened">
+    <button mat-icon-button aria-label="Ara" matTooltip="Ara" disabled>
+      <app-icon name="search"/>
+    </button>
+    <input id="search-form-input" aria-label="Ara" autocomplete="off" spellcheck="false" placeholder="Ara" #inputElement
+           (focus)="inputFocused(inputElement)"
+           (input)="openedSuggestionList = true" [formControl]="searchControl">
+  </div>
+</form>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]='trigger'
+  [cdkConnectedOverlayOpen]='openedSuggestionList'
+  (overlayOutsideClick)="outsideClicked($event)">
+  <div id="suggestion-list" class="mat-elevation-z4">
+    <ng-container *ngIf="filteredResults$ | async as filteredResults">
+
+      <div class="search-suggestion-section">
+        <div class="suggestions">
+          <mat-nav-list>
+            <div mat-subheader>Kullanıcılar</div>
+            <mat-list-item *ngFor="let user of filteredResults.users">
+              <img matListItemAvatar class="user-picture" src="{{user.picture}}" alt="">
+              <span class="user-display-name">{{user.displayName}}</span>
+            </mat-list-item>
+          </mat-nav-list>
+          &lt;!&ndash;    <a *ngFor="let user of filteredResults.users" routerLink="`/user/{{user.id}}`">
+                <img class="user-picture" src="{{user.picture}}" alt="">
+                <span class="user-display-name">{{user.displayName}}</span>
+              </a>&ndash;&gt;
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+</ng-template>
+-->
+
+<!--
+<ng-container *ngIf="openedSuggestionList">
+  <h3>search suggestions...</h3>
+</ng-container>
+-->
+
 <mat-autocomplete #auto="matAutocomplete" class="my-autocomplete mat-elevation-z0"
                   hideSingleSelectionIndicator
                   [displayWith]="displayFn"
+
                   (opened)="onOpenedAutocomplete()" (closed)="onClosedAutocomplete()"
                   (optionSelected)="selectedOption($event)">
 
@@ -53,16 +104,26 @@
       <mat-option *ngFor="let user of filteredResults.users" [value]="user" class="user-option">
         <img class="option-user-img" src="{{user.picture}}" alt="">
         <span class="user-display-name">{{user.displayName}}</span>
-        <!--    <span [innerHTML]='user.displayName | highlightSearch: searchControl.value'></span>-->
       </mat-option>
     </mat-optgroup>
 
-<!--    <div>
-      <a *ngFor="let user of filteredResults.users" routerLink="`/user/{{user.id}}`">
-        <img class="option-user-img" src="{{user.picture}}" alt="">
-        <span class="user-display-name">{{user.displayName}}</span>
-      </a>
-    </div>-->
+    <!--  <div id="suggestion-list">
+        <div class="search-suggestion-section">
+          <div class="suggestions">
+            <mat-nav-list>
+              <div mat-subheader>Kullanıcılar</div>
+              <mat-list-item *ngFor="let user of filteredResults.users">
+                  <img matListItemAvatar class="user-picture" src="{{user.picture}}" alt="">
+                <span class="user-display-name">{{user.displayName}}</span>
+              </mat-list-item>
+            </mat-nav-list>
+        &lt;!&ndash;    <a *ngFor="let user of filteredResults.users" routerLink="`/user/{{user.id}}`">
+              <img class="user-picture" src="{{user.picture}}" alt="">
+              <span class="user-display-name">{{user.displayName}}</span>
+            </a>&ndash;&gt;
+          </div>
+        </div>
+      </div>-->
 
   </ng-container>
 

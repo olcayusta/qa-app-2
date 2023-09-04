@@ -21,14 +21,13 @@
       <!--       <span  class='bountie' *ngIf="question.id === 126">+50</span>-->
 
       <a routerLink="/question/{{question.id}}" class="simple-endpoint">
-        <div class="m3-title-medium">{{question.title}}</div>
+        <div class="m3-body-large">{{question.title}}</div>
       </a>
 
-
-      <span class="best-answered" *ngIf="question.id === 141">
+<!--      <span class="best-answered" *ngIf="question.id === 141">
         <mat-icon class="check-icon" *ngIf="question.id === 141">done</mat-icon>
         CEVAPLANDI
-      </span>
+      </span>-->
 
     </div>
 
@@ -85,7 +84,7 @@
               </a>
             </mat-chip>-->
 
-      <a routerLink="/tag/{{t.id}}" mat-chip role="listitem" [highlighted]="t.id === 2" *ngFor="let t of question.tags">
+      <a routerLink="/tag/{{t.id}}" mat-chip role="listitem" [highlighted]="t.id === 100000" *ngFor="let t of question.tags">
         <!--          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>-->
         {{t.title}}
       </a>

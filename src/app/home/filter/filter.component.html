@@ -1,9 +1,26 @@
-<div class='host-container'>
+<!--<div class='host-container'>
   <div class='header'>
     <div class='header-buttons'>
       <app-sort-by/>
       <app-filter-by/>
     </div>
   </div>
+</div>-->
+
+<div class="host-container">
+  <mat-chip-listbox aria-label="Fish selection" hideSingleSelectionIndicator>
+    <mat-chip-option selected>Tümü</mat-chip-option>
+    <mat-chip-option>Önerilenler</mat-chip-option>
+    <mat-chip-option>Son eklenenler</mat-chip-option>
+    <mat-chip-option>Güncel</mat-chip-option>
+    <mat-chip-option>Cevapsızlar</mat-chip-option>
+    <mat-chip-option>Mükâfatlı</mat-chip-option>
+  </mat-chip-listbox>
+
+  <button mat-button>
+    Filtreler
+    <mat-icon>tune</mat-icon>
+  </button>
 </div>
+
 

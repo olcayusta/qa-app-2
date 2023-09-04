@@ -1,16 +1,5 @@
 <div class='container'>
 
-<!--
-  <mat-chip-listbox aria-label="Fish selection" hideSingleSelectionIndicator>
-    <mat-chip-option selected>Tümü</mat-chip-option>
-    <mat-chip-option>Önerilenler</mat-chip-option>
-    <mat-chip-option>Son eklenenler</mat-chip-option>
-    <mat-chip-option>Güncel</mat-chip-option>
-    <mat-chip-option>Cevapsızlar</mat-chip-option>
-    <mat-chip-option>Mükâfatlı</mat-chip-option>
-  </mat-chip-listbox>
--->
-
   <!-- Tab -->
   <button mat-button [matMenuTriggerFor]='tabMenu'>
     <span>Senin için önerilenler</span>
@@ -37,37 +26,6 @@
     <mat-icon>tune</mat-icon>
     <span>Filtreler</span>
   </button>
-
-  <!--<span class="filter-info-text">Sıralama ölçütü:</span>
-  <button
-    mat-button
-    class="outlined-menu-button"
-    aria-label="Open sort by order interactions menu"
-    [matMenuTriggerFor]="sortMenu"
-    (menuClosed)="cdr.markForCheck()"
-  >
-    <span>{{ items[selectedIndex].label }}</span>
-    &lt;!&ndash;<mat-icon fontSet="material-icons-outlined">arrow_drop_down</mat-icon>&ndash;&gt;
-    <app-icon name="arrow_drop_down"></app-icon>
-  </button>-->
-
-  <!--  <mat-form-field appearance="fill">
-      <mat-label>Siralama olcutu</mat-label>
-      <mat-select disableOptionCentering>
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Filtre</mat-label>
-      <mat-select disableOptionCentering>
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>-->
 </div>
 
 <mat-menu #sortMenu='matMenu' class='sort-menu'>
@@ -109,14 +67,3 @@
     </div>
   </ng-template>
 </mat-menu>
-
-<!--
-<div class="container">
-  <span class="info-text">Tagged with: </span>
-  <mat-checkbox color="primary" [checked]="true">My watched tags</mat-checkbox>
-  <mat-radio-group>
-    <mat-radio-button>Watched</mat-radio-button>
-    <mat-radio-button>Unwatched</mat-radio-button>
-  </mat-radio-group>
-</div>
--->

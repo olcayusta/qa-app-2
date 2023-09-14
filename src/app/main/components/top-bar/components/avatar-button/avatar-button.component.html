@@ -15,6 +15,7 @@
   [cdkConnectedOverlayOrigin]='avatarButton'
   [cdkConnectedOverlayScrollStrategy]='scrollStrategy'
   [cdkConnectedOverlayOpen]='popupOpened'
+
   (overlayOutsideClick)='closePopupOnOutsideClicked($event)'>
   <!--  <qa-popup-container popupContainerTitle="avatar" [outlet]="ironDropdownOutlet"></qa-popup-container>-->
   <app-popup-container (close)='popupOpened = false'>

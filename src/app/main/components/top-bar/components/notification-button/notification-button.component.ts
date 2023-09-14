@@ -61,7 +61,7 @@ export class NotificationButtonComponent implements OnInit {
   private elementRef = inject(ElementRef);
   private cdr = inject(ChangeDetectorRef);
 
-  scrollStrategy: ScrollStrategy = this.sso.block();
+  blockScrollStrategy: ScrollStrategy = this.sso.block();
 
   ngOnInit(): void {
     this.notificationCount$ = this.notificationService.getUnseenCount().pipe(

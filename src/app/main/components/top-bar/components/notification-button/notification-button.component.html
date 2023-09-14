@@ -11,7 +11,7 @@
 <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="notificationButton"
-  [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+  [cdkConnectedOverlayScrollStrategy]="blockScrollStrategy"
   [cdkConnectedOverlayOpen]="popupOpened"
   (overlayOutsideClick)="closePopupOnOutsideClicked($event)">
   <app-popup-container (close)="popupOpened = false">

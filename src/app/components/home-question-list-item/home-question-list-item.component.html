@@ -84,7 +84,7 @@
               </a>
             </mat-chip>-->
 
-      <a routerLink="/tag/{{t.id}}" mat-chip role="listitem" [highlighted]="t.id === 100000" *ngFor="let t of question.tags">
+      <a  routerLink="/tag/{{t.id}}" mat-chip role="listitem" [highlighted]="t.id === 100000" *ngFor="let t of question.tags">
         <!--          <img src='https://angular.io/assets/images/logos/angular/angular.svg' *ngIf='tag.id === 2' class='angular-svg'>-->
         {{t.title}}
       </a>

@@ -40,7 +40,8 @@ $gray-theme: mat.define-light-theme((
   color: (
     primary: $gray-theme-primary,
     accent: $gray-theme-accent
-  )
+  ),
+  typography: $my-typography
 ));
 
 $secondary-gray-theme: mat.define-light-theme((
@@ -50,11 +51,10 @@ $secondary-gray-theme: mat.define-light-theme((
   )
 ));
 
-@include mat.all-component-themes($light-theme);
+@include mat.all-component-themes($gray-theme);
 
 
 :root {
-  // color-scheme: light;
   --color: #1C1B1F;
   --medium-emphasis-color: rgba(0, 0, 0, 0.6);
   --card-bg-color: #fff;
@@ -76,8 +76,8 @@ $secondary-gray-theme: mat.define-light-theme((
   --mat-toolbar-container-background-color: var(--mat-sidenav-content-background-color);
   --mat-toolbar-standard-height: 72px;
   --mat-autocomplete-background-color: #F1F1F1;
-  --mat-divider-color: #CAC4D0;
-  --mat-menu-container-color: #F3EDF7;
+  --mat-divider-color: rgb(0 0 0 / 24%);
+  --mat-menu-container-color: #FFF;
   --mdc-filled-button-container-shape: 100px;
   --mdc-text-button-container-shape: 100px;
   --mat-badge-background-color: #B3261E;
@@ -116,7 +116,7 @@ svg {
 }
 
 .mat-mdc-list-item.active {
-  background-color: #E8DEF8;
+  background-color: rgba(0,0,0,.12);
 
   .mdc-list-item__primary-text {
     color: black;
